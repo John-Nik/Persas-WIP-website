@@ -1,0 +1,167 @@
+/* -------- Margin & Padding reset + Global Font --------*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Heebo', sans-serif;
+}
+/* -------- Margin & Padding reset + Global Font --------*/
+
+/* ================== Section Class ================== */
+.section {
+    --sectionWidth: clamp(1000px, 100vw, 99vw);
+    --sectionHeight: clamp(1000px, 100vh, 99vh);
+    width: var(--sectionWidth);
+    height: var(--sectionHeight);
+}
+/* ================== Section Class ================== */
+
+
+/* ================== Section 1 - Hero Banner ================== */
+
+#section1 {
+    display: flex;
+    align-content: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+/* --------------- Background Image Container --------------- */
+#imageContainer {
+    width: 100%;
+}
+/* --------------- Background Image Container --------------- */
+
+/* ------------- Background Image ------------- */
+#background {
+    --backgroundImgWidth: clamp(1000px, 100vw, 99vw);
+    opacity: 0;
+    animation: backgroundfade 4s ease forwards;
+    display: flex;
+    position: absolute;
+    width: var(--backgroundImgWidth);
+    height: auto;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: -2;
+    filter: blur(10px)
+}
+
+@keyframes backgroundfade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#apple {
+    --backgroundImgWidth: clamp(1000px, 100vw, 99vw);
+    opacity: 1;
+    animation: appleFade 4s ease forwards;
+    display: flex;
+    position: absolute;
+    width: var(--backgroundImgWidth);
+    height: auto;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: -2;
+    filter: brightness(110%);
+    filter: saturate(115%);
+    filter: contrast(100%);
+    filter: blur(5px);
+}
+
+@keyframes appleFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* ------------- Background Image ------------- */
+
+/* ------------- Text ------------- */
+
+/* --- Div Container --- */
+#textContainer {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    left: 20px;
+    position: relative;
+    bottom: 8%;
+}
+/* --- Div Container --- */
+
+/* --- Header 1 --- */
+h1 {
+    font-size: 7rem;
+    width: 100%;
+    color: rgb(54, 54, 54);
+    animation: h1Anim 2s ease-in;
+}
+
+@keyframes h1Anim {
+    25% {
+        filter: blur(15px);
+        opacity: 25%
+    }
+
+    50% {
+        filter: blur(10px);
+        opacity: 50%;
+    }
+
+    75% {
+        filter: blur(5px);
+        opacity: 75%;
+    }
+
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+/* --- Header 1 --- */
+
+/* --- Header 2 --- */
+#header2   {
+    font-size: 4rem;
+    width: 100%;
+    color: rgb(54, 54, 54);
+    animation: h2Anim 2s ease-in;
+}
+
+@keyframes h2Anim {
+    25% {
+        filter: blur(16px);
+        opacity: 25%
+    }
+
+    50% {
+        filter: blur(10px);
+        opacity: 50%;
+    }
+
+    75% {
+        filter: blur(5px);
+        opacity: 75%;
+    }
+
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+/* --- Header 2 --- */
+
+/* ------------- Text ------------- */
+
+/* ================== Section 1 - Hero Banner ================== */

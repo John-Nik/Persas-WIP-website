@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="main.css">
+        <script defer src="app.js"></script>
+    </head>
+
+
+
+    
+    <body>
+        <!-- ============================================ -->
+        <!--                 Navigation                   -->
+        <!-- ============================================ -->
+
+        <header id="cs-navigation">
+            <div class="cs-container">
+                <!--Nav Logo-->
+                <a href="" class="cs-logo" aria-label="back to home">
+                    <img src="" width="60" height="60" aria-hidden="true" decoding="async" alt="logo">
+                </a>
+                <!--Navigation List-->
+                <nav class="cs-nav" role="navigation">
+                    <!--Mobile Nav Toggle-->
+                    <button class="cs-toggle" aria-label="mobile menu toggle">
+                        <div class="cs-box" aria-hidden="true">
+                            <span class="cs-line cs-line1" aria-hidden="true"></span>
+                            <span class="cs-line cs-line2" aria-hidden="true"></span>
+                            <span class="cs-line cs-line3" aria-hidden="true"></span>
+                        </div>
+                    </button>
+                    <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+                    <div class="cs-ul-wrapper">
+                        <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                            <li class="cs-li">
+                                <a href="" class="cs-li-link cs-active">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="cs-li">
+                                <a href="" class="cs-li-link">
+                                    About
+                                </a>
+                            </li>
+                            <li class="cs-li">
+                                <a href="" class="cs-li-link">
+                                    Menu
+                                </a>
+                            </li>
+                            <li class="cs-li">
+                                <a href="" class="cs-li-link">
+                                    Catering
+                                </a>
+                            </li>
+                            <li class="cs-li">
+                                <a href="" class="cs-li-link">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <a href="" class="cs-button-solid cs-nav-button">Request Appointment</a>
+                <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
+                <!-- <button id="dark-mode-toggle" aria-label="dark mode toggle">
+                    <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
+                    <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
+                </button> -->
+            </div>
+        </header>
+                                
+
+
+
+        <main>
+            <!-- ============================================ -->
+            <!--                    Hero                      -->
+            <!-- ============================================ -->
+
+            <section id="hero-1061">
+                <div class="cs-container">
+                    <div class="cs-content">
+                        <h1 class="cs-title">Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
+                        <p class="cs-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis exercitationem facere vel illo velit recusandae?
+                        </p>
+                        <a href="" class="cs-button-solid">Request Appointment</a>
+                    </div>
+                    <ul class="cs-card-group">
+                        <li class="cs-item">
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" loading="lazy" decoding="async" src="/icons-used/workout.png" alt="workout" width="50" height="50">
+                            </picture>
+                            <h3 class="cs-h3">Lorem, ipsum dolor.</h3>
+                            <p class="cs-item-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum incidunt amet nemo perferendis totam? Nemo!
+                            </p>
+                        </li>
+                        <li class="cs-item">
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" loading="lazy" decoding="async" src="/icons-used/apple.png" alt="car" width="50" height="50">
+                            </picture>
+                            <h3 class="cs-h3">Lorem, ipsum.</h3>
+                            <p class="cs-item-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At vero tempora saepe repudiandae adipisci modi, nam commodi ducimus quisquam possimus.
+                            </p>
+                        </li>
+                        <li class="cs-item">
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" loading="lazy" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iMiIgc3Ryb2tlLXdpZHRoPSI0IiBkPSJNMzkuNzUgNDRIOS4zMUM2LjM4IDQ0IDQgNDEuNjIgNCAzOC42OXYtNS40MmMwLTEuMjEgMS4wNi0yLjE0IDIuMjUtMS45OWwzNC4wMiA0LjI1YzIuMTMuMjcgMy43MyAyLjA4IDMuNzMgNC4yMkM0NCA0Mi4xIDQyLjEgNDQgMzkuNzUgNDRaTTE2IDMyTDQgNGg2LjQzTTYgMzFsNi04bTEzLThIOSIvPjwvc3ZnPg==" alt="apple" width="50" height="50">
+                            </picture>
+                            <h3 class="cs-h3">Lorem, ipsum.</h3>
+                            <p class="cs-item-text">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, placeat nostrum hic itaque laboriosam maiores dignissimos, laborum
+                            </p>
+                        </li>
+                        <li class="cs-item">
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" loading="lazy" decoding="async" src="icons-used/experience.png" alt="car" width="50" height="50">
+                            </picture>
+                            <h3 class="cs-h3">Lorem, ipsum.</h3>
+                            <p class="cs-item-text">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, vero? Repudiandae, laudantium cum?
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Background Image, there's a background image in the CSS for the parallax effect you'll need to change as well if you swap out our images -->
+                <picture class="cs-background">
+                    <img id="img1" src="apple (1).jpg" alt="">
+                    <img id="img2" src="apple (3).jpg" alt="">
+                </picture>
+            </section>
+
+
+            <!-- ============================================ -->
+            <!--                 Why Choose                   -->
+            <!-- ============================================ -->
+
+            <section id="why-choose-892">
+                <div class="cs-container">
+                    <div class="cs-content">
+                        <span class="cs-topper">Specialties</span>
+                        <h2 class="cs-title">Why Choose Us</h2>
+                        <p class="cs-text">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia incidunt quia enim mollitia delectus? Perferendis sapiente quaerat quos. Odit quasi similique nobis earum laudantium ad doloribus quos eos quod. Delectus?
+                        </p>
+                    </div>
+                    <ul class="cs-card-group">
+                        <li class="cs-item">
+                            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fballs1.svg" loading="lazy" decoding="async" alt="icon" width="48" height="48" aria-hidden="true">
+                            <!-- Text Grouped For Flexbox-->
+                            <div class="cs-text-group">
+                                <h3 class="cs-h3">Highly Experienced Therapists</h3>
+                                <p class="cs-item-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa fugiat impedit molestias vitae voluptatibus sed enim! Cupiditate ab praesentium dolorem libero veritatis beatae assumenda totam, in, nemo quis consectetur labore! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, quam?
+                                </p>
+                            </div>
+                        </li>
+                        <li class="cs-item">
+                            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fballs2.svg" loading="lazy" decoding="async" alt="icon" width="48" height="48" aria-hidden="true">
+                            <!-- Text Grouped For Flexbox-->
+                            <div class="cs-text-group">
+                                <h3 class="cs-h3">No one does outpatient like us</h3>
+                                <p class="cs-item-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa fugiat impedit molestias vitae voluptatibus sed enim! Cupiditate ab praesentium dolorem libero veritatis beatae assumenda totam, in, nemo quis consectetur labore! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, quam?
+                                </p>
+                            </div>
+                        </li>
+                        <li class="cs-item">
+                            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fballs3.svg" loading="lazy" decoding="async" alt="icon" width="48" height="48" aria-hidden="true">
+                            <!-- Text Grouped For Flexbox-->
+                            <div class="cs-text-group">
+                                <h3 class="cs-h3">Perfectly Structured Sessions</h3>
+                                <p class="cs-item-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa fugiat impedit molestias vitae voluptatibus sed enim! Cupiditate ab praesentium dolorem libero veritatis beatae assumenda totam, in, nemo quis consectetur labore! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, quam?
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="" class="cs-button-solid">Contact Us</a>
+                    <!--Floating Arrow Graphic-->
+                    <!-- <img class="cs-floater" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Forange-arrow.svg" alt="arrow" loading="lazy" decoding="async" aria-hidden="true"> -->
+                    <svg class="cs-floater" xmlns="http://www.w3.org/2000/svg" width="353" height="167" viewBox="0 0 353 167" fill="#529277">
+                        <g clip-path="url(#clip0_1_55)">
+                            <path d="M189.708 -210.144C198.638 -208.554 207.438 -206.464 216.058 -203.624C238.988 -196.084 259.678 -184.534 278.088 -168.924C296.468 -153.334 311.188 -134.804 322.488 -113.534C331.618 -96.3439 337.948 -78.1739 341.478 -59.0439C342.698 -52.4139 343.508 -45.7139 344.018 -38.9839C344.548 -32.0039 344.658 -25.0139 344.368 -18.0239C343.738 -2.52388 341.228 12.6761 336.738 27.5361C329.828 50.4561 318.878 71.2461 303.668 89.7461C288.548 108.136 270.388 122.786 249.298 133.836C235.868 140.876 221.768 146.126 206.988 149.536C199.168 151.346 191.248 152.576 183.248 153.316C175.798 154.006 168.328 154.216 160.858 153.926C145.068 153.316 129.598 150.706 114.498 146.016C90.6982 138.616 69.2582 126.886 50.1782 110.856C48.9382 109.816 47.7181 108.736 46.2581 107.486C53.0081 106.496 59.4582 105.546 66.2682 104.546C44.4282 95.4361 22.9882 86.2861 0.988159 77.6461C11.7882 98.2861 22.4482 118.686 33.1182 139.086C33.2082 139.066 33.2881 139.046 33.3781 139.026C34.6981 131.916 36.0082 124.806 37.3582 117.526C39.6282 120.166 41.7882 122.606 44.1482 124.876C51.7282 132.146 60.2482 138.106 69.4282 143.156C85.4382 151.946 102.528 157.806 120.338 161.636C128.968 163.496 137.688 164.746 146.478 165.546C154.888 166.306 163.318 166.496 171.748 166.146C196.528 165.116 220.228 159.466 242.758 149.056C260.708 140.766 276.948 129.906 291.448 116.466C313.988 95.5861 330.488 70.6861 341.008 41.8261C345.238 30.2061 348.248 18.2661 350.108 6.04613C351.218 -1.21387 351.848 -8.52387 352.148 -15.8739C352.508 -24.7939 352.228 -33.6839 351.298 -42.5539C348.828 -66.2339 342.138 -88.6739 331.178 -109.814C323.428 -124.754 313.838 -138.414 302.438 -150.804C287.138 -167.434 269.458 -180.954 249.378 -191.334C232.658 -199.974 215.028 -205.924 196.528 -209.324C194.258 -209.744 191.988 -210.224 189.668 -210.354C189.698 -210.274 189.708 -210.214 189.708 -210.144Z"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_55">
+                                <rect width="351.33" height="378.08" fill="white" transform="matrix(-1 0 0 1 352.328 -211.754)"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+            </section>
+                                
+                                
+            
+            
+
+
+            <!-- ============================================ -->
+            <!--                     FAQ                      -->
+            <!-- ============================================ -->
+
+            <section id="faq-1193">
+                <div class="cs-container">
+                    <div class="cs-image-group">
+                        <picture class="cs-picture cs-picture1">
+                            <img src="happy-girl.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="cs-content">
+                        <span class="cs-topper">Asked questions</span>
+                        <h2 class="cs-title">Frequently Asked Questions</h2>
+                        <ul class="cs-faq-group">
+                            <!-- Active class added as default -->
+                            <li class="cs-faq-item active">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        Lorem ipsum dolor sit amet?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt possimus consectetur non neque ipsam beatae quas doloremque aspernatur velit dolor temporibus animi consequuntur, voluptatem aliquid sapiente molestias, blanditiis odio ut.
+                                </p>
+                            </li>
+                            <li class="cs-faq-item">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        Lorem ipsum dolor sit amet?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem esse sint quae autem possimus laudantium eum eaque at incidunt. Maxime deleniti fugiat amet pariatur dolor neque totam, nam ad ipsa?
+                                </p>
+                            </li>
+                            <li class="cs-faq-item">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        Lorem ipsum dolor sit amet?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur deserunt, reiciendis reprehenderit aliquid similique odit velit corporis amet laborum distinctio! Amet eius aperiam beatae eaque non illum deleniti fugit laudantium.
+                                </p>
+                            </li>
+                            <li class="cs-faq-item">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        Lorem ipsum dolor sit amet?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime delectus optio omnis temporibus laborum maiores, necessitatibus fugit dolores doloremque officia, doloribus sit voluptates placeat cupiditate est ratione itaque repellendus quo. 
+                                </p>
+                            </li>
+                            <li class="cs-faq-item">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        Lorem ipsum dolor sit amet?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sed rem incidunt! Reiciendis reprehenderit ullam cum recusandae voluptatum molestiae magnam ab eveniet, impedit, maxime repellendus laborum nam in laudantium est!                               
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- ============================================ -->
+            <!--                Contact Strip                 -->
+            <!-- ============================================ -->
+
+            <!-- No headers, so no section tag -->
+            <div id="contact-strip-1111">
+                <ul class="cs-stat-group">
+                    <li class="cs-item">
+                        <picture class="cs-picture">
+                            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-phone.svg" alt="icon" width="35" height="40" loading="lazy" decoding="async" aria-hidden="true">
+                        </picture>
+                        <div class="cs-flex-group">
+                            <span class="cs-header">Phone</span>
+                            <a href="tel:555-456-7899" class="cs-link">+357 99-999999</a>
+                        </div>
+                    </li>
+                    <li class="cs-item">
+                        <picture class="cs-picture">
+                            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-email.svg" alt="icon" width="40" height="35" loading="lazy" decoding="async" aria-hidden="true">
+                        </picture>
+                        <div class="cs-flex-group">
+                            <span class="cs-header">Email</span>
+                            <a href="mailto:Info@email.com" class="cs-link">example@email.com</a>
+                        </div>
+                    </li>
+                    <li class="cs-item">
+                        <picture class="cs-picture">
+                            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-pin.svg" alt="icon" width="40" height="40" loading="lazy" decoding="async" aria-hidden="true">
+                        </picture>
+                        <div class="cs-flex-group">
+                            <span class="cs-header">Address</span>
+                            <address class="cs-address">EXAMPLE ADDRESS, STREET 2, 4645, LIMASSOL</address>
+                        </div>
+                    </li>
+                </ul>
+                <!--Background image-->
+                <picture class="cs-background">
+                    <img src="faq2.jpg" alt="">
+                </picture>
+            </div>
+                                
+                                
+        </main>
+
+
+
+
+        <!-- ============================================ -->
+        <!--                   Footer                     -->
+        <!-- ============================================ -->
+
+        <footer id="cs-footer-1292">
+            <div class="cs-container">      
+                <!-- Logo Group -->
+                <div class="cs-logo-group">
+                    <a aria-label="go back to home" class="cs-logo" href="">
+                        <img class="cs-logo-img" aria-hidden="true" loading="lazy" decoding="async" src="" alt="logo" width="240" height="32">
+                    </a>
+                    <p class="cs-text">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </p>
+                    <a href="mailto:info@mail.com" class="cs-link">
+                        <img class="cs-link-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/construction-mail.svg" alt="icon" width="24" height="24">
+                        example@gmail.com
+                    </a>
+                </div>
+                <!-- Links -->
+                <ul class="cs-nav">
+                    <li class="cs-nav-li">
+                        <span class="cs-header">Services</span>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Lorem, ipsum.</a>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Lorem, ipsum.</a>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Lorem, ipsum.</a>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Lorem, ipsum.</a>
+                    </li>
+                </ul>
+                <ul class="cs-nav">
+                    <li class="cs-nav-li">
+                        <span class="cs-header">About</span>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Our Story</a>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Benefits</a>
+                    </li>
+                </ul>
+                <ul class="cs-nav">
+                    <li class="cs-nav-li">
+                        <span class="cs-header">Contact</span>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Facebook</a>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Instagram</a>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Telephone</a>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">E-mail</a>
+                    </li>
+                </ul>
+                <ul class="cs-nav">
+                    <li class="cs-nav-li">
+                        <span class="cs-header">Help</span>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">FAQ</a>
+                    </li>
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="cs-bottom">
+                <span class="cs-copyright">Copyright© 2023. Designed and Created
+                    <a class="cs-copyright-link" href="">by Resonat</a>
+                    All Right Reserved.
+                </span>
+                <a href="" class="cs-copyright-link">Terms of Service</a>
+                <a href="" class="cs-copyright-link">Privacy Policy</a>
+            </div>
+            <!--Floating Cirlces-->
+            <div class="cs-floater" aria-hidden="true"></div>
+        </footer>
+                                
+    </body>
+</html>
