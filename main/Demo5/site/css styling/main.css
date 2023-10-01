@@ -669,7 +669,7 @@ p {
 
 #flag-container.visible {
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
-  height: 190px;
+  height: 258px;
 }
 /* ------------------ Language Settings Options Container ------------------ */
 
@@ -687,7 +687,6 @@ p {
 /* ------------------ Language Options Menu Container ------------------ */
 #flag-svg-container {
   display: grid;
-  margin-bottom: 8px;
   justify-content: center;
 }
 /* ------------------ Language Options Menu Container ------------------ */
@@ -816,7 +815,7 @@ p {
 
 #flag-container.visible {
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
-  height: 120px;
+  height: 190px;
 }
 /* ------------------ Language Settings Options Container ------------------ */
 
@@ -833,11 +832,11 @@ p {
 #flag-svg-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 80px;
+  height: 90px;
   width: 100px;
   align-content: center;
   justify-items: center;
-  margin-bottom: 8px;
+  margin-bottom: -8px;
 }
 /* ------------------ Language Options Menu Container ------------------ */
 
@@ -864,7 +863,7 @@ p {
 #greek-flag-container {
   display: flex;
   width: 50px;
-  height: 80px;
+  height: 90px;
   overflow: visible;
   align-items: center;
   justify-content: center;
@@ -901,7 +900,7 @@ p {
 #uk-flag-container {
   display: flex;
   width: 50px;
-  height: 80px;
+  height: 90px;
   overflow: visible;
   align-items: center;
   justify-content: center;
@@ -1010,7 +1009,7 @@ p {
             /* set text align to left if content needs to be left aligned */
             text-align: center;
             width: 100%;
-            max-width: 39.375rem;
+            max-width: 41rem;
             display: flex;
             flex-direction: column;
             /* centers content horizontally, set to flex-start to left align */
@@ -1145,7 +1144,6 @@ p {
         position: relative;
         z-index: 1;
         opacity: 0;
-        transform: translateX(-150px);
         transition: all 0.5s ease-out;
         animation: cardshadow 3s ease-in-out 0s infinite;
       }
@@ -1162,40 +1160,18 @@ p {
         }
       }
       
-      #hero-1061 .cs-item.show {
-        opacity: 1;
+      #hero-1061 .cs-item {
+        transform: translateY(150px);
+        transition-delay: 0.1s;
       }
 
-      #hero-1061 .cs-item.show:nth-child(1) {
+      #hero-1061 .cs-item:nth-child(1) {
         transition-delay: 1s;
-        transform: translateX(0px);
       }
 
-      #hero-1061 .cs-item:nth-child(2) {
-        transform: translateX(100px);
-      }
-
-      #hero-1061 .cs-item.show:nth-child(2) {
-        transform: translateX(0px);
-        transition-delay: 0s;
-      }
-      
-      #hero-1061 .cs-item.show:nth-child(3) {
-        transform: translateX(0px);
-        transition-delay: 0s;
-      }
-
-      #hero-1061 .cs-item:nth-child(4) {
-        transform: translateX(100px);
-      }
-
-      #hero-1061 .cs-item.show:nth-child(4) {
-        transform: translateX(0px);
-        transition-delay: 0s;
-      }
-
-      #hero-1061 .cs-item.show:nth-child(5) {
-        transition-delay: 0s;
+      #hero-1061 .cs-item.show {
+        transform: translateY(0px);
+        opacity: 1;
       }
 
     /* --------------------------- Card --------------------------- */
@@ -1274,8 +1250,22 @@ p {
         grid-column: span 6;
       }
 
+      #hero-1061 .cs-item {
+        transform: translateY(0px);
+        opacity: 0;
+      }
+
+      #hero-1061 .cs-item:nth-child(1) {
+        transform: translateX(-150px);
+      }
+      
+      #hero-1061 .cs-item:nth-child(3) {
+        transform: translateX(-150px);
+      }
+
       #hero-1061 .cs-item.show:nth-child(1) {
         transition-delay: 1s;
+        transform: translateX(0px);
       }
 
       #hero-1061 .cs-item:nth-child(2) {
@@ -1289,6 +1279,7 @@ p {
       
       #hero-1061 .cs-item.show:nth-child(3) {
         transition-delay: 1.4s;
+        transform: translateX(0px);
       }
 
       #hero-1061 .cs-item:nth-child(4) {
@@ -1440,7 +1431,7 @@ p {
       font-weight: 700;
       color: var(--secondary);
       margin-bottom: 0.25rem;
-      display: block;
+      display: flex;
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 1s ease-in-out, transform 0.5s ease-out;
@@ -1572,17 +1563,18 @@ p {
 
 
     #why-choose-892 .cs-item:nth-child(1) {
-      transform: translateX(100%);
+      transform: translateX(150px);
       opacity: 0;
     }
 
     #why-choose-892 .cs-item.show:nth-child(1) {
       transform: translateX(0);
+      display: flex;
       opacity: 1;
     }
 
     #why-choose-892 .cs-item:nth-child(3) {
-      transform: translateX(-100%);
+      transform: translateX(-150px);
       opacity: 0;
       transition-delay: 1s;
       z-index: -1;
@@ -1590,6 +1582,7 @@ p {
 
     #why-choose-892 .cs-item.show:nth-child(3) {
       transform: translateX(0);
+      display: flex;
       opacity: 1;
     }
   /* ------------------------------------ Cards Styling ------------------------------------ */
@@ -2636,7 +2629,7 @@ p {
       content: '';
       width: 100%;
       height: 1px;
-      background: var(--primary);
+      background: var(--secondaryLight);
       opacity: .8;
       position: absolute;
       display: block;
