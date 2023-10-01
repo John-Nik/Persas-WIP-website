@@ -1,0 +1,3062 @@
+/*-- -------------------------- -->
+<---     Mobile Navigation      -->
+<--- -------------------------- -*/
+
+/* ------------------- Global Attributes ------------------- */
+body, html {
+    /* reset margin and padding so there's no gap between the nav and the screen edges */
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+p {
+  letter-spacing: 0.5px;
+}
+/* ------------------- Global Attributes ------------------- */
+
+/* ------------------- Profiles ------------------- */
+:root {
+  /* remove this whole :root and put in your global css file that's shared on all pages, then just remove this section from all other Stitches you add later, only need this once in your global stylesheet */
+  --primary: #D9BC6F;
+  --primaryLight: #dccb9b;
+  --secondary: #8D6A9F;
+  --secondaryLight: #af90bf;
+  --headerColor: rgba(26, 26, 26, 1);
+  --bodyTextColor: rgba(26, 26, 26, 0.7);
+  --bodyTextColorWhite: #FAFBFC;
+  /* 13px - 16px */
+  --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+  /* 31px - 49px */
+  --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+  --bodyFontSize: 1rem;
+  /* 60px - 100px top and bottom */
+  --sectionPadding: clamp(3.75em, 7.82vw, 6.25em) 1rem;
+}
+/* ------------------- Profiles ------------------- */
+
+/*-- -------------------------- -->
+<---     Mobile Navigation      -->
+<--- -------------------------- -*/
+
+/* Mobile - 1023px */
+@media only screen and (max-width: 63.9375rem) {
+
+  /* ----- Mobile Nav Bar Window ----- */
+    body.cs-open {
+      overflow: hidden;
+    }
+  /* ----- Mobile Nav Bar Window ----- */
+
+  /* ---------------- Nav Bar Black Background on Scroll ---------------- */
+    body.scroll #cs-navigation:before {
+      height: 100%;
+    }
+    
+    #cs-navigation {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      width: 100%;
+      padding: 1.25rem 1rem;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      background: rgba(26, 26, 26, 0.08);
+      -webkit-backdrop-filter: blur(27px);
+      backdrop-filter: blur(27px);
+      position: fixed;
+      z-index: 10000;
+      transition: background-color 0.3s;
+    }
+
+    #cs-navigation:before {
+      content: '';
+      width: 100%;
+      height: 0%;
+      background: #1a1a1a;
+      opacity: 1;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      transition: height .3s;
+    }
+
+    #cs-navigation:after {
+      content: '';
+      width: 100%;
+      height: 0vh;
+      background: rgba(0, 0, 0, 0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      position: absolute;
+      display: block;
+      top: 0%;
+      right: 0;
+      z-index: -1100;
+      opacity: 0;
+      transition: height .5s, opacity .5s;
+    }
+  /* ---------------- Nav Bar Black Background on Scroll ---------------- */
+  
+  /* ---------------- Nav Bar After Scrolling ---------------- */
+    #cs-navigation.cs-active {
+      background-color: #1a1a1a;
+    }
+
+    #cs-navigation.cs-active:after {
+      height: 150vh;
+      opacity: 1;
+    }
+
+    #cs-navigation.cs-active .cs-ul-wrapper {
+      opacity: 1;
+      transform: scaleY(1);
+      transition-delay: .15s;
+    }
+
+    #cs-navigation.cs-active .cs-li {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  /* ---------------- Nav Bar After Scrolling ---------------- */
+  
+  /* -------- Nav Bar Container -------- */
+    #cs-navigation .cs-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  /* -------- Nav Bar Container -------- */
+
+  /* ------------- Nav Bar Logo ------------- */
+
+    /* ------------- Logo Container ------------- */
+      #cs-navigation .cs-logo {
+        width: auto;
+        /* 56px - 80px */
+        height: clamp(3.5rem, 5vw, 5rem);
+        margin: 0 auto 0 0;
+        padding: 0;
+        /* prevents padding from affecting height and width */
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+      }
+    /* ------------- Logo Container ------------- */
+    
+    /* ------------- Logo ------------- */
+      #cs-navigation .cs-logo img {
+        width: 100%;
+        height: 100%;
+        /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+        object-fit: contain;
+      }
+    /* ------------- Logo ------------- */
+
+  /* ------------- Nav Bar Logo ------------- */
+
+  /* ------- Mobile Phone Expand Button ------- */
+
+    /* ------- Click to Expand Button ------- */
+      #cs-navigation .cs-toggle {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin: 0 0 0 auto;
+        background-color: var(--primary);
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform .6s;
+        position: relative;
+        z-index: 10;
+      }
+    /* ------- Click to Expand Button ------- */
+
+    /* -------- Expand Button Click Animation -------- */
+      #cs-navigation .cs-toggle.cs-active {
+        transform: rotate(180deg);
+      }
+    
+      /* ------------- Button Icon Line 1/3 ------------- */
+        #cs-navigation .cs-active .cs-line1 {
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(225deg);
+        }
+
+        #cs-navigation .cs-line1 {
+          top: 0;
+          transform-origin: center;
+          transition: transform .5s, top .3S, left .3S;
+          animation-duration: .7s;
+          animation-timing-function: ease;
+          animation-fill-mode: forwards;
+          animation-direction: normal;
+        }
+      /* ------------- Button Icon Line 1/3 ------------- */
+      
+      /* ------------- Button Icon Line 2/3 ------------- */
+        #cs-navigation .cs-active .cs-line2 {
+          top: 50%;
+          transform-origin: center;
+          transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
+        }
+
+        #cs-navigation .cs-line2 {
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          transition: top .3s, left .3s, transform .5s;
+          animation-duration: .7s;
+          animation-timing-function: ease;
+          animation-fill-mode: forwards;
+          animation-direction: normal;
+        }
+      /* ------------- Button Icon Line 2/3 ------------- */
+
+      /* ------------- Button Icon Line 3/3 ------------- */
+        #cs-navigation .cs-active .cs-line3 {
+          bottom: 100%;
+          opacity: 0;
+        }
+
+        #cs-navigation .cs-line3 {
+          bottom: 0;
+          transition: bottom .3s, opacity .3s;
+        }
+      /* ------------- Button Icon Line 3/3 ------------- */
+
+    /* -------- Expand Button Click Animation -------- */
+    
+    /* ------ Container Box for Expand Button ------ */
+      #cs-navigation .cs-box {
+        /* 24px - 28px */
+        width: clamp(1.5rem, 2vw, 1.75rem);
+        height: 1rem;
+        position: relative;
+      }
+    /* ------ Container Box for Expand Button ------ */
+
+    /* ------- Format of Button Icon ------- */
+      #cs-navigation .cs-line {
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #FAFBFC;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    /* ------- Format of Button Icon ------- */
+
+  /* ------- Mobile Phone Expand Button ------- */
+
+  /* ------------------- Nav Bar Buttons Container ------------------- */
+    #cs-navigation .cs-ul-wrapper {
+      width: 100%;
+      height: auto;
+      padding-bottom: 2.4em;
+      opacity: 0;
+      background-color: #fff;
+      box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
+      overflow: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: -1;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .4s, opacity .3s;
+    }
+  /* ------------------- Nav Bar Buttons Container ------------------- */
+
+  /* --------------------- ul Element --------------------- */
+    #cs-navigation .cs-ul {
+      margin: 0;
+      padding: 3rem 0 0 0;
+      width: 100%;
+      height: auto;
+      max-height: 65vh;
+      overflow: scroll;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+  /* --------------------- ul Element --------------------- */
+
+  /* --------------------- Buttons --------------------- */
+    #cs-navigation .cs-li {
+      width: 100%;
+      text-align: center;
+      list-style: none;
+      margin-right: 0;
+      /* transition from these values */
+      transform: translateY(-4.375rem);
+      opacity: 0;
+      transition: transform .6s, opacity .9s;
+    }
+
+    /* -------------- Buttons Animation when Active -------------- */
+      #cs-navigation .cs-li:nth-of-type(1) {
+        transition-delay: .05s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(2) {
+        transition-delay: .1s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(3) {
+        transition-delay: .15s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(4) {
+        transition-delay: .2s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(5) {
+        transition-delay: .25s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(6) {
+        transition-delay: .3s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(7) {
+        transition-delay: .35s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(8) {
+        transition-delay: .4s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(9) {
+        transition-delay: .45s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(10) {
+        transition-delay: .5s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(11) {
+        transition-delay: .55s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(12) {
+        transition-delay: .6s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(13) {
+        transition-delay: .65s;
+      }
+    /* -------------- Buttons Animation when Active -------------- */
+    
+    /* --------- Button Links --------- */
+    #cs-navigation .cs-li-link {
+      /* 16px - 24px */
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0;
+      color: var(--headerColor);
+      display: inline-block;
+      position: relative;
+    }
+
+    #cs-navigation .cs-li-link.cs-active {
+      color: var(--primary);
+    }
+
+    #cs-navigation .cs-li-link:hover {
+      color: var(--primary);
+    }
+    /* --------- Button Links --------- */
+
+    #cs-navigation .cs-button-solid {
+      display: none;
+    }
+  /* --------------------- Buttons --------------------- */
+}
+
+/*-- -------------------------- -->
+<---     Desktop Navigation     -->
+<--- -------------------------- -*/
+
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+  /* ----------------- Button Switches When Scrolled ----------------- */
+    body.scroll {
+      /* when the scroll class is on the body, run these styles */
+    }
+
+    body.scroll #cs-navigation:before {
+      height: 100%;
+    }
+  /* ----------------- Button Switches When Scrolled ----------------- */
+
+  /* -------------------------- Header Element -------------------------- */
+    #cs-navigation {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      width: 100%;
+      padding: 0 1rem;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      background: rgba(26, 26, 26, 0.08);
+      -webkit-backdrop-filter: blur(27px);
+      backdrop-filter: blur(27px);
+      position: fixed;
+      z-index: 10000;
+    }
+
+    #cs-navigation:before {
+      /* on scroll background */
+      content: '';
+      width: 100%;
+      height: 0%;
+      background: #1a1a1a;
+      opacity: 1;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      transition: height .3s;
+    }
+  /* -------------------------- Header Element -------------------------- */
+
+  /* -------------------------- Nav Bar Container -------------------------- */
+    #cs-navigation .cs-container {
+      width: 100%;
+      /* same height as the cs-ul-wrapper */
+      height: 6.3125rem;
+      max-width: 80rem;
+      margin: auto;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+    }
+  /* -------------------------- Nav Bar Container -------------------------- */
+
+  #cs-navigation .cs-toggle {
+    display: none;
+  }
+
+  /* -------------------------- Nav Bar Logo -------------------------- */
+    #cs-navigation .cs-logo {
+      width: auto;
+      height: 3.75rem;
+      /* margin-right auto pushes everything away from it to the right */
+      margin: 0 auto 0 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    #cs-navigation .cs-logo img {
+      width: 100%;
+      height: 100%;
+      /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+      object-fit: contain;
+    }
+  /* -------------------------- Nav Bar Logo -------------------------- */
+
+  /* -------------------------- Nav Bar Buttons Container -------------------------- */
+    #cs-navigation .cs-ul-wrapper {
+      /* absolutely positioned to be dead center */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  /* -------------------------- Nav Bar Buttons Container -------------------------- */
+
+  /* -------------------------- ul Element -------------------------- */
+    #cs-navigation .cs-ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  /* -------------------------- ul Element -------------------------- */
+
+  /* -------------------------- Buttons -------------------------- */
+    #cs-navigation .cs-li {
+      list-style: none;
+      padding: 2.5rem 0;
+      /* prevent flexbox from squishing it */
+      flex: none;
+    }
+  /* -------------------------- Buttons -------------------------- */
+
+  /* -------------------------- Button Links -------------------------- */
+
+      /* ----------------- Unhovered Links ----------------- */
+        #cs-navigation .cs-li-link {
+          /* 14px - 16px */
+          font-size: clamp(0.875rem, 0.6vw, 1rem);
+          line-height: 1.5em;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-decoration: none;
+          text-transform: uppercase;
+          margin: 0;
+          padding: 0 1rem;
+          color: var(--bodyTextColorWhite);
+          display: block;
+          position: relative;
+          z-index: 1;
+          transition: color .3s;
+        }
+      /* ----------------- Unhovered Links ----------------- */
+
+      /* ----------------- Background for Button Links when hovered ----------------- */
+        #cs-navigation .cs-li-link:before {
+          /* on scroll background */
+          content: '';
+          width: 100%;
+          height: 2.5rem;
+          background: var(--primary);
+          opacity: 0;
+          position: absolute;
+          display: block;
+          top: 50%;
+          left: 50%;
+          z-index: -1;
+          transform: translate(-50%, -50%) scale(1.2);
+          transition: opacity .3s, transform .3s;
+        }
+
+        #cs-navigation .cs-li-link:hover:before {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+
+        #cs-navigation .cs-li-link.cs-active:before {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      /* ----------------- Background for Button Links when hovered ----------------- */
+
+  /* -------------------------- Button Links -------------------------- */
+
+  /* ----------------- Book Appointment Button ----------------- */
+
+      /* ----------------- Unhovered Links ----------------- */
+        #cs-navigation .cs-button-solid {
+          font-size: 1rem;
+          /* 46px - 56px */
+          /* line-height: clamp(2.875em, 5.5vw, 3.5em); */
+          text-decoration: none;
+          font-weight: 800;
+          text-align: center;
+          margin: 0;
+          color: #fff;
+          min-width: 9.375rem;
+          padding: 16px 32px;
+          letter-spacing: 1.5px;
+          background-color: transparent;
+          border: 1px solid var(--primary);
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+          /* prevents padding from adding to the width */
+          box-sizing: border-box;
+        }
+      /* ----------------- Unhovered Links ----------------- */
+      
+      /* ----------------- Background for when Hovered ----------------- */
+        #cs-navigation .cs-button-solid:before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 0%;
+          background: var(--primary);
+          opacity: 1;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: width .3s;
+        }
+
+        #cs-navigation .cs-button-solid:hover:before {
+          width: 100%;
+        }
+      /* ----------------- Background for when Hovered ----------------- */
+  /* ----------------- Book Appointment Button ----------------- */
+}
+
+
+
+
+/* =================================== Language Settings Styling =================================== */
+
+/* Phone Version */
+@media only screen and (max-width: 48rem) {
+  /* ------------------ Language Settings Container ------------------ */
+#language-settings-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: fit-content;
+  float: left;
+  left: clamp(0px, calc(10vw - 100px), 1000px);
+  bottom: 2.5vh;
+  z-index: 100;
+  overflow: visible;
+  user-select: none;
+}
+/* ------------------ Language Settings Container ------------------ */
+
+/* ------------------ Language Settings SVG Container ------------------ */
+#language-svg-container {
+  width: 60px;
+  position: relative;
+  aspect-ratio: 1/1;
+  background-color: rgb(234, 234, 234);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transition: all 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#language-svg-container:hover {
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+/* ------------------ Language Settings SVG Container ------------------ */
+
+/* ------------------ Language Settings SVG Styling ------------------ */
+#language-svg {
+  width: 30px;
+  height: 30px;
+}
+/* ------------------ Language Settings SVG Styling ------------------ */
+
+/* ------------------ Language Settings Options Container ------------------ */
+#flag-container {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  height: 0px;
+  overflow: hidden;
+  justify-content: center;
+  background-color: rgb(234, 234, 234);
+  position: relative;
+  bottom: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 0 black;
+  transition: height 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#flag-container.visible {
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+  height: 190px;
+}
+/* ------------------ Language Settings Options Container ------------------ */
+
+/* ------------------ Language Settings Menu Header ------------------ */
+#language-settings-container span {
+  text-align: center;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+/* ------------------ Language Settings Menu Header ------------------ */
+
+/* ------------------ Language Options Menu Container ------------------ */
+#flag-svg-container {
+  display: grid;
+  margin-bottom: 8px;
+  justify-content: center;
+}
+/* ------------------ Language Options Menu Container ------------------ */
+
+/* ------------------ Language Greek Language Option ------------------ */
+#greek-flag {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  overflow: hidden;
+  object-position: 0px 0;
+  cursor: pointer;
+  justify-content: center;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+/* ------------------ Language Greek Language Option ------------------ */
+
+/* ------------------ Language Greek Language Option Container ------------------ */
+#greek-flag-container {
+  width: 100px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50px;
+  scale: 0.88;
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+  display: flex;
+  justify-content: center;
+}
+/* ------------------ Language Greek Language Option Container ------------------ */
+
+/* ------------------ Language Greek Language Option ------------------ */
+#uk-flag {
+  object-fit: cover;
+  overflow: hidden;
+  object-position: -25px 0;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  justify-content: center;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+/* ------------------ Language Greek Language Option ------------------ */
+
+/* ------------------ Language English Language Option Container ------------------ */
+#uk-flag-container {
+  margin-top: 4px;
+  width: 100px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50px;
+  scale: 0.88;
+  display: flex;
+  justify-content: center;
+}
+/* ------------------ Language English Language Option Container ------------------ */
+}
+
+/* Tablet and Desktop Vesion */
+@media only screen and (min-width: 48.01rem) {
+/* ------------------ Language Settings Container ------------------ */
+#language-settings-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: fit-content;
+  float: left;
+  left: clamp(10px, calc(10vw - 100px), 1000px);
+  bottom: 3vw;
+  z-index: 100;
+  overflow: visible;
+  user-select: none;
+}
+/* ------------------ Language Settings Container ------------------ */
+
+/* ------------------ Language Settings SVG Container ------------------ */
+#language-svg-container {
+  width: 60px;
+  position: relative;
+  aspect-ratio: 1/1;
+  background-color: rgb(234, 234, 234);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transition: all 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#language-svg-container:hover {
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+/* ------------------ Language Settings SVG Container ------------------ */
+
+/* ------------------ Language Settings SVG Styling ------------------ */
+#language-svg {
+  width: 30px;
+  height: 30px;
+}
+/* ------------------ Language Settings SVG Styling ------------------ */
+
+/* ------------------ Language Settings Options Container ------------------ */
+#flag-container {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 0px;
+  overflow: hidden;
+  justify-content: center;
+  background-color: rgb(234, 234, 234);
+  position: relative;
+  bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 0 black;
+  transition: height 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#flag-container.visible {
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+  height: 120px;
+}
+/* ------------------ Language Settings Options Container ------------------ */
+
+/* ------------------ Language Settings Menu Header ------------------ */
+#language-settings-container span {
+  text-align: center;
+  color: black;
+  font-weight: 400;
+  margin-top: 16px;
+}
+/* ------------------ Language Settings Menu Header ------------------ */
+
+/* ------------------ Language Options Menu Container ------------------ */
+#flag-svg-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 80px;
+  width: 100px;
+  align-content: center;
+  justify-items: center;
+  margin-bottom: 8px;
+}
+/* ------------------ Language Options Menu Container ------------------ */
+
+/* ------------------ Language Greek Language Option ------------------ */
+#greek-flag {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 50px;
+  object-position: 0px 0;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 black;
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#greek-flag-container:hover #greek-flag {
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+/* ------------------ Language Greek Language Option ------------------ */
+
+/* ------------------ Language Greek Language Option Container ------------------ */
+#greek-flag-container {
+  display: flex;
+  width: 50px;
+  height: 80px;
+  overflow: visible;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+  cursor: pointer;
+}
+
+#greek-flag-container:hover {
+  transform: scale(1.05);
+}
+/* ------------------ Language Greek Language Option Container ------------------ */
+
+/* ------------------ Language Greek Language Option ------------------ */
+#uk-flag {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 50px;
+  object-position: -20px 0;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 black;
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#uk-flag-container:hover #uk-flag {
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+/* ------------------ Language Greek Language Option ------------------ */
+
+/* ------------------ Language English Language Option Container ------------------ */
+#uk-flag-container {
+  display: flex;
+  width: 50px;
+  height: 80px;
+  overflow: visible;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+  cursor: pointer;
+}
+
+#uk-flag-container:hover {
+  transform: scale(1.05);
+}
+/* ------------------ Language English Language Option Container ------------------ */
+}
+
+
+
+/* =================================== Language Settings Styling =================================== */
+                                
+
+
+
+
+/*-- -------------------------- -->
+<---           Hero             -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    /* ---------------------- Hero Section ---------------------- */
+      #hero-1061 {
+        /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+        font-family: 'Roboto', 'Arial', sans-serif;
+        padding: var(--sectionPadding);
+        /* 200px - 300px - leaving extra space for the navigation */
+        padding-top: clamp(12.5rem, 31.95vw, 18.75rem);
+        position: relative;
+        z-index: 10;
+      }
+    /* ---------------------- Hero Section ---------------------- */
+
+    /* ---------------------- Listings Description Text ---------------------- */
+      #hero-1061 .cs-item-text {
+        height: 144px;
+      }
+    /* ---------------------- Listings Description Text ---------------------- */
+
+    /* ---------------------- Background Picture ---------------------- */
+        /* -------------- Background Container -------------- */
+          #hero-1061 .cs-background {
+            width: 100%;
+            height: 55%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -2;
+          }
+        /* -------------- Background Container -------------- */
+
+        /* -------------- Dark Gradient From Left to Right -------------- */
+          #hero-1061 .cs-background:before {
+            /* Overlay */
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            /* prevents the cursor from interacting with it */
+            pointer-events: none;
+          }
+        /* -------------- Dark Gradient From Left to Right -------------- */
+        
+        /* -------------- Background Image -------------- */
+          #hero-1061 .cs-background img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: -1300px -190px;
+          }
+        /* -------------- Background Image -------------- */
+    /* ---------------------- Background Picture ---------------------- */
+
+    /* --------------- Section Container --------------- */
+      #hero-1061 .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: clamp(6.25rem, 9vw, 7.5rem);
+      }
+    /* --------------- Section Container --------------- */
+
+    /* --------------- Left Side Content --------------- */
+        /* ------------------------ Left Side Container ------------------------ */
+          #hero-1061 .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            max-width: 39.375rem;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+          }
+        /* ------------------------ Left Side Container ------------------------ */
+
+        /* ------------------------ Title ------------------------ */
+          #hero-1061 .cs-title {
+            /* 39px - 61px */
+            font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            letter-spacing: -2px;
+            text-align: inherit;
+            max-width: 51.8125rem;
+            margin: 0 auto 1rem 0;
+            color: #fff;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: opacity 1s ease-in-out, transform 1s ease-out;
+          }
+
+          #hero-1061 .cs-title.show {
+            opacity: 1;
+            transform: translateX(0px);
+          }
+        /* ------------------------ Title ------------------------ */
+
+        /* ------------------------ Subtitle ------------------------ */
+          #hero-1061 .cs-text {
+            /* 16px - 20px */
+            font-size: clamp(1rem, 1.95vw, 1.25rem);
+            line-height: 1.5em;
+            text-align: inherit;
+            letter-spacing: 1px;
+            width: 100%;
+            /* 464px - 622px */
+            max-width: clamp(29rem, 60vw, 38.785rem);
+            margin: 0 0 2.5rem 0;
+            color: #fff;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: opacity 1s ease-in-out, transform 1s ease-out;
+            transition-delay: 0.5s;
+          }
+
+          #hero-1061 .cs-text.show {
+            opacity: 1;
+            transform: translateX(0px);
+          }
+        /* ------------------------ Subtitle ------------------------ */
+    /* --------------- Left Side Content --------------- */
+
+    /* ------------- Book An Appointment Button ------------- */
+      /* --------------- Unhovered --------------- */
+        #hero-1061 .cs-button-solid {
+          font-size: 1rem;
+          /* 46px - 56px */
+          line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+          text-decoration: none;
+          font-weight: 700;
+          margin: 0;
+          color: #fff;
+          letter-spacing: 1px;
+          padding: 0 1.5rem;
+          background-color: var(--primary);
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+          opacity: 0;
+          transition: all 1s ease-in-out;
+          transition-delay: 1.5s;
+        }
+
+        #hero-1061 .cs-button-solid.show {
+          opacity: 1;
+        }
+      /* --------------- Unhovered --------------- */
+
+      /* --------------- Hovered --------------- */
+        #hero-1061 .cs-button-solid:before {
+          content: '';
+          position: absolute;
+          display: block;
+          height: 100%;
+          width: 0%;
+          background: #000;
+          opacity: 1;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: width .3s;
+        }
+
+        #hero-1061 .cs-button-solid:hover:before {
+          width: 100%;
+        }
+      /* --------------- Hovered --------------- */
+    /* ------------- Book An Appointment Button ------------- */
+
+    /* --------------------------- Listing Cards Container --------------------------- */
+      #hero-1061 .cs-card-group {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        row-gap: 1.875rem;
+      }
+    /* --------------------------- Listing Cards Container --------------------------- */
+
+    /* --------------------------- Card --------------------------- */
+      #hero-1061 .cs-item {
+        width: 100%;
+        text-align: left;
+        list-style: none;
+        margin: 0;
+        /* 24px - 32px */
+        padding: clamp(1.5rem, 3vw, 2rem);
+        background-color: #fff;
+        box-shadow: 0px 12px 80px 0px rgba(26, 26, 26, 0.08);
+        /* prevents padding from affecting height and width */
+        box-sizing: border-box;
+        grid-column: span 12;
+        grid-row: span 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transform: translateX(-150px);
+        transition: all 0.5s ease-out;
+        animation: cardshadow 3s ease-in-out 0s infinite;
+      }
+
+      @keyframes cardshadow {
+        0% {
+          box-shadow: 0px 12px 80px 0px rgba(26, 26, 26, 0.08);
+        }
+        50% {
+          box-shadow: 0px 12px 80px 0px rgba(26, 26, 26, 0.17);
+        }
+        100% {
+          box-shadow: 0px 12px 80px 0px rgba(26, 26, 26, 0.08);
+        }
+      }
+      
+      #hero-1061 .cs-item.show {
+        opacity: 1;
+      }
+
+      #hero-1061 .cs-item.show:nth-child(1) {
+        transition-delay: 1s;
+        transform: translateX(0px);
+      }
+
+      #hero-1061 .cs-item:nth-child(2) {
+        transform: translateX(100px);
+      }
+
+      #hero-1061 .cs-item.show:nth-child(2) {
+        transform: translateX(0px);
+        transition-delay: 0s;
+      }
+      
+      #hero-1061 .cs-item.show:nth-child(3) {
+        transform: translateX(0px);
+        transition-delay: 0s;
+      }
+
+      #hero-1061 .cs-item:nth-child(4) {
+        transform: translateX(100px);
+      }
+
+      #hero-1061 .cs-item.show:nth-child(4) {
+        transform: translateX(0px);
+        transition-delay: 0s;
+      }
+
+      #hero-1061 .cs-item.show:nth-child(5) {
+        transition-delay: 0s;
+      }
+
+    /* --------------------------- Card --------------------------- */
+
+    /* --------------------------- Card Icon Background --------------------------- */
+      #hero-1061 .cs-icon-wrapper {
+        width: 4.25rem;
+        height: 4.25rem;
+        margin: 0 0 1.5rem 0;
+        background-color: var(--primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+    /* --------------------------- Card Icon Background --------------------------- */
+
+    /* --------------------------- Card Icon --------------------------- */
+      #hero-1061 .cs-icon {
+        width: 3rem;
+        height: auto;
+      }
+    /* --------------------------- Card Icon --------------------------- */
+
+    /* --------------------------- Card Header --------------------------- */
+      #hero-1061 .cs-h3 {
+        /* 20px - 25px */
+        font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+        line-height: 1.2em;
+        letter-spacing: 0px;
+        font-weight: bold;
+        text-align: inherit;
+        margin: 0 0 0.75rem 0;
+        color: var(--headerColor);
+      }
+    /* --------------------------- Card Header --------------------------- */
+
+    /* --------------------------- Card Description --------------------------- */
+      #hero-1061 .cs-item-text {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        max-width: 28.125rem;
+        margin: 0;
+        padding: 0;
+        color: var(--bodyTextColor);
+      }
+    /* --------------------------- Card Description --------------------------- */
+  }
+
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+
+    /* --------------- Section Container --------------- */
+      #hero-1061 .cs-container {
+        align-items: flex-start;
+      }
+    /* --------------- Section Container --------------- */
+
+    /* --------------- Header --------------- */
+      #hero-1061 .cs-content {
+        text-align: left;
+        margin-left: 0;
+        align-items: flex-start;
+      }
+    /* --------------- Header --------------- */
+
+    /* --------------------------- Listing Cards Container --------------------------- */
+      #hero-1061 .cs-card-group {
+        column-gap: 1.875rem;
+      }
+    /* --------------------------- Listing Cards Container --------------------------- */
+
+    /* --------------------------- Card --------------------------- */
+      #hero-1061 .cs-item {
+        grid-column: span 6;
+      }
+
+      #hero-1061 .cs-item.show:nth-child(1) {
+        transition-delay: 1s;
+      }
+
+      #hero-1061 .cs-item:nth-child(2) {
+        transform: translateX(-100px);
+      }
+
+      #hero-1061 .cs-item.show:nth-child(2) {
+        transform: translateX(0px);
+        transition-delay: 1.2s;
+      }
+      
+      #hero-1061 .cs-item.show:nth-child(3) {
+        transition-delay: 1.4s;
+      }
+
+      #hero-1061 .cs-item:nth-child(4) {
+        transform: translateX(-100px);
+      }
+
+      #hero-1061 .cs-item.show:nth-child(4) {
+        transform: translateX(0px);
+        transition-delay: 1.6s;
+      }
+
+      #hero-1061 .cs-item.show:nth-child(5) {
+        transition-delay: 1.8s;
+      }
+    /* --------------------------- Card --------------------------- */
+
+    /* ---------------------- Background Picture ---------------------- */
+      /* -------------- Background Container -------------- */
+        #hero-1061 .cs-background {
+          height: 90%;
+        }
+      /* -------------- Background Container -------------- */
+
+      /* -------------- Dark Gradient From Left to Right -------------- */
+        #hero-1061 .cs-background:before {
+          background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 2%, rgba(0, 0, 0, 0) 100%);
+          opacity: 1;
+        }
+      /* -------------- Dark Gradient From Left to Right -------------- */
+    /* ---------------------- Background Picture ---------------------- */
+  }
+  /* Desktop - 1300px */
+  @media only screen and (min-width: 81.25rem) {
+    /* --------------------------- Card --------------------------- */
+      #hero-1061 .cs-item {
+        grid-column: span 3;
+      }
+    /* --------------------------- Card --------------------------- */
+
+    /* -------------- Background Container -------------- */
+      #hero-1061 .cs-background {
+        height: 90%;
+      }
+
+      #hero-1061 .cs-background img {
+        object-position: -450px 0px;
+      }
+    /* -------------- Background Container -------------- */
+    
+    /* -------------- Cards Animation -------------- */
+      #hero-1061 .cs-item.show {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+
+      #hero-1061 .cs-item.show:nth-child(1) {
+        transition-delay: 1.8s;
+      }
+
+      #hero-1061 .cs-item.show:nth-child(2) {
+        transition-delay: 2s;
+      }
+
+      #hero-1061 .cs-item.show:nth-child(3) {
+        transition-delay: 2.2s;
+      }
+
+      #hero-1061 .cs-item.show:nth-child(4) {
+        transition-delay: 2.4s;
+      }
+
+      #hero-1061 .cs-item.show:nth-child(5) {
+        transition-delay: 2.6s;
+      }
+    /* -------------- Cards Animation -------------- */
+  }
+  /* Large Desktop Parallax Effect - 100px */
+  @media only screen and (min-width: 100rem) {
+    #hero-1061 .cs-background {
+      background: url("../images\ used/hero-background.jpg");
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      /* creates the parallax effect */
+      background-attachment: fixed;
+    }
+    #hero-1061 .cs-background img {
+      display: none;
+    }
+  }
+
+
+
+/*-- -------------------------- -->
+<---         Why Choose         -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+  /* ------------------------------------ Section Styling ------------------------------------ */
+    #why-choose-892 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      /* Centers Button */
+      text-align: center;
+      padding: var(--sectionPadding);
+      /* prevents the arrow from causing an overflow */
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+  /* ------------------------------------ Section Styling ------------------------------------ */
+
+  /* ------------------------------------ Container ------------------------------------ */
+    #why-choose-892 .cs-container {
+      width: 100%;
+      /* changes to 1280px at tablet */
+      max-width: 34.375rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+      position: relative;
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+  /* ------------------------------------ Header Container ------------------------------------ */
+    #why-choose-892 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+    }
+  /* ------------------------------------ Header Container ------------------------------------ */
+
+  /* ------------------------------------ Header Topper ------------------------------------ */
+    #why-choose-892 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.25rem;
+      display: block;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 0.5s ease-out;
+      transition-delay: 1s;
+    }
+
+    #why-choose-892 .cs-topper.show {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  /* ------------------------------------ Header Topper ------------------------------------ */
+
+  /* ------------------------------------ Header Title ------------------------------------ */
+    #why-choose-892 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      letter-spacing: -1.0px;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 1s ease-out;
+    }
+
+    #why-choose-892 .cs-title.show {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  /* ------------------------------------ Header Title ------------------------------------ */
+
+  /* ------------------------------------ Header Paragraph ------------------------------------ */
+    #why-choose-892 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      margin: 0;
+      color: var(--bodyTextColor);
+      max-width: 62.5rem;
+      letter-spacing: 0.7px;
+      opacity: 0;
+      transition: all 1s ease-in-out;
+      transition-delay: 0.5s;
+    }
+
+    #why-choose-892 .cs-text.show {
+      opacity: 1;
+    }
+  /* ------------------------------------ Header Paragraph ------------------------------------ */
+
+  /* ------------------------------------ Contact Us Button ------------------------------------ */
+    #why-choose-892 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+
+    #why-choose-892 .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 0.25rem;
+      transition: width .3s;
+    }
+
+    #why-choose-892 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+  /* ------------------------------------ Contact Us Button ------------------------------------ */
+
+  /* ------------------------------------ Cards Container ------------------------------------ */
+    #why-choose-892 .cs-card-group {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      /* 16px - 20px */
+      gap: clamp(1rem, 2vw, 1.25rem);
+    }
+  /* ------------------------------------ Cards Container ------------------------------------ */
+
+  /* ------------------------------------ Cards Styling ------------------------------------ */
+    #why-choose-892 .cs-item {
+      width: 100%;
+      text-align: left;
+      list-style: none;
+      /* 20px - 32px */
+      padding: clamp(1.25rem, 2.3vw, 2rem);
+      background-color: #ffffff;
+      border-radius: 1rem;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      grid-column: span 6;
+      position: relative;
+      z-index: 1;
+      transition: all 1s ease-out;
+      animation: cardshadow 3s ease-in-out 0s infinite;
+    }
+
+
+
+    #why-choose-892 .cs-item:nth-child(1) {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    #why-choose-892 .cs-item.show:nth-child(1) {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    #why-choose-892 .cs-item:nth-child(3) {
+      transform: translateX(-100%);
+      opacity: 0;
+      transition-delay: 1s;
+      z-index: -1;
+    }
+
+    #why-choose-892 .cs-item.show:nth-child(3) {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  /* ------------------------------------ Cards Styling ------------------------------------ */
+
+  /* ------------------------------------ Card Upper Right Icon ------------------------------------ */
+    #why-choose-892 .cs-icon {
+      width: 3rem;
+      height: auto;
+      margin: 0 0 1.25rem 0;
+      display: block;
+    }
+
+    #upwards {
+      rotate: 90deg;
+    }
+
+    #right {
+      rotate: 180deg;
+    }
+  /* ------------------------------------ Card Upper Right Icon ------------------------------------ */
+
+  /* ------------------------------------ Card Title ------------------------------------ */
+    #why-choose-892 .cs-h3 {
+      font-size: 1.25rem;
+      line-height: 1.5em;
+      margin: 0 0 0.75rem 0;
+      color: var(--headerColor);
+      transition: color .3s;
+      letter-spacing: 0.5px;
+    }
+  /* ------------------------------------ Card Title ------------------------------------ */
+
+  /* ------------------------------------ Card Paragraph ------------------------------------ */
+    #why-choose-892 .cs-item-text {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      margin: 0;
+      color: var(--bodyTextColor);
+      transition: color .3s;
+    }
+  /* ------------------------------------ Card Paragraph ------------------------------------ */
+
+  /* ------------------------------------ Floating Arrow ------------------------------------ */
+    #why-choose-892 .cs-floater {
+      width: 10rem;
+      height: auto;
+      display: none;
+      position: absolute;
+      top: -13.75rem;
+      right: -3.75rem;
+      transform: rotate(-76deg);
+      overflow: hidden;
+    }
+
+    #why-choose-892 .cs-floater.show {
+      animation: arrow 8s;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    @keyframes arrow {
+      0% {
+        width: 10rem;
+        transform: rotate(-80deg);
+      }
+      15% {
+        width: 21.9375rem;
+        transform: rotate(-66deg);
+      }
+      100% {
+        width: 21.9375rem;
+      }
+    }
+  /* ------------------------------------ Floating Arrow ------------------------------------ */
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+  /* ------------------------------------ Container ------------------------------------ */
+    #why-choose-892 .cs-container {
+      max-width: 80rem;
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+  /* ------------------------------------ Cards Styling ------------------------------------ */
+    #why-choose-892 .cs-item {
+      grid-column: span 2;
+    }
+  /* ------------------------------------ Cards Styling ------------------------------------ */
+
+  /* ------------------------------------ Floating Arrow ------------------------------------ */
+    #why-choose-892 .cs-floater {
+      display: block;
+      opacity: 0.7;
+    }
+  /* ------------------------------------ Floating Arrow ------------------------------------ */
+  }
+
+
+
+/*-- -------------------------- -->
+<---          Reviews           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+  /* ------------------------ Section Styling ------------------------ */
+    #reviews-65 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+    }
+  /* ------------------------ Section Styling ------------------------ */
+
+  /* ------------------------ Container ------------------------ */
+    #reviews-65 .cs-container {
+      width: 100%;
+      max-width: 69rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+  /* ------------------------ Container ------------------------ */
+
+  /* ------------------------ Header Container ------------------------ */
+    #reviews-65 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+    }
+  /* ------------------------ Header Container ------------------------ */
+
+  /* ------------------------ Header Topper ------------------------ */
+    #reviews-65 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.25rem;
+      display: block;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 0.5s ease-out;
+      transition-delay: 1s;
+    }
+
+    #reviews-65 .cs-topper.show {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  /* ------------------------ Header Topper ------------------------ */
+
+  /* ------------------------ Header Title ------------------------ */
+    #reviews-65 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+      letter-spacing: -1px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 1s ease-out;
+    }
+
+    #reviews-65 .cs-title.show {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  /* ------------------------ Header Title ------------------------ */
+
+  /* ------------------------ Header Description ------------------------ */
+    #reviews-65 .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+      opacity: 0;
+      transition: all 1s ease-in-out;
+      transition-delay: 0.5s;
+    }
+
+    #reviews-65 .cs-text.show {
+      opacity: 1;
+    }
+  /* ------------------------ Header Description ------------------------ */
+
+  /* ------------------------ Underline Doodle ------------------------ */
+    #underline-doodle {
+      display: flex;
+      position: relative;
+      width: 0px;
+      height: 25px;
+      left: 52vw;
+      margin-bottom: -24px;
+      transform: scale(-1);
+      transition: width 0.3s ease-in-out;
+      transition-delay: 1s;
+    }
+
+    #underline-doodle.show {
+      width: 150px;
+    }
+  /* ------------------------ Underline Doodle ------------------------ */
+
+  /* ------------------------ Cards Container ------------------------ */
+    #reviews-65 .cs-card-group {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* changes to a clamp at tablet */
+      gap: 1.5rem;
+      opacity: 0;
+      transition: all 2s ease-in-out;
+      transition-delay: 1s;
+    }
+
+    #reviews-65 .cs-card-group.show {
+      opacity: 1;
+    }
+  /* ------------------------ Header Description ------------------------ */
+
+  /* ------------------------ Cards Styling ------------------------ */
+    #reviews-65 .cs-item {
+      list-style: none;
+      width: 100%;
+      max-width: 21.6875rem;
+      /* padding left & right 16px - 32px */
+      padding: 0 clamp(1rem, 2.1vw, 2rem);
+      /* 24px - 40px */
+      padding-bottom: clamp(1.5rem, 3.3vw, 2.5rem);
+      margin: 0;
+      background: #fff;
+      border: 1px solid var(--primaryLight);
+      border-radius: 0.25rem;
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+      /* prevent padding from adding to the height and width */
+      box-sizing: border-box;
+    }
+  /* ------------------------ Cards Styling ------------------------ */
+
+  /* ------------------------ Cards Quote Img ------------------------ */
+    #reviews-65 .cs-img {
+      /* 20px - 24px */
+      width: clamp(1.25rem, 3.2vw, 32px);
+      height: auto;
+      margin: 0 auto 0.625rem;
+      display: block;
+      transform: translateY(-0.5rem);
+    }
+  /* ------------------------ Cards Quote Img ------------------------ */
+
+  /* ------------------------ Cards Name ------------------------ */
+    #reviews-65 .cs-name {
+      font-size: 1.25rem;
+      line-height: 1.2em;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin: 0;
+      color: var(--bodyTextColor);
+      display: block;
+    }
+  /* ------------------------ Cards Name ------------------------ */
+
+  /* ------------------------ Cards Review Description ------------------------ */
+    #reviews-65 .cs-item-text {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      line-height: clamp(18px, 3vw, 24px);
+      max-width: 17.5rem;
+      margin: auto;
+      margin-top: 12px;
+      color: var(--bodyTextColor);
+    }
+  /* ------------------------ Cards Review Description ------------------------ */
+
+  /* ------------------------ Button ------------------------ */
+    #reviews-65 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+      letter-spacing: 1px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      transition-delay: 2s;
+    }
+
+    #reviews-65 .cs-button-solid.show {
+      opacity: 1;
+    }
+
+    #reviews-65 .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 0.25rem;
+      transition: width .3s;
+    }
+
+    #reviews-65 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+  /* ------------------------ Button ------------------------ */
+}
+
+@media only screen and (min-width: 280px) {
+  /* ------------------------ Underline Doodle ------------------------ */
+  #underline-doodle {
+    left: 15vw;
+  }
+/* ------------------------ Underline Doodle ------------------------ */
+}
+
+@media only screen and (min-width: 360px) {
+  /* ------------------------ Underline Doodle ------------------------ */
+  #underline-doodle {
+    left: 25vw;
+  }
+/* ------------------------ Underline Doodle ------------------------ */
+}
+
+/* specific phone screens */
+@media only screen and (min-width: 375px) {
+  /* ------------------------ Underline Doodle ------------------------ */
+    #underline-doodle {
+      left: 23vw;
+    }
+/* ------------------------ Underline Doodle ------------------------ */
+}
+
+@media only screen and (min-width: 393px) {
+  /* ------------------------ Underline Doodle ------------------------ */
+  #underline-doodle {
+    left: 25vw;
+  }
+/* ------------------------ Underline Doodle ------------------------ */
+}
+
+@media only screen and (min-width: 411px) {
+  /* ------------------------ Underline Doodle ------------------------ */
+  #underline-doodle {
+    left: 50vw;
+    top: -5px;
+  }
+/* ------------------------ Underline Doodle ------------------------ */
+}
+
+@media only screen and (min-width: 540px) {
+  /* ------------------------ Underline Doodle ------------------------ */
+  #underline-doodle {
+    left: 40vw;
+    top: -5px;
+  }
+/* ------------------------ Underline Doodle ------------------------ */
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  /* ------------------------ Cards Container ------------------------ */
+    #reviews-65 .cs-card-group {
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      /* 16px - 20px */
+      column-gap: clamp(1rem, 1.5vw, 1.25rem);
+      row-gap: 2.875rem;
+    }
+  /* ------------------------ Cards Container ------------------------ */
+
+  /* ------------------------ Cards Styling ------------------------ */
+    #reviews-65 .cs-item {
+      width: clamp(31.5%, 30vw, 32.3%);
+    }
+  /* ------------------------ Cards Styling ------------------------ */
+  
+  /* ------------------------ Underline Doodle ------------------------ */
+    #underline-doodle {
+      display: flex;
+      position: relative;
+      width: 0px;
+      height: 25px;
+      top: -5px;
+      left: 58%;
+      margin-bottom: -24px;
+      transform: scale(-1);
+      transition: width 0.3s ease-in-out;
+      transition-delay: 1s;
+    }
+
+    #underline-doodle.show {
+      width: 20vw;
+    }
+  /* ------------------------ Underline Doodle ------------------------ */
+}
+
+@media only screen and (min-width: 81.25rem) {
+  /* ------------------------ Underline Doodle ------------------------ */
+    #underline-doodle {
+      display: flex;
+      position: relative;
+      width: 0px;
+      height: 25px;
+      top: -5px;
+      left: 58%;
+      margin-bottom: -24px;
+      transform: scale(-1);
+      transition: width 0.3s ease-in-out;
+      transition-delay: 1s;
+    }
+
+    #underline-doodle.show {
+      width: 250px;
+    }
+  /* ------------------------ Underline Doodle ------------------------ */
+}
+                                
+
+
+
+          
+/*-- -------------------------- -->
+<---            FAQ             -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  /* -------------- FAQ Section -------------- */
+    #faq-1193 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+      position: relative;
+      overflow: hidden;
+    }
+  /* -------------- FAQ Section -------------- */
+
+  /* -------------- Container -------------- */
+    #faq-1193 .cs-container {
+      width: 100%;
+      /* chnages to 1280px at desktop */
+      max-width: 36.5rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* 40px - 48px */
+      gap: clamp(2.5rem, 5vw, 3rem);
+    }
+  /* -------------- Container -------------- */
+  
+  /* -------------- Text Container -------------- */
+    #faq-1193 .cs-content {
+      text-align: left;
+      max-width: 39.375rem;
+    }
+  /* -------------- Text Container -------------- */
+
+  /* -------------- Text Container Topper -------------- */
+    #faq-1193 .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.25rem;
+      display: block;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 0.5s ease-out;
+      transition-delay: 1s;
+    }
+
+    #faq-1193 .cs-topper.show {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  /* -------------- Text Container Topper -------------- */
+
+  /* -------------- Text Container Title -------------- */
+    #faq-1193 .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+      max-width: 20ch;
+      margin: 0 0 2rem 0;
+      letter-spacing: -1.0px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 1s ease-out;
+    }
+
+    #faq-1193 .cs-title.show {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+  /* -------------- Text Container Title -------------- */
+
+  /* -------------- FAQ questions Blocks Container -------------- */
+    #faq-1193 .cs-faq-group {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  /* -------------- FAQ questions Blocks Container -------------- */
+
+  /* -------------- FAQ Question Listing -------------- */
+    #faq-1193 .cs-faq-item {
+      list-style: none;
+      width: 100%;
+      background-color: #f7f7f7;
+      padding: 1.25rem;
+      box-sizing: border-box;
+      transition: border-bottom 0.3s, opacity 0.6s ease-out, transform 0.6s ease-out;
+      opacity: 1;
+    }
+
+    #faq-1193 .cs-faq-item.active {
+      border-color: var(--secondary);
+    }
+
+    #faq-1193 .cs-faq-item:nth-child(2) {
+      opacity: 0;
+      transform: translateY(-100px);
+      transition-delay: 0.8s;
+    }
+
+    #faq-1193 .cs-faq-item.show:nth-child(2) {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    #faq-1193 .cs-faq-item:nth-child(3) {
+      opacity: 0;
+      transform: translateY(-100px);
+      transition-delay: 1s;
+    }
+    
+    #faq-1193 .cs-faq-item.show:nth-child(3) {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    #faq-1193 .cs-faq-item:nth-child(4) {
+      opacity: 0;
+      transform: translateY(-100px);
+      transition-delay: 1.2s;
+    }
+
+    #faq-1193 .cs-faq-item.show:nth-child(4) {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    #faq-1193 .cs-faq-item:nth-child(5) {
+      opacity: 0;
+      transform: translateY(-100px);
+      transition-delay: 1.4s;
+    }
+
+    #faq-1193 .cs-faq-item.show:nth-child(5) {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  /* -------------- FAQ Question Listing -------------- */
+  
+  /* -------------- FAQ Question Block Open Button -------------- */
+    #faq-1193 .cs-faq-item.active .cs-button {
+      color: var(--primary);
+      z-index: 5
+    }
+  
+    #faq-1193 .cs-faq-item.active .cs-button:before {
+      background-color: var(--primaryLight);
+      transform: rotate(315deg);
+    }
+
+    #faq-1193 .cs-faq-item.active .cs-button:after {
+      background-color: var(--primaryLight);
+      transform: rotate(-315deg);
+    }
+  /* -------------- FAQ Question Block Open Button -------------- */
+
+  /* -------------- Active Answer Paragraph -------------- */
+    #faq-1193 .cs-faq-item.active .cs-item-p {
+      height: auto;
+      padding-top: 1rem;
+      opacity: 1;
+    }
+  /* -------------- Active Answer Paragraph -------------- */
+
+  /* -------------- FAQ Question Block Closed Button -------------- */
+    #faq-1193 .cs-button {
+      /* 16px - 20px */
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.2em;
+      text-align: left;
+      font-weight: bold;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--headerColor);
+      display: block;
+      width: 100%;
+      position: relative;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* hovered */
+      #faq-1193 .cs-button:hover {
+        cursor: pointer;
+      }
+    /* hovered */
+
+    #faq-1193 .cs-button:before {
+      /* left line */
+      content: '';
+      width: 0.5rem;
+      height: 0.125rem;
+      background-color: var(--headerColor);
+      opacity: 1;
+      border-radius: 50%;
+      position: absolute;
+      display: block;
+      top: 45%;
+      right: 0.25rem;
+      transform: rotate(45deg);
+      /* animate the transform from the left side of the x axis, and the center of the y */
+      transform-origin: left center;
+      transition: transform .5s;
+    }
+
+    #faq-1193 .cs-button:after {
+      /* right line */
+      content: '';
+      width: 0.5rem;
+      height: 0.125rem;
+      background-color: var(--headerColor);
+      opacity: 1;
+      border-radius: 50%;
+      position: absolute;
+      display: block;
+      top: 45%;
+      right: 0.0625rem;
+      transform: rotate(-45deg);
+      /* animate the transform from the right side of the x axis, and the center of the y */
+      transform-origin: right center;
+      transition: transform .5s;
+    }
+  /* -------------- FAQ Question Block Closed Button -------------- */
+
+  /* -------------- FAQ Answer Text -------------- */
+    #faq-1193 .cs-button-text {
+      width: 90%;
+      display: block;
+    }
+  /* -------------- FAQ Answer Text -------------- */
+
+  /* -------------- FAQ Answer Text -------------- */
+
+  /* -------------- Inactive Answer Paragraph -------------- */
+    #faq-1193 .cs-item-p {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      width: 90%;
+      max-width: 33.8125rem;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      color: var(--bodyTextColor);
+      /* clips the text so it doesn't show up */
+      overflow: hidden;
+      transition: opacity 0.3s, padding-bottom 0.3s;
+    }
+  /* -------------- Inactive Answer Paragraph -------------- */
+
+  /* -------------- Picture Container -------------- */
+    #faq-1193 .cs-image-group {
+      /* we use ems for everything in the container so they pull their value for em from the font size of this parent instead of the root element (html). This font size scales with the view width of the screen and stops when the font size equals the value of 1em (16px) and stops growing */
+      font-size: min(2.43vw, 1em);
+      width: 37.375em;
+      height: 42.375em;
+      display: block;
+      position: relative;
+    }
+  /* -------------- Picture Container -------------- */
+
+  /* -------------- Picture Img -------------- */
+    #faq-1193 .cs-picture {
+      display: block;
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      transition: all 0.5s;
+    }
+
+    #faq-1193 .cs-picture.show {
+      opacity: 1;
+    }
+
+    #faq-1193 .cs-picture1 {
+      width: 32.625em;
+      height: 38.0625em;
+      top: 0;
+      left: 0;
+    }
+
+    #faq-1193 .cs-picture1 img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: 30% 0%;
+    }
+
+    #faq-1193 .cs-picture2 {
+      width: 25em;
+      height: 40.625em;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      bottom: 0;
+      right: 0;
+    }
+
+    #faq-1193 .cs-picture2 img {
+      width: auto;
+      height: 100%;
+      max-height: 40.625rem;
+      object-fit: contain;
+    }
+  /* -------------- Picture Img -------------- */
+  }
+  /* Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+  
+  /* -------------- Container -------------- */
+    #faq-1193 .cs-container {
+      max-width: 80rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+  /* -------------- Container -------------- */
+
+  /* -------------- Text Container -------------- */
+    #faq-1193 .cs-content {
+      width: 55%;
+    }
+  /* -------------- Text Container -------------- */
+
+  /* -------------- Picture Container -------------- */
+    #faq-1193 .cs-image-group {
+      font-size: min(1.4vw, 1em);
+      height: auto;
+      min-height: 42.375rem;
+    }
+  /* -------------- Picture Container -------------- */
+
+  /* -------------- Picture -------------- */
+    #faq-1193 .cs-picture1 {
+      height: 90%;
+    }
+  /* -------------- Picture -------------- */
+  }
+
+/*-- -------------------------- -->
+<---      Contact Strip         -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+  /* ------------------------------------ Container ------------------------------------ */
+    #contact-strip-1111 {
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: clamp(3.75em, 7.82vw, 6.25em) 0rem;
+      background-color: var(--primary);
+      position: relative;
+      z-index: 1;
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+  /* ------------------------------------ ul Element ------------------------------------ */
+    #contact-strip-1111 .cs-stat-group {
+      width: 100%;
+      margin: auto;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* reduced to 24px at tablet */
+      gap: 2.5rem;
+    }
+  /* ------------------------------------ ul Element ------------------------------------ */
+
+  /* ------------------------------------ Listing ------------------------------------ */
+    #contact-strip-1111 .cs-item {
+      list-style: none;
+      width: 18.125rem;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  /* ------------------------------------ Listing ------------------------------------ */
+
+  /* ------------------------------------ Icon Container ------------------------------------ */
+    #contact-strip-1111 .cs-item:hover .cs-picture {
+      background-color: #fff;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      transform: scale(1.1);
+    }
+
+    #contact-strip-1111 .cs-picture {
+      /* 48px - 80px */
+      width: clamp(3rem, 5.7vw, 5rem);
+      height: clamp(3rem, 5.7vw, 5rem);
+      /* 12px - 20px */
+      margin-right: clamp(0.75rem, 1.5vw, 1.25rem);
+      border-radius: 50%;
+      border: 1px solid var(--secondary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* prevents flexbox from squishing it */
+      flex: none;
+      transition: background-color 0.3s, box-shadow 0.3s, transform 0.6s;
+    }
+  /* ------------------------------------ Icon Container ------------------------------------ */
+
+  /* ------------------------------------ Text Container ------------------------------------ */
+    #contact-strip-1111 .cs-flex-group {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  /* ------------------------------------ Text Container ------------------------------------ */
+
+  /* ------------------------------------ Icons ------------------------------------ */
+    #contact-strip-1111 .cs-icon {
+      /* 20px - 40px */
+      width: clamp(1.25rem, 2.5vw, 2.5rem);
+      height: auto;
+    }
+  /* ------------------------------------ Icons ------------------------------------ */
+
+  /* ------------------------------------ List Item Header ------------------------------------ */
+    #contact-strip-1111 .cs-header {
+      font-size: 1.25rem;
+      color: var(--bodyTextColorWhite);
+      font-weight: 900;
+      line-height: 1.2em;
+      margin: 0;
+      margin-bottom: 0.75rem;
+      display: block;
+      letter-spacing: 1px;
+    }
+  /* ------------------------------------ List Item Header ------------------------------------ */
+
+  /* ------------------------------------ Address & Links Format Style ------------------------------------ */
+    #contact-strip-1111 .cs-address,
+    #contact-strip-1111 .cs-link {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      text-decoration: none;
+      color: var(--bodyTextColorWhite);
+      display: block;
+      letter-spacing: 0.7px;
+    }
+  /* ------------------------------------ Address & Links Format Style ------------------------------------ */
+
+  /* ------------------------------------ Links Hover ------------------------------------ */
+    #contact-strip-1111 .cs-link:hover {
+      text-decoration: underline;
+    }
+  /* ------------------------------------ Links Hover ------------------------------------ */
+
+  /* ------------------------------------ Background ------------------------------------ */
+    #contact-strip-1111 .cs-background {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-image: url("../images used/faq2.jpg");
+      background-size: cover;
+      background-position: -600px 0;
+      filter: saturate(0.5) brightness(0.3);
+    }
+
+    #contact-strip-1111 .cs-background img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      /* Makes img tag act as a background image */
+      object-fit: cover;
+      object-position: 0px -400px;
+      filter: saturate(0.5) brightness(0.3);
+    }
+  /* ------------------------------------ Background ------------------------------------ */
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+
+  /* ------------------------------------ ul Element ------------------------------------ */
+    #contact-strip-1111 .cs-stat-group {
+      max-width: 80rem;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+  /* ------------------------------------ ul Element ------------------------------------ */
+
+  /* ------------------------------------ Listing Item ------------------------------------ */
+    #contact-strip-1111 .cs-item {
+      width: auto;
+    }
+  /* ------------------------------------ Listing Item ------------------------------------ */
+
+  #contact-strip-1111 .cs-background {
+    background-image: url("../images used/faq2.jpg");
+    background-size: cover;
+    background-position: 0 0;
+    filter: saturate(0.5) brightness(0.3);
+  }
+  }
+
+
+
+/*-- -------------------------- -->
+<---            CTA             -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+  /* ------------------------------------ Section Styling ------------------------------------ */
+    #cta-1341 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: clamp(3.75em, 7.82vw, 6.25em) 0rem;
+      margin-bottom: -30px;
+      background: rgb(31,31,31, 0);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      scale: 0.9;
+    }
+  /* ------------------------------------ Section Styling ------------------------------------ */
+
+  /* ------------------------------------ Container ------------------------------------ */
+    #cta-1341 .cs-container {
+      /* 20px - 50px */
+      padding: clamp(1.25rem, 3vw, 3.125rem) 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+  /* ------------------------------------ Form Styling ------------------------------------ */
+    #cta-1341 .cs-form {
+      width: 100%;
+      max-width: 52.875rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* 8px - 16px */
+      gap: clamp(0.5rem, 2vw, 1rem);
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+    
+    #cta-1341 .cs-form:before {
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: var(--primary);
+      opacity: .8;
+      position: absolute;
+      display: block;
+      bottom: 0;
+      left: 0;
+    }
+  /* ------------------------------------ Form Styling ------------------------------------ */
+
+  /* ------------------------------------ Input Styling ------------------------------------ */
+    #cta-1341 .cs-input {
+      font-size: 1rem;
+      width: 100%;
+      /* 60px - 72px */
+      height: clamp(3.75rem, 5.5vw, 4.5rem);
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      /* prevents padding from adding to width and height */
+      box-sizing: border-box;
+      display: block;
+      color: white;
+    }
+
+    #cta-1341 .cs-input:focus-visible {
+      outline: 0px;
+    }
+
+    #cta-1341 .cs-input::placeholder {
+      color: whitesmoke;
+    }
+  /* ------------------------------------ Input Styling ------------------------------------ */
+
+  /* ------------------------------------ Button ------------------------------------ */
+    #cta-1341 .cs-submit {
+      width: 3rem;
+      height: 3rem;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  /* ------------------------------------ Button ------------------------------------ */
+
+  /* ------------------------------------ Icon ------------------------------------ */
+    #cta-1341 .cs-icon {
+      /* 32px - 40px */
+      width: clamp(2rem, 2.3vw, 2.5rem);
+      transform: rotate(-45deg);
+      fill: var(--primary)
+    }
+
+    #cta-1341 .cs-icon:hover {
+      fill: var(--primaryLight);
+    }
+  /* ------------------------------------ Icon ------------------------------------ */
+
+  /* ------------------------------------ Newsletter ------------------------------------ */
+    #cta-1341 .cs-floater {
+      /* max width 167px */
+      font-size: min(20vw, 10.4375rem);
+      line-height: 1.5em;
+      font-weight: 900;
+      margin: 0;
+      /* color: #DFD5A5; */
+      background: rgba(255, 255, 255, 0);
+      opacity: .08;
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+  /* ------------------------------------ Newsletter ------------------------------------ */
+
+  /* ------------------------------------ Newsletter Description ------------------------------------ */
+    .cs-container #title {
+      display: flex;
+      width: 100%;
+      max-width: 52.875rem;
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 32px;
+      margin-top: -48px;
+    }
+
+    .cs-container #title p {
+      width: 100%;
+      font-weight: 500;
+      color: whitesmoke;
+    }
+  /* ------------------------------------ Newsletter Description ------------------------------------ */
+}
+                                  
+
+
+          
+/*-- -------------------------- -->
+<---          Footer            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+  /* ------------------------------------ Footer Styling ------------------------------------ */
+    #cs-footer-1292 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+      padding-bottom: 1.25rem;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      z-index: 10;
+      background: #D9BC6F;
+      background: -moz-linear-gradient(90deg, #D9BC6F 0%, #d9bd6fcc 100%);
+      background: -webkit-linear-gradient(90deg, #D9BC6F 0%, rgba(217, 189, 111, 0.8) 100%);
+      background: linear-gradient(90deg, #D9BC6F 0%, rgba(217, 189, 111, 0.8) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#D9BC6F",endColorstr="#d9bd6fcc",GradientType=1);
+      /* Navigation Links */
+    }
+  /* ------------------------------------ Footer Styling ------------------------------------ */
+
+  /* ------------------------------------ Container ------------------------------------ */
+    #cs-footer-1292 .cs-container {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      column-gap: 1.5rem;
+      row-gap: 2.25rem;
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+  /* ------------------------------------ Logo Container ------------------------------------ */
+    #cs-footer-1292 .cs-logo-group {
+      /* takes up all the space, lets the other ul's wrap below it */
+      width: 100%;
+      position: relative;
+    }
+  /* ------------------------------------ Logo Container ------------------------------------ */
+
+  /* ------------------------------------ Logo ------------------------------------ */
+    #cs-footer-1292 .cs-logo {
+      width: 12.3125rem;
+      height: auto;
+      display: block;
+      /* 20px - 24px */
+      margin: 0 0 clamp(1.25rem, 2vw, 1.5rem) 0;
+    }
+
+    #cs-footer-1292 .cs-logo-img {
+      width: 100%;
+      height: auto;
+    }
+
+    #cs-footer-1292 .cs-logo-img.dark {
+      display: none;
+    }
+  /* ------------------------------------ Logo ------------------------------------ */
+
+  /* ------------------------------------ Logo Container Text ------------------------------------ */
+    #cs-footer-1292 .cs-text {
+      font-size: 0.875rem;
+      line-height: 1.5em;
+      /* 20px - 36px */
+      margin: 0 0 clamp(1.25rem, 3vw, 2.25rem);
+      width: 78%;
+      max-width: 15rem;
+      color: var(--bodyTextColor);
+    }
+  /* ------------------------------------ Logo Container Text ------------------------------------ */
+
+  /* ------------------------------------ Logo Container Contact Link ------------------------------------ */
+    #cs-footer-1292 .cs-link {
+      font-size: 0.875rem;
+      line-height: 1.5em;
+      text-decoration: none;
+      margin: 0;
+      color: var(--headerColor);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color .3s;
+    }
+  
+    #cs-footer-1292 .cs-link:hover {
+      color: var(--primary);
+    }
+  /* ------------------------------------ Logo Container Contact Link ------------------------------------ */
+
+  /* ------------------------------------ Services Group ------------------------------------ */
+    #cs-footer-1292 .cs-nav {
+      width: 45%;
+      max-width: 11.25rem;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  /* ------------------------------------ Services Group ------------------------------------ */
+
+  /* ------------------------------------ Services Group Link ------------------------------------ */
+    #cs-footer-1292 .cs-nav-li {
+      list-style: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  /* ------------------------------------ Services Group Link ------------------------------------ */
+
+  /* ------------------------------------ Services Group Link Header ------------------------------------ */
+    #cs-footer-1292 .cs-header {
+      font-size: 1rem;
+      line-height: 1.2em;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--headerColor);
+      position: relative;
+      display: block;
+    }
+  /* ------------------------------------ Services Group Link Header ------------------------------------ */
+
+  /* ------------------------------------ Services Group Redirect Link (anchor) ------------------------------------ */
+    #cs-footer-1292 .cs-nav-link {
+      font-size: 0.875rem;
+      text-decoration: none;
+      line-height: 1.5em;
+      width: auto;
+      color: var(--bodyTextColor);
+      position: relative;
+      display: inline-block;
+      transition: color .3s;
+    }
+
+    #cs-footer-1292 .cs-nav-link:before {
+      /* underline */
+      content: '';
+      width: 0%;
+      height: 0.125rem;
+      background: currentColor;
+      opacity: 1;
+      position: absolute;
+      display: block;
+      bottom: -0.125rem;
+      left: 0;
+      transition: width .3s;
+    }
+
+    #cs-footer-1292 .cs-nav-link:hover {
+      color: var(--primary);
+    }
+
+    #cs-footer-1292 .cs-nav-link:hover:before {
+      width: 100%;
+    }
+  /* ------------------------------------ Services Group Redirect Link (anchor) ------------------------------------ */
+
+  /* ------------------------------------ Resonat Promo Container ------------------------------------ */
+    #cs-footer-1292 .cs-bottom {
+      max-width: 80rem;
+      margin: auto;
+      /* 48px - 100px */
+      margin-top: clamp(3rem, 9vw, 6.25rem);
+      /* 20px - 32px */
+      padding: clamp(1.25rem, 3vw, 2rem) 0 0 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      column-gap: 2.25rem;
+      row-gap: 0.75rem;
+    }
+  /* ------------------------------------ Resonat Promo Container ------------------------------------ */
+
+  /* ------------------------------------ Resonat Promo ------------------------------------ */
+    #cs-footer-1292 .cs-copyright,
+    #cs-footer-1292 .cs-copyright-link {
+      font-size: 0.875rem;
+      line-height: 1.5em;
+      color: var(--bodyTextColor);
+      padding-bottom: 70px;
+    }
+
+    #cs-footer-1292 .cs-copyright {
+      text-align: center;
+      width: 100%;
+    }
+
+    #cs-footer-1292 .cs-copyright-link {
+      text-decoration: none;
+      transition: color .3s;
+      color: rgb(2, 128, 201);
+    }
+
+    #cs-footer-1292 .cs-copyright-link:hover {
+      color: rgb(2, 92, 144);
+    }
+  /* ------------------------------------ Resonat Promo ------------------------------------ */
+
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+    #cs-footer-1292 .cs-floater {
+      width: 31.625rem;
+      height: 31.625rem;
+      margin-left: 34.375rem;
+      border-radius: 50%;
+      border: 2px solid var(--secondaryLight);
+      opacity: .3;
+      display: none;
+      position: absolute;
+      left: 58%;
+      top: 0;
+      z-index: -1;
+    }
+  
+    #cs-footer-1292 .cs-floater:before {
+      content: '';
+      width: 44.6875rem;
+      height: 44.6875rem;
+      border: 2px solid var(--secondaryLight);
+      border-radius: 50%;
+      opacity: .8;
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #cs-footer-1292 .cs-floater:after {
+      content: '';
+      width: 60.1875rem;
+      height: 60.1875rem;
+      border: 2px solid var(--secondaryLight);
+      border-radius: 50%;
+      opacity: .5;
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+  /* ------------------------------------ Container ------------------------------------ */  
+    #cs-footer-1292 .cs-container {
+      row-gap: 0;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      column-gap: 5.5rem;
+      row-gap: 2.5rem;
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+  /* ------------------------------------ Services Group ------------------------------------ */
+    #cs-footer-1292 .cs-nav {
+      width: auto;
+    }
+  /* ------------------------------------ Services Group ------------------------------------ */
+
+  /* ------------------------------------ Misc Info Container ------------------------------------ */
+    #cs-footer-1292 .cs-bottom {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+  /* ------------------------------------ Misc Info Container ------------------------------------ */
+
+  /* ------------------------------------ Resonat Promo ------------------------------------ */
+    #cs-footer-1292 .cs-copyright {
+      text-align: left;
+      width: auto;
+      margin-right: auto;
+      padding-bottom: 0;
+    }
+  /* ------------------------------------ Resonat Promo ------------------------------------ */
+
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+    #cs-footer-1292 .cs-floater {
+      display: block;
+    }
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+  }
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+  /* ------------------------------------ Container ------------------------------------ */  
+    #cs-footer-1292 .cs-container {
+      max-width: 80rem;
+      flex-wrap: nowrap;
+      /* align everything to the right */
+      justify-content: flex-end;
+      column-gap: clamp(2.5rem, 6vw, 5.25rem);
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+  /* ------------------------------------ Logo Container ------------------------------------ */
+    #cs-footer-1292 .cs-logo-group {
+      width: 30%;
+      max-width: 24.1875rem;
+      /* pushes away from everything to the right */
+      margin-right: auto;
+    }
+  /* ------------------------------------ Logo Container ------------------------------------ */
+
+  /* ------------------------------------ Logo Container Text ------------------------------------ */
+    #cs-footer-1292 .cs-text {
+      width: 100%;
+    }
+  /* ------------------------------------ Logo Container Text ------------------------------------ */
+  }
