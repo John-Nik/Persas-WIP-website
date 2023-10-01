@@ -697,7 +697,7 @@ p {
   width: 50px;
   height: 50px;
   border-radius: 50px;
-  overflow: visible;
+  overflow: hidden;
   object-position: 0px 0;
   cursor: pointer;
   justify-content: center;
@@ -711,7 +711,7 @@ p {
 #greek-flag-container {
   width: 100px;
   height: auto;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 50px;
   scale: 0.88;
   transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
@@ -723,7 +723,7 @@ p {
 /* ------------------ Language Greek Language Option ------------------ */
 #uk-flag {
   object-fit: cover;
-  overflow: visible;
+  overflow: hidden;
   object-position: -25px 0;
   cursor: pointer;
   width: 50px;
@@ -741,7 +741,7 @@ p {
   margin-top: 4px;
   width: 100px;
   height: auto;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 50px;
   scale: 0.88;
   display: flex;
