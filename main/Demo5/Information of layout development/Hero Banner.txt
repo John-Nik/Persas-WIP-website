@@ -1,0 +1,10 @@
+Should have a large image
+
+Large fonts should be used
+
+Clean-minimalistic
+
+Will have a title and *subtitle*
+
+The banner will fade away by the use of paralax effects when scrolling down
+
