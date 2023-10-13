@@ -18,6 +18,7 @@
         
 
         <!-- ------------ PartyTown (used to relieve the main thread from the javascript executions) ------------ -->
+        <script> await delay(15000); window.dispatchEvent(new CustomEvent('ptupdate')); </script>
         <script>
       partytown = {
         debug: true,
