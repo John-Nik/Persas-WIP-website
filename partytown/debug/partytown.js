@@ -11,7 +11,7 @@
                         detail: win
                     }));
                 } else {
-                    timeout = setTimeout(fallback, 1e4);
+                    timeout = setTimeout(fallback, 5e4);
                     doc.addEventListener("pt0", clearFallback);
                     useAtomics ? loadSandbox(1) : nav.serviceWorker ? nav.serviceWorker.register(libPath + (config.swPath || "partytown-sw.js"), {
                         scope: libPath
