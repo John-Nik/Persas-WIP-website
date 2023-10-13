@@ -89,7 +89,7 @@
             instances.set(instanceId, instance);
             instance[InstanceIdKey] = instanceId;
             instance[CreatedKey] = now = Date.now();
-            if (now > lastCleanup + 5e3) {
+            if (now > lastCleanup + 10e3) {
                 instances.forEach(((storedInstance, instanceId) => {
                     storedInstance[CreatedKey] < lastCleanup && storedInstance.nodeType && !storedInstance.isConnected && instances.delete(instanceId);
                 }));
