@@ -46,7 +46,14 @@ const testSleep = async () => {
     await sleep(5000);
     console.log('5 SECONDS HAVE PASSED');
     await sleep(5000);
+    console.log('5 SECONDS HAVE PASSED');
+    await sleep(5000);
+    console.log('5 SECONDS HAVE PASSED');
+    await sleep(5000);
+    console.log('5 SECONDS HAVE PASSED');
+    await sleep(5000);
     window.dispatchEvent(new CustomEvent('ptupdate'));
+    console.log('update executed');
 }
 
 testSleep();
