@@ -291,7 +291,7 @@
                         this[ReadyStateKey] = getter(this, [ "readyState" ]);
                         setTimeout((() => {
                             this[ReadyStateKey] = void 0;
-                        }), 1e3);
+                        }), 10e3);
                     }
                     return this[ReadyStateKey];
                 }
