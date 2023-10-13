@@ -89,7 +89,7 @@
             instances.set(instanceId, instance);
             instance[InstanceIdKey] = instanceId;
             instance[CreatedKey] = now = Date.now();
-            if (now > lastCleanup + 5e3) {
+            if (now > lastCleanup + 10e3) {
                 instances.forEach(((storedInstance, instanceId) => {
                     storedInstance[CreatedKey] < lastCleanup && storedInstance.nodeType && !storedInstance.isConnected && instances.delete(instanceId);
                 }));
@@ -101,7 +101,7 @@
     const mainWindow = window.parent;
     const docImpl = document.implementation.createHTMLDocument();
     const config = mainWindow.partytown || {};
-    const libPath = (config.lib || "/~partytown/") + "debug/";
+    const libPath = (config.lib || "/website/partytown/") + "debug/";
     const logMain = msg => {
         console.debug.apply(console, [ "%cMain 🌎", "background: #717171; color: white; padding: 2px 3px; border-radius: 2px; font-size: 0.8em;", msg ]);
     };
