@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Πέρσα Κώνστα - Πληροφορίες">
+        <meta name="keywords" content="Λεμεσός, κοντά μου, διατροφολόγος, και, διαιτολόγος, Πέρσα, Κώνστα, υγεία, διατροφή, γυμναστήριο, εγγεγραμμένος, προσωπικός, κλινικός, για μένα, άνοιγμα, ώρες">
+        <meta name="author" content="Σχεδιάστηκε και κωδικοποιήθηκε από το Resonat, από τους Γιάννη Νικολάου, Μάριο Γεωργίου, Ματθαίο Φακίρη και Ελένη Καποτά. john@resonat.net, nikolaou.giannis@yahoo.com, contact@resonat.net, mgeorgiou170102@gmail.com, matt@resonat.net, mattfaghiri@gmail.com, kaponael0701@gmail.com">
+        <meta name='copyright' content='Resonat'>
+        <meta name='language' content='EL'>
+        <meta name='Classification' content='Business'>
+        <meta name='owner' content='Persa Consta'>
+
+        <title>Πέρσα Κώνστα - Πληροφορίες</title>
+        <link rel="icon" href="../images%20used/persas-icon.svg" type="image/x-icon">
+        <link rel="stylesheet" href="../css%20styling/about.css">
+
+        <link rel="preload" fetchpriority="high" as="image" href="../images%20used/banner-background-mobile.webp" type="image/webp">
+
+        <!-- ------------ PartyTown (used to relieve the main thread from the javascript executions) ------------ -->
+        <script eager src="../partytown/partytown.js"></script>
+        <!-- ------------ PartyTown (used to relieve the main thread from the javascript executions) ------------ -->
+
+        <!-- ------------ General Functions ------------ -->
+        <script defer src="../javascript/app.js"></script>
+        <!-- ------------ General Functions ------------ -->
+
+        <!-- ------------ Install Cookies JavaScript Library ------------ -->
+        <script rel="preload" src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+        <!-- ------------ Install Cookies JavaScript Library ------------ -->
+
+        <!-- ------------ Redirect to Correct Language Versions JavaScript ------------ -->
+        <script defer src="../javascript/multilanguage-serve.js"></script>
+        <!-- ------------ Redirect to Correct Language Versions JavaScript ------------ -->
+
+        <!-- ================ Roboto Font ================ -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900&display=swap" rel="stylesheet">
+        <!-- ================ Roboto Font ================ -->
+    </head>
+
+
+    <body>
+        <!-- ============================================ -->
+        <!--                 Navigation                   -->
+        <!-- ============================================ -->
+        <header id="cs-navigation">
+
+            <!-- -------------------------------- Container -------------------------------- -->
+            <div class="cs-container">
+
+                <!-- -------------- Nav Logo -------------- -->
+                <a href="index.html" class="cs-logo" aria-label="Πίσω στην αρχική">
+                    <img src="../images%20used/persas-icon.svg" loading="eager" width="80" height="80" aria-hidden="true" decoding="async" alt="Λογότυπος της Πέρσας">
+                </a>
+                <!-- -------------- Nav Logo -------------- -->
+                
+                <!--  -->
+
+                <!-- ------------------- Nav List ------------------- -->
+                <nav class="cs-nav" role="navigation">
+
+
+                    <!-- -------------- Mobile Navigation Button -------------- -->
+                    <menu>
+                        <button class="cs-toggle" aria-label="mobile menu toggle">
+                            <div class="cs-box" aria-hidden="true">
+                                <span class="cs-line cs-line1" aria-hidden="true"></span>
+                                <span class="cs-line cs-line2" aria-hidden="true"></span>
+                                <span class="cs-line cs-line3" aria-hidden="true"></span>
+                            </div>
+                        </button>
+                    </menu>
+                    <!-- -------------- Mobile Navigation Button -------------- -->
+                    <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+
+                    <!-- -------------- Container for Navigation Buttons -------------- -->
+                    <div class="cs-ul-wrapper">
+
+                        <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+
+                            <!-- ----------- Home Button ----------- -->
+                            <li class="cs-li">
+                                <a href="index.html" class="cs-li-link">
+                                    Αρχικη
+                                </a>
+                            </li>
+                            <!-- ----------- Home Button ----------- -->
+                            
+                            <!--  -->
+
+                            <!-- ----------- About Me Button ----------- -->
+                            <li class="cs-li">
+                                <a href="about.html" class="cs-li-link cs-active">
+                                    Πληροφοριες
+                                </a>
+                            </li>
+                            <!-- ----------- About Me Button ----------- -->
+
+                            <!--  -->
+
+                            <!-- ----------- Services ----------- -->
+                            <li class="cs-li">
+                                <a href="services.html" class="cs-li-link">
+                                    Υπηρεσιες
+                                </a>
+                            </li>
+                            <!-- ----------- Services ----------- -->
+
+                            <!--  -->
+
+                            <!-- ----------- Recipes ----------- -->
+                            <li class="cs-li">
+                                <a href="recipes.html" class="cs-li-link">
+                                    Συνταγες
+                                </a>
+                            </li>
+                            <!-- ----------- Recipes ----------- -->
+
+                        </ul>
+
+                    </div>
+                    <!-- -------------- Container for Navigation Buttons -------------- -->
+                </nav>
+                <!-- ------------------- Nav List ------------------- -->
+
+                <!--  -->
+
+                <!-- ------------------- Book Appointment Button ------------------- -->  
+                <a href="meetingbook.html" class="cs-button-solid cs-nav-button">Ζητήστε Ραντεβού</a>
+                <!-- ------------------- Book Appointment Button ------------------- --> 
+                <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
+                <!-- <button id="dark-mode-toggle" aria-label="dark mode toggle">
+                    <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
+                    <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
+                </button> -->
+
+            </div>
+            <!-- -------------------------------- Container -------------------------------- -->
+
+        </header>
+        
+
+
+        <!-- ============================================ -->
+        <!--                    Main                      -->
+        <!-- ============================================ -->
+        <main>
+            
+            <!-- ------------------- Language Settings Container ------------------- -->
+            <div id="language-settings-container" title="Select your preferred language / Επιλέξτε την προτεινόμενη γλώσσα">
+
+                <!-- ------------------- Language Options Menu Toggle Button ------------------- -->
+                <div id="language-svg-container">
+                    <svg id="language-svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg>
+                </div>
+                <!-- ------------------- Language Options Menu Toggle Button ------------------- -->
+
+
+                <!-- ------------------- Language Options Menu Container ------------------- -->
+                <div id="flag-container" class="unrevealed">
+
+                    <!-- ------------------------ -->
+                    <span>Επιλέξτε Γλώσσα <br>/<br> Select Language</span>
+                    <!-- ------------------------ -->
+
+                    <!-- ------------------- Language Options Menu ------------------- -->
+                    <div id="flag-svg-container">
+
+                        <!-- ------------------- Greek Language ------------------- -->
+                        <div id="greek-flag-container" class="cookieGr">
+                            <img id="greek-flag" src="../images%20used/greek-flag.svg" alt="" title="Αλλαγή σε Ελληνικά">
+                        </div>
+                        <!-- ------------------- Greek Language ------------------- -->
+
+
+                        <!-- ------------------- English Language ------------------- -->
+                        <div id="uk-flag-container" class="cookieEn">
+                            <img id="uk-flag" src="../images%20used/UK-flag.svg" alt="" title="Switch to English">
+                        </div>
+                        <!-- ------------------- English Language ------------------- -->
+                        
+                    </div>
+                    <!-- ------------------- Language Options Menu ------------------- -->
+
+                </div>
+                <!-- ------------------- Language Options Menu Container ------------------- -->
+
+            </div>
+            <!-- ------------------- Language Settings Container ------------------- -->
+
+            
+            <!-- ============================================ -->
+            <!--                   Banner                     -->
+            <!-- ============================================ -->
+
+            <div id="banner-1403">
+
+                <!-- ============================== Text Container ============================== -->
+                <div class="cs-container">
+
+                    <!-- -------------------------------------- -->
+                    <span class="cs-int-title">Πληροφορίες για μένα</span>
+                    <!-- -------------------------------------- -->
+
+                    <!-- -------------------------------------- -->
+                    <div class="cs-breadcrumbs">
+
+                        <a href="index.html" class="cs-link">Αρχική</a>
+
+                        <a href="about.html" class="cs-link cs-active">Πληροφορίες</a>
+
+                    </div>
+                    <!-- -------------------------------------- -->
+
+                </div>
+                <!-- ============================== Text Container ============================== -->
+
+                <!--  -->
+
+                <!-- ============================== Background Container ============================== -->
+                <picture class="cs-background">
+
+                    <!-- --------------------------- Mobile Image --------------------------- -->
+                    <source media="(max-width: 600px)" srcset="../images%20used/banner-background-mobile.webp">
+                    <!-- --------------------------- Mobile Image --------------------------- -->
+
+                    
+                    <!-- ---------------------------Tablet and above Image ----------------------------->
+                    <source media="(min-width: 601px)" srcset="../images%20used/banner-background.webp">
+                    <img fetchpriority="high" decoding="async" loading="eager" src="../images%20used/banner-background.webp" alt="Εικόνα φόντου πανό για τον διαιτολόγο" width="1280" height="568" aria-hidden="true">
+                    <!-- ---------------------------Tablet and above Image ----------------------------->
+                    
+                </picture>
+                <!-- ============================== Background Container ============================== -->
+
+            </div>
+                                
+
+            <!-- ============================================ -->
+            <!--                 Side By Side                 -->
+            <!-- ============================================ -->
+
+            <section id="sbs-1014">
+
+                <!-- ============================== Background Container ============================== -->
+                <div class="cs-container">
+
+
+                    <!-- --------------------------- Images Container ----------------------------->
+                    <div class="cs-image-group">
+
+                        <!-- -------------------------------------------------------->
+                        <picture class="cs-picture cs-picture1 hidden">
+
+                            <!-- --------------------------- Mobile Image --------------------------- -->
+                            <source media="(max-width: 600px)" srcset="../images%20used/persa-aboutus-mobile.webp">
+                            <!-- --------------------------- Mobile Image --------------------------- -->
+
+                            <!-- ---------------------------Tablet and Desktop Image ----------------------------->
+                            <source media="(min-width: 601px)" srcset="../images%20used/persa-aboutus.webp">
+                            <img loading="lazy" decoding="async" src="../images%20used/persa-aboutus.webp" alt="πρωινό" width="522" height="581" aria-hidden="true">
+                            <!-- ---------------------------Tablet and Desktop Image ----------------------------->
+                        </picture>
+                        <!-- -------------------------------------------------------->
+                    </div>
+                    <!-- --------------------------- Images Container ----------------------------->
+
+                    <!-- --------------------------- Text Content ----------------------------->
+                    <div class="cs-content">
+
+                        <!-- -------------------------------------------------------->
+                        <span class="cs-topper hidden">Για μενα</span>
+
+                        <h2 class="cs-title hidden">Πληροφορίες για την Πέρσα</h2>
+
+                        <p class="cs-text hidden">
+                            Γεια σας, είμαι η Πέρσα, μια παθιασμένη και αφοσιωμένη διαιτολόγος με αποστολή να ενδυναμώνω τον κόσμο να επιτύχει τους στόχους του για την υγεία και την ευεξία του. Με υπόβαθρο στην επιστήμη της διατροφής και πλούσια πρακτική εμπειρία, είμαι εδώ για να σας καθοδηγήσω στο ταξίδι σας προς την καλύτερη υγεία.
+                            <span><br><br></span>
+                            Έχω σπουδάσει διατροφολογία για 4 χρόνια, και έχω πάνω από μια δεκαετία εμπειρίας στον τομέα αυτό, με αμέτρητους ασθενείς που βοήθησα να επιτύχουν τους στόχους τους για την υγεία τους.
+                            <span><br><br></span>
+                            Πιστεύω ακράδαντα στη δύναμη της εκπαίδευσης και της παρακίνησης και είμαι αφοσιωμένη στο να σας βοηθήσω να κάνετε μόνιμες, θετικές αλλαγές. Μαζί, θα δημιουργήσουμε ένα βιώσιμο, εξατομικευμένο σχέδιο που θα σας φέρει πιο κοντά στους στόχους σας για την υγεία και την ευεξία. Ας ξεκινήσουμε μαζί αυτό το ταξίδι για μια καλύτερη ζωή.
+                        </p>
+                        <!-- -------------------------------------------------------->
+                    </div>
+                    <!-- --------------------------- Text Content ----------------------------->
+
+                </div>
+                <!-- ============================== Background Container ============================== -->
+
+            </section>
+                    
+            <!-- ============================================ -->
+            <!--                    CTA                       -->
+            <!-- ============================================ -->
+
+            <section id="cta-1014">
+
+                <!-- ============================== Container ============================== -->
+                <div class="cs-container">
+
+                    <!-- --------------------------- Header Container ----------------------------->
+                    <div class="cs-left-section">
+
+                        <h2 class="cs-title hidden">Ελάτε να κουβεντιάσουμε!</h2>
+
+                        <a href="meetingbook.html" class="cs-button-solid">Ζητήστε ραντεβού</a>
+
+                    </div>
+                    <!-- --------------------------- Header Container ----------------------------->
+
+                    <!-- --------------------------- Content Container ----------------------------->
+                    <div class="cs-content ">
+
+                        <span class="cs-header hidden">Διαθέσιμες ώρες</span>
+
+                        <!-- -------------------------------------------------------->
+                        <ul class="cs-p hidden"> 
+                            <li>
+                                Δευτέρα - Παρασκευή: <span class="hours"><time datetime="07:30">07:30 π.μ.</time> - <time datetime="19:30">07:30 μ.μ.</time></span>
+                            </li>
+                            <li>
+                                Σάββατο: <span class="hours"><time datetime="08:00">08:00 π.μ.</time> - <time datetime="13:00">13:00 μ.μ.</time></span>
+                            </li>
+                            <li>
+                                Κυριακή: <span class="hours">Κλειστά</span><span id="empty-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            </li>
+                        </ul>
+                        <!-- -------------------------------------------------------->
+
+                        <!-- -------------------------------------------------------->
+                        <p class="cs-p hidden">
+                            Ραντεβού προτιμώνται.<br>
+                            Σάββατα μόνο κατόπιν ραντεβού.
+                        </p>
+                        <!-- -------------------------------------------------------->
+
+                    </div>
+                    <!-- --------------------------- Content Container ----------------------------->
+                    <picture class="cs-background hidden">
+
+                        <!-- --------------------------- Mobile Image --------------------------- -->
+                        <source media="(max-width: 600px)" srcset="../images%20used/breakfast-banner-phone.webp">
+                        <!-- --------------------------- Mobile Image --------------------------- -->
+
+                        <!-- --------------------------- Tablet and Desktop Image ----------------------------->
+                        <source media="(max-width: 768px)" srcset="../images%20used/breakfast-banner-tablet.webp">
+                        <img aria-hidden="true" loading="lazy" decoding="async" src="../images%20used/breakfast-banner.webp" alt="πρωινό" width="1280" height="400">
+                        <!-- --------------------------- Tablet and Desktop Image ----------------------------->
+                    </picture>
+                </div>
+                <!-- ============================== Container ============================== -->
+
+            </section>
+        </main>
+
+
+
+
+
+        <!-- ============================================ -->
+        <!--                   Footer                     -->
+        <!-- ============================================ -->
+
+        <footer id="cs-footer-1292">
+
+            <!-- ================================= Container ================================= -->
+            <div class="cs-container">      
+                <!-- ----------------- Logo Container ----------------- -->
+                <div class="cs-logo-group">
+
+                    <!-- Logo -->
+                    <a aria-label="Main" class="cs-logo" href="index.html">
+                        <img class="cs-logo-img" aria-hidden="true" loading="lazy" decoding="async" src="../images%20used/persas-icon-footer.svg" alt="Λογότυπος της Πέρσας" width="32" height="32">
+                    </a>
+                    <!-- Logo -->
+
+                    <!-- Text -->
+                    <p class="cs-text">
+                        Οι στόχοι σου, μείον τις αμφιβολίες σου, ίσον με την πραγματικότητά σου
+                    </p>
+                    <!-- Text -->
+
+                    <!-- Email -->
+                    <a href="mailto:persaco@hotmail.com" class="cs-link">
+                        <img class="cs-link-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/construction-mail.svg" alt="Διεύθυνση ηλεκτρονικού ταχυδρομείου της έμπειρης διαιτολόγου Πέρσα Κώνστα" width="24" height="24">
+                        persaco@hotmail.com
+                    </a>
+                    <!-- Email -->
+
+                </div>
+                <!-- ----------------- Logo Container ----------------- -->
+
+                <!--  -->
+
+                <!-- ---------------------------- About Group ---------------------------- -->
+                <ul class="cs-nav" role="navigation">
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <span class="cs-header">Πληροφορίες</span>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="about.html">Η Ιστορία μου</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="services.html">Προνόμια</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                </ul>
+                <!-- ---------------------------- About Group ---------------------------- -->
+
+                <!--  -->
+
+                <!-- ---------------------------- Contact Group ---------------------------- -->
+                <ul class="cs-nav" role="navigation">
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <span class="cs-header">Επαφή</span>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="https://www.facebook.com/profile.php?id=100054263510631">Το Facebook μου</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="https://www.instagram.com/dietitian_persa.kosta/#">Το Instagram μου</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+                    
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link cs-link" href="tel:+35799457879">Το Τηλέφωνο μου</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="mailto:persaco@hotmail.com">Το E-mail μου</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                </ul>
+                <!-- ---------------------------- Contact Group ---------------------------- -->
+
+                <!--  -->
+
+                <!-- ---------------------------- Help Group ---------------------------- -->
+                <ul class="cs-nav" role="navigation">
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <span class="cs-header">Βοήθεια</span>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="index.html#faq-1193">Συχνές Ερωτήσεις</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="meetingbook.html">Επικοινωνίστε μαζί μου</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                </ul>
+                <!-- ---------------------------- Help Group ---------------------------- -->
+            </div>
+            <!-- ================================= Container ================================= -->
+
+            <!--  -->
+
+            <!-- =========================== Resonat Promo =========================== -->
+            <div class="cs-bottom">
+
+                <!-- ------------------------------------------------ -->
+                <span class="cs-copyright">Copyright© 2023. Designed and Created
+                    <a class="cs-copyright-link" target="_blank" href="https://www.resonat.net">by Resonat</a>
+                    All Right Reserved.
+                </span>
+                <!-- ------------------------------------------------ -->
+
+            </div>
+            <!-- =========================== Resonat Promo =========================== -->
+
+
+            <!-- Floating Cirlces -->
+            <div class="cs-floater" aria-hidden="true"></div>
+            <!-- Floating Cirlces -->
+
+        </footer>
+                                    
+    </body>
+</html>
