@@ -1,0 +1,679 @@
+
+
+
+  
+  /*-- -------------------------- -->
+  <---            CTA             -->
+  <--- -------------------------- -*/
+  
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+
+    /* -------------------- Section Styling -------------------- */
+    #cta-1014 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+    }
+    /* -------------------- Section Styling -------------------- */
+
+    /* -------------------- Container -------------------- */
+    #cta-1014 .cs-container {
+      width: 100%;
+      max-width: 80rem;
+      margin: auto;
+      /* 32px - 88px top & bottom */
+      /* 24px - 88px left & right */
+      padding: clamp(2em, 6.3vw, 5.5em) clamp(1.5em, 5.7vw, 5.5em);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2rem;
+      position: relative;
+      /* clips the corners for the border radius to show */
+      overflow: hidden;
+      z-index: 1;
+      /* prevents padding from adding to height and width */
+      box-sizing: border-box;
+    }
+    /* -------------------- Container -------------------- */
+
+    /* -------------------- Background Image Container Styling -------------------- */
+    #cta-1014 .cs-background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      z-index: -1;
+    }
+
+    #cta-1014 .cs-background:before {
+      /* black overlay */
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: .8;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    /* -------------------- Background Image Container Styling -------------------- */
+
+    /* -------------------- Background Image -------------------- */
+    #cta-1014 .cs-background img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    /* -------------------- Background Image -------------------- */
+    
+    /* -------------------- Header Container -------------------- */
+    #cta-1014 .cs-left-section {
+      max-width: 27.125rem;
+      margin-top: auto;
+      margin-bottom: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    /* -------------------- Header Container -------------------- */
+
+    /* -------------------- Header Title -------------------- */
+    #cta-1014 .cs-title {
+      /* 25px - 49px */
+      font-size: clamp(1.5625rem, 3.9vw, 3.0625rem);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: center;
+      max-width: 50rem;
+      /* 20px - 48px */
+      margin: 0 auto clamp(1.25rem, 4.7vw, 3rem);
+      color: var(--bodyTextColorWhite);
+      position: relative;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 0.5s ease-out;
+    }
+
+    #cta-1014 .cs-title.show{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    /* -------------------- Header Title -------------------- */
+
+    /* -------------------- Button -------------------- */
+    #cta-1014 .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875em, 5.5vw, 3.5em);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: auto;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 2rem;
+      background-color: var(--primary);
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+
+    #cta-1014 .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width .3s;
+    }
+
+    #cta-1014 .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    /* -------------------- Button -------------------- */
+
+    /* -------------------- Content Container -------------------- */
+    #cta-1014 .cs-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      /* 12px - 20px */
+      gap: clamp(0.75rem, 1.6vw, 1.25rem);
+    }
+    /* -------------------- Content Container -------------------- */
+
+    /* -------------------- Content Header -------------------- */
+    #cta-1014 .cs-header {
+      /* 20px - 25px */
+      font-size: clamp(1.25rem, 2.4vw, 1.5625rem);
+      font-weight: bold;
+      color: var(--secondaryLight);
+      display: block;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 0.5s ease-out;
+      transition-delay: 0.3s;
+    }
+
+    #cta-1014 .cs-header.show{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    /* -------------------- Content Header -------------------- */
+
+    /* -------------------- Content Paragraph -------------------- */
+    #cta-1014 .cs-p {
+      /* 14px - 20px */
+      font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+      line-height: 1.5em;
+      margin: 0;
+      color: var(--bodyTextColorWhite);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 0.5s ease-out;
+      transition-delay: 0.5s;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    #cta-1014 .cs-p.show{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    #cta-1014 .hours {
+      color: var(--primaryLight);
+    }
+    /* -------------------- Content Paragraph -------------------- */
+
+    #empty-space {
+      user-select: none;
+      margin-right: 0.1rem;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+
+    /* -------------------- Container -------------------- */
+    #cta-1014 .cs-container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    /* -------------------- Container -------------------- */
+
+    /* -------------------- Header Container -------------------- */
+    #cta-1014 .cs-left-section {
+      max-width: 27.125rem;
+      margin-top: auto;
+      margin-bottom: auto;
+      display: block;
+    }
+    /* -------------------- Header Container -------------------- */
+
+    /* -------------------- Header Title -------------------- */
+    #cta-1014 .cs-title {
+      text-align: left;
+    }
+    /* -------------------- Header Title -------------------- */
+
+    /* -------------------- Content Container -------------------- */
+    #cta-1014 .cs-content {
+      align-items: flex-end;
+      text-align: right;
+      /* prevents flexbox from squishing it */
+      flex: none;
+    }
+    /* -------------------- Content Container -------------------- */
+  }
+          
+  
+
+
+/*-- -------------------------- -->
+<---          Footer            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+  /* ------------------------------------ Footer Styling ------------------------------------ */
+    #cs-footer-1292 {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      padding: var(--sectionPadding);
+      padding-bottom: 1.25rem;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      z-index: 10;
+      background: #D9BC6F;
+      background: -moz-linear-gradient(90deg, #D9BC6F 0%, #d9bd6fcc 100%);
+      background: -webkit-linear-gradient(90deg, #D9BC6F 0%, rgba(217, 189, 111, 0.8) 100%);
+      background: linear-gradient(90deg, #D9BC6F 0%, rgba(217, 189, 111, 0.8) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#D9BC6F",endColorstr="#d9bd6fcc",GradientType=1);
+      /* Navigation Links */
+    }
+  /* ------------------------------------ Footer Styling ------------------------------------ */
+
+  /* ------------------------------------ Container ------------------------------------ */
+    #cs-footer-1292 .cs-container {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      column-gap: 1.5rem;
+      row-gap: 2.25rem;
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+  /* ------------------------------------ Logo Container ------------------------------------ */
+    #cs-footer-1292 .cs-logo-group {
+      /* takes up all the space, lets the other ul's wrap below it */
+      width: 100%;
+      position: relative;
+    }
+  /* ------------------------------------ Logo Container ------------------------------------ */
+
+  /* ------------------------------------ Logo ------------------------------------ */
+    #cs-footer-1292 .cs-logo {
+      width: 12.3125rem;
+      height: auto;
+      display: block;
+      /* 20px - 24px */
+      margin: 0 0 clamp(1.25rem, 2vw, 1.5rem) 0;
+    }
+
+    #cs-footer-1292 .cs-logo-img {
+      width: 30%;
+      height: auto;
+      margin-bottom: -12px; 
+    }
+
+    #cs-footer-1292 .cs-logo-img.dark {
+      display: none;
+    }
+  /* ------------------------------------ Logo ------------------------------------ */
+
+  /* ------------------------------------ Logo Container Text ------------------------------------ */
+    #cs-footer-1292 .cs-text {
+      font-size: 0.875rem;
+      line-height: 1.5em;
+      /* 20px - 36px */
+      margin: 0 0 clamp(1.25rem, 3vw, 2.25rem);
+      width: 78%;
+      max-width: 15rem;
+      color: var(--bodyTextColor);
+    }
+  /* ------------------------------------ Logo Container Text ------------------------------------ */
+
+  /* ------------------------------------ Logo Container Contact Link ------------------------------------ */
+    #cs-footer-1292 .cs-link {
+      font-size: 0.875rem;
+      line-height: 1.5em;
+      text-decoration: none;
+      margin: 0;
+      color: var(--headerColor);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color .3s;
+    }
+  
+    #cs-footer-1292 .cs-link:hover {
+      color: var(--secondaryLight);
+    }
+  /* ------------------------------------ Logo Container Contact Link ------------------------------------ */
+
+  /* ------------------------------------ Services Group ------------------------------------ */
+    #cs-footer-1292 .cs-nav {
+      width: 45%;
+      max-width: 11.25rem;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  /* ------------------------------------ Services Group ------------------------------------ */
+
+  /* ------------------------------------ Services Group Link ------------------------------------ */
+    #cs-footer-1292 .cs-nav-li {
+      list-style: none;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  /* ------------------------------------ Services Group Link ------------------------------------ */
+
+  /* ------------------------------------ Services Group Link Header ------------------------------------ */
+    #cs-footer-1292 .cs-header {
+      font-size: 1rem;
+      line-height: 1.2em;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--headerColor);
+      position: relative;
+      display: block;
+    }
+  /* ------------------------------------ Services Group Link Header ------------------------------------ */
+
+  /* ------------------------------------ Services Group Redirect Link (anchor) ------------------------------------ */
+    #cs-footer-1292 .cs-nav-link {
+      font-size: 0.875rem;
+      text-decoration: none;
+      line-height: 1.5em;
+      width: auto;
+      color: var(--bodyTextColor);
+      position: relative;
+      display: inline-block;
+      transition: color .3s;
+    }
+
+    #cs-footer-1292 .cs-nav-link:before {
+      /* underline */
+      content: '';
+      width: 0%;
+      height: 0.125rem;
+      background: currentColor;
+      opacity: 1;
+      position: absolute;
+      display: block;
+      bottom: -0.125rem;
+      left: 0;
+      transition: width .3s;
+    }
+
+    #cs-footer-1292 .cs-nav-link:hover {
+      color: var(--secondaryLight);
+    }
+
+    #cs-footer-1292 .cs-nav-link:hover:before {
+      width: 100%;
+    }
+  /* ------------------------------------ Services Group Redirect Link (anchor) ------------------------------------ */
+
+  /* ------------------------------------ Resonat Promo Container ------------------------------------ */
+    #cs-footer-1292 .cs-bottom {
+      max-width: 80rem;
+      margin: auto;
+      /* 48px - 100px */
+      margin-top: clamp(3rem, 9vw, 6.25rem);
+      /* 20px - 32px */
+      padding: clamp(1.25rem, 3vw, 2rem) 0 0 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      column-gap: 2.25rem;
+      row-gap: 0.75rem;
+    }
+  /* ------------------------------------ Resonat Promo Container ------------------------------------ */
+
+  /* ------------------------------------ Resonat Promo ------------------------------------ */
+    #cs-footer-1292 .cs-copyright,
+    #cs-footer-1292 .cs-copyright-link {
+      font-size: 0.875rem;
+      line-height: 1.5em;
+      color: var(--bodyTextColor);
+      padding-bottom: 70px;
+    }
+
+    #cs-footer-1292 .cs-copyright {
+      text-align: center;
+      width: 100%;
+    }
+
+    #cs-footer-1292 .cs-copyright-link {
+      text-decoration: none;
+      transition: color .3s;
+      color: rgb(2, 128, 201);
+    }
+
+    #cs-footer-1292 .cs-copyright-link:hover {
+      color: rgb(2, 92, 144);
+    }
+  /* ------------------------------------ Resonat Promo ------------------------------------ */
+
+  /* ------------------------------------ Assets Used ------------------------------------ */
+    #assets-used {
+      color: var(--bodyTextColor);
+      text-decoration: underline;
+      position: relative;
+      bottom: -1em;
+      font-size: 0.8rem;
+    }
+  /* ------------------------------------ Assets Used ------------------------------------ */
+
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+    #cs-footer-1292 .cs-floater {
+      width: 31.625rem;
+      height: 31.625rem;
+      margin-left: 34.375rem;
+      border-radius: 50%;
+      border: 2px solid var(--secondaryLight);
+      opacity: 0.5;
+      display: block;
+      position: absolute;
+      top: 0%;
+      left: -50%;
+    }
+  
+    #cs-footer-1292 .cs-floater:before {
+      content: '';
+      width: 31.625rem;
+      height: 31.625rem;
+      border: 1px solid var(--secondaryLight);
+      border-radius: 50%;
+      opacity: .4;
+      position: absolute;
+      display: block;
+      transform: translate(20%, 0%) scale(1.6);
+      will-change: transform;
+      
+    }
+
+    #cs-footer-1292 .cs-floater:after {
+      content: '';
+      width: 31.625rem;
+      height: 31.625rem;
+      border: 1px solid var(--secondaryLight);
+      border-radius: 50%;
+      opacity: .2;
+      position: absolute;
+      display: block;
+      transform: translate(20%, 0%) scale(1.8);
+      will-change: transform;
+      
+    }
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+  /* ------------------------------------ Container ------------------------------------ */  
+    #cs-footer-1292 .cs-container {
+      row-gap: 0;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      column-gap: 5.5rem;
+      row-gap: 2.5rem;
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+    /* ------------------------------------ Floating Circles ------------------------------------ */
+    #cs-footer-1292 .cs-floater {
+      width: 31.625rem;
+      height: 31.625rem;
+      margin-left: 34.375rem;
+      border-radius: 50%;
+      border: 2px solid var(--secondaryLight);
+      opacity: 0.7;
+      display: none;
+      position: absolute;
+      scale: 1;
+      top: -8%;
+      left: 65%;
+    }
+  
+    #cs-footer-1292 .cs-floater:before {
+      content: '';
+      width: 31.625rem;
+      height: 31.625rem;
+      border: 1px solid var(--secondaryLight);
+      border-radius: 50%;
+      opacity: .5;
+      position: absolute;
+      display: block;
+      transform: translate(10%, 0%) scale(1.6);
+      will-change: transform;
+      
+    }
+
+    #cs-footer-1292 .cs-floater:after {
+      content: '';
+      width: 31.625rem;
+      height: 31.625rem;
+      border: 1px solid var(--secondaryLight);
+      border-radius: 50%;
+      opacity: .3;
+      position: absolute;
+      display: block;
+      transform: translate(0%, 0%) scale(1.8);
+      will-change: transform;
+      
+    }
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+
+  /* ------------------------------------ Services Group ------------------------------------ */
+    #cs-footer-1292 .cs-nav {
+      width: auto;
+    }
+  /* ------------------------------------ Services Group ------------------------------------ */
+
+  /* ------------------------------------ Misc Info Container ------------------------------------ */
+    #cs-footer-1292 .cs-bottom {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+  /* ------------------------------------ Misc Info Container ------------------------------------ */
+
+  /* ------------------------------------ Resonat Promo ------------------------------------ */
+    #cs-footer-1292 .cs-copyright {
+      text-align: left;
+      width: auto;
+      margin-right: auto;
+      padding-bottom: 0;
+    }
+  /* ------------------------------------ Resonat Promo ------------------------------------ */
+
+  /* ------------------------------------ Assets Used ------------------------------------ */
+    #assets-used {
+      color: var(--bodyTextColor);
+      text-decoration: none;
+      position: inline-block;
+      bottom: 0;
+    }
+
+    #assets-used:hover {
+      text-decoration: underline;
+    }
+  /* ------------------------------------ Assets Used ------------------------------------ */
+
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+    #cs-footer-1292 .cs-floater {
+      display: block;
+    }
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+  }
+  /* Small Desktop - 1024px */
+  @media only screen and (min-width: 64rem) {
+  /* ------------------------------------ Container ------------------------------------ */  
+    #cs-footer-1292 .cs-container {
+      max-width: 80rem;
+      flex-wrap: nowrap;
+      /* align everything to the right */
+      justify-content: flex-end;
+      column-gap: clamp(2.5rem, 6vw, 5.25rem);
+    }
+  /* ------------------------------------ Container ------------------------------------ */
+
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+    #cs-footer-1292 .cs-floater {
+      width: 31.625rem;
+      height: 31.625rem;
+      margin-left: 34.375rem;
+      border-radius: 50%;
+      border: 2px solid var(--secondaryLight);
+      opacity: 0.7;
+      display: block;
+      position: absolute;
+      scale: 1;
+      top: -8%;
+      left: 65%;
+    }
+  
+    #cs-footer-1292 .cs-floater:before {
+      content: '';
+      width: 31.625rem;
+      height: 31.625rem;
+      border: 1px solid var(--secondaryLight);
+      border-radius: 50%;
+      opacity: .5;
+      position: absolute;
+      display: block;
+      transform: translate(10%, 0%) scale(1.6);
+      will-change: transform;
+      
+    }
+
+    #cs-footer-1292 .cs-floater:after {
+      content: '';
+      width: 31.625rem;
+      height: 31.625rem;
+      border: 1px solid var(--secondaryLight);
+      border-radius: 50%;
+      opacity: .3;
+      position: absolute;
+      display: block;
+      transform: translate(0%, 0%) scale(1.8);
+      will-change: transform;
+      
+    }
+  /* ------------------------------------ Floating Circles ------------------------------------ */
+
+  /* ------------------------------------ Logo Container ------------------------------------ */
+    #cs-footer-1292 .cs-logo-group {
+      width: 30%;
+      max-width: 24.1875rem;
+      /* pushes away from everything to the right */
+      margin-right: auto;
+    }
+  /* ------------------------------------ Logo Container ------------------------------------ */
+
+  /* ------------------------------------ Logo Container Text ------------------------------------ */
+    #cs-footer-1292 .cs-text {
+      width: 100%;
+    }
+  /* ------------------------------------ Logo Container Text ------------------------------------ */
+  }

@@ -1,0 +1,1561 @@
+/* ------------------- Global Attributes ------------------- */
+body, html {
+  /* reset margin and padding so there's no gap between the nav and the screen edges */
+  margin: 0;
+  padding: 0;
+  background: whitesmoke;
+}
+
+* {
+font-family: 'Roboto', 'Arial', sans-serif !important;
+}
+
+p {
+  letter-spacing: 0.5px;
+}
+
+/* ------------------- Profiles ------------------- */
+:root {
+  --primary: #D9BC6F;
+  --primaryLight: #dccb9b;
+  --secondary: #8D6A9F;
+  --secondaryLight: #af90bf;
+  --headerColor: rgba(26, 26, 26, 1);
+  --bodyTextColor: rgba(26, 26, 26, 0.7);
+  --bodyTextColorWhite: #FAFBFC;
+  /* 13px - 16px */
+  --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+  /* 31px - 49px */
+  --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+  --bodyFontSize: 1rem;
+  /* 60px - 100px top and bottom */
+  --sectionPadding: clamp(3.75em, 7.82vw, 6.25em) 1rem;
+  --scroll-size: 15px;
+  --scroll-radius: 20px;
+  --scroll-track: rgb(255 255 255 / 10%);
+  --scroll-thumb: linear-gradient(0deg, hsl(280, 22%, 60%), hsl(280, 22%, 45%));
+}
+/* ------------------- Profiles ------------------- */
+
+/* ------------------- Scroll Bar ------------------- */
+html {
+  scrollbar-color: var(--scroll-thumb-color, grey) var(--scroll-track, transparent);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: var(--scroll-size, 10px);
+  height: var(--scroll-size, 10px);
+}
+::-webkit-scrollbar-track {
+  background-color: var(--scroll-track, transparent);
+  border-radius: var(--scroll-track-radius, var(--scroll-radius));
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color, grey);
+  background-image: var(--scroll-thumb, none);
+  border-radius: var(--scroll-thumb-radius, var(--scroll-radius));
+}
+/* ------------------- Scroll Bar ------------------- */
+
+/*-- -------------------------- -->
+<---     Mobile Navigation      -->
+<--- -------------------------- -*/
+
+/* Mobile - 1023px */
+@media only screen and (max-width: 63.9375rem) {
+
+  /* ----- Mobile Nav Bar Window ----- */
+    body.cs-open {
+      overflow: hidden;
+    }
+  /* ----- Mobile Nav Bar Window ----- */
+
+  /* ---------------- Nav Bar Black Background on Scroll ---------------- */
+    body.scroll #cs-navigation:before {
+      height: 100%;
+    }
+    
+    #cs-navigation {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      width: 100%;
+      padding: 1.25rem 1rem;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      background: rgba(26, 26, 26, 0.08);
+      -webkit-backdrop-filter: blur(27px);
+      backdrop-filter: blur(27px);
+      position: fixed;
+      z-index: 10000;
+      transition: background-color 0.3s;
+    }
+
+    #cs-navigation:before {
+      content: '';
+      width: 100%;
+      height: 0%;
+      background: #1a1a1a;
+      opacity: 1;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      transition: height .3s;
+    }
+
+    #cs-navigation:after {
+      content: '';
+      width: 100%;
+      height: 0vh;
+      background: rgba(0, 0, 0, 0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      position: absolute;
+      display: block;
+      top: 0%;
+      right: 0;
+      z-index: -1100;
+      opacity: 0;
+      transition: height .5s, opacity .5s;
+      will-change: opacity;
+    }
+  /* ---------------- Nav Bar Black Background on Scroll ---------------- */
+  
+  /* ---------------- Nav Bar After Scrolling ---------------- */
+    #cs-navigation.cs-active {
+      background-color: #1a1a1a;
+    }
+
+    #cs-navigation.cs-active:after {
+      height: 150vh;
+      opacity: 1;
+    }
+
+    #cs-navigation.cs-active .cs-ul-wrapper {
+      opacity: 1;
+      transform: scaleY(1);
+      transition-delay: .15s;
+      will-change: transform;
+      
+    }
+
+    #cs-navigation.cs-active .cs-li {
+      transform: translateY(0);
+      opacity: 1;
+      will-change: transform;
+      
+    }
+  /* ---------------- Nav Bar After Scrolling ---------------- */
+  
+  /* -------- Nav Bar Container -------- */
+    #cs-navigation .cs-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  /* -------- Nav Bar Container -------- */
+
+  /* ------------- Nav Bar Logo ------------- */
+
+    /* ------------- Logo Container ------------- */
+      #cs-navigation .cs-logo {
+        width: auto;
+        /* 56px - 80px */
+        height: clamp(3.5rem, 5vw, 5rem);
+        margin: 0 auto 0 0;
+        padding: 0;
+        /* prevents padding from affecting height and width */
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+      }
+    /* ------------- Logo Container ------------- */
+    
+    /* ------------- Logo ------------- */
+      #cs-navigation .cs-logo img {
+        width: 100%;
+        height: 100%;
+        /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+        object-fit: contain;
+      }
+    /* ------------- Logo ------------- */
+
+  /* ------------- Nav Bar Logo ------------- */
+
+  /* ------- Mobile Phone Expand Button ------- */
+
+    /* ------- Click to Expand Button ------- */
+      #cs-navigation .cs-toggle {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin: 0 0 0 auto;
+        background-color: var(--primary);
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform .6s;
+        position: relative;
+        z-index: 10;
+        will-change: transform;
+        
+      }
+    /* ------- Click to Expand Button ------- */
+
+    /* -------- Expand Button Click Animation -------- */
+      #cs-navigation .cs-toggle.cs-active {
+        transform: rotate(180deg);
+        will-change: transform;
+        
+      }
+    
+      /* ------------- Button Icon Line 1/3 ------------- */
+        #cs-navigation .cs-active .cs-line1 {
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(225deg);
+        }
+
+        #cs-navigation .cs-line1 {
+          top: 0;
+          transform-origin: center;
+          transition: transform .5s, top .3S, left .3S;
+          animation-duration: .7s;
+          animation-timing-function: ease;
+          animation-fill-mode: forwards;
+          animation-direction: normal;
+          will-change: transform;
+          
+        }
+      /* ------------- Button Icon Line 1/3 ------------- */
+      
+      /* ------------- Button Icon Line 2/3 ------------- */
+        #cs-navigation .cs-active .cs-line2 {
+          top: 50%;
+          transform-origin: center;
+          transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
+        }
+
+        #cs-navigation .cs-line2 {
+          top: 45%;
+          transform: translateX(-50%) translateY(-50%);
+          transition: top .3s, left .3s, transform .5s;
+          animation-duration: .7s;
+          animation-timing-function: ease;
+          animation-fill-mode: forwards;
+          animation-direction: normal;
+          will-change: transform;
+          
+        }
+      /* ------------- Button Icon Line 2/3 ------------- */
+
+      /* ------------- Button Icon Line 3/3 ------------- */
+        #cs-navigation .cs-active .cs-line3 {
+          bottom: 100%;
+          opacity: 0;
+        }
+
+        #cs-navigation .cs-line3 {
+          bottom: 0;
+          transition: bottom .3s, opacity .3s;
+        }
+      /* ------------- Button Icon Line 3/3 ------------- */
+
+    /* -------- Expand Button Click Animation -------- */
+    
+    /* ------ Container Box for Expand Button ------ */
+      #cs-navigation .cs-box {
+        /* 24px - 28px */
+        width: clamp(1.5rem, 2vw, 1.75rem);
+        height: 1rem;
+        position: relative;
+      }
+    /* ------ Container Box for Expand Button ------ */
+
+    /* ------- Format of Button Icon ------- */
+      #cs-navigation .cs-line {
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #FAFBFC;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        will-change: transform;
+        
+      }
+    /* ------- Format of Button Icon ------- */
+
+  /* ------- Mobile Phone Expand Button ------- */
+
+  /* ------------------- Nav Bar Buttons Container ------------------- */
+    #cs-navigation .cs-ul-wrapper {
+      width: 100%;
+      height: auto;
+      padding-bottom: 2.4em;
+      opacity: 0;
+      background-color: #fff;
+      box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
+      overflow: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: -1;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .4s, opacity .3s;
+      will-change: transform;
+      
+    }
+  /* ------------------- Nav Bar Buttons Container ------------------- */
+
+  /* --------------------- ul Element --------------------- */
+    #cs-navigation .cs-ul {
+      margin: 0;
+      padding: 3rem 0 0 0;
+      width: 100%;
+      height: auto;
+      max-height: 65vh;
+      overflow: scroll;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+  /* --------------------- ul Element --------------------- */
+
+  /* --------------------- Buttons --------------------- */
+    #cs-navigation .cs-li {
+      width: 100%;
+      text-align: center;
+      list-style: none;
+      margin-right: 0;
+      /* transition from these values */
+      transform: translateY(-4.375rem);
+      opacity: 0;
+      transition: transform .6s, opacity .9s;
+      will-change: transform;
+      
+    }
+
+    /* -------------- Buttons Animation when Active -------------- */
+      #cs-navigation .cs-li:nth-of-type(1) {
+        transition-delay: .05s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(2) {
+        transition-delay: .1s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(3) {
+        transition-delay: .15s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(4) {
+        transition-delay: .2s;
+      }
+
+      #cs-navigation .cs-li:nth-of-type(5) {
+        transition-delay: .25s;
+      }
+    /* -------------- Buttons Animation when Active -------------- */
+    
+    /* --------- Button Links --------- */
+    #cs-navigation .cs-li-link {
+      /* 16px - 24px */
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0;
+      color: var(--headerColor);
+      display: inline-block;
+      position: relative;
+      will-change: transform;
+      
+    }
+
+    #cs-navigation .cs-li-link.cs-active {
+      color: var(--primary);
+    }
+
+    #cs-navigation .cs-li-link:hover {
+      color: var(--primary);
+    }
+    /* --------- Button Links --------- */
+
+    #cs-navigation .cs-button-solid {
+      display: none;
+    }
+  /* --------------------- Buttons --------------------- */
+}
+
+/*-- -------------------------- -->
+<---     Desktop Navigation     -->
+<--- -------------------------- -*/
+
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+  /* -------------------------- Header Element -------------------------- */
+    #cs-navigation {
+      /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+      font-family: 'Roboto', 'Arial', sans-serif;
+      width: 100%;
+      padding: 0 1rem;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      background: rgba(26, 26, 26, 0.08);
+      -webkit-backdrop-filter: blur(27px);
+      backdrop-filter: blur(27px);
+      position: fixed;
+      z-index: 10000;
+    }
+
+    #cs-navigation:before {
+      /* on scroll background */
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: #1a1a1a;
+      opacity: 1;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      transition: height .3s;
+    }
+  /* -------------------------- Header Element -------------------------- */
+
+  /* -------------------------- Nav Bar Container -------------------------- */
+    #cs-navigation .cs-container {
+      width: 100%;
+      /* same height as the cs-ul-wrapper */
+      height: 6.3125rem;
+      max-width: 80rem;
+      margin: auto;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+    }
+  /* -------------------------- Nav Bar Container -------------------------- */
+
+  #cs-navigation .cs-toggle {
+    display: none;
+  }
+
+  /* -------------------------- Nav Bar Logo -------------------------- */
+    #cs-navigation .cs-logo {
+      width: auto;
+      height: 3.75rem;
+      /* margin-right auto pushes everything away from it to the right */
+      margin: 4px auto 0 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    #cs-navigation .cs-logo img {
+      width: 90%;
+      height: 90%;
+      /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+      object-fit: contain;
+    }
+  /* -------------------------- Nav Bar Logo -------------------------- */
+
+  /* -------------------------- Nav Bar Buttons Container -------------------------- */
+    #cs-navigation .cs-ul-wrapper {
+      /* absolutely positioned to be dead center */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
+  /* -------------------------- Nav Bar Buttons Container -------------------------- */
+
+  /* -------------------------- ul Element -------------------------- */
+    #cs-navigation .cs-ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  /* -------------------------- ul Element -------------------------- */
+
+  /* -------------------------- Buttons -------------------------- */
+    #cs-navigation .cs-li {
+      list-style: none;
+      padding: 2.5rem 0;
+      /* prevent flexbox from squishing it */
+      flex: none;
+    }
+  /* -------------------------- Buttons -------------------------- */
+
+  /* -------------------------- Button Links -------------------------- */
+
+      /* ----------------- Unhovered Links ----------------- */
+        #cs-navigation .cs-li-link {
+          /* 14px - 16px */
+          font-size: clamp(0.875rem, 0.6vw, 1rem);
+          line-height: 1.5em;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-decoration: none;
+          text-transform: uppercase;
+          margin: 0;
+          padding: 0 1rem;
+          color: var(--bodyTextColorWhite);
+          display: block;
+          position: relative;
+          z-index: 1;
+          transition: color .3s;
+        }
+      /* ----------------- Unhovered Links ----------------- */
+
+      /* ----------------- Background for Button Links when hovered ----------------- */
+        #cs-navigation .cs-li-link:before {
+          /* on scroll background */
+          content: '';
+          width: 100%;
+          height: 2.5rem;
+          background: var(--primary);
+          opacity: 0;
+          position: absolute;
+          display: block;
+          top: 50%;
+          left: 50%;
+          z-index: -1;
+          transform: translate(-50%, -50%) scale(1.2);
+          transition: opacity .3s, transform .3s;
+          will-change: transform;
+          
+        }
+
+        #cs-navigation .cs-li-link:hover:before {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+          will-change: transform;
+          
+        }
+
+        #cs-navigation .cs-li-link.cs-active:before {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+          will-change: transform;
+        }
+      /* ----------------- Background for Button Links when hovered ----------------- */
+
+  /* -------------------------- Button Links -------------------------- */
+
+  /* ----------------- Book Appointment Button ----------------- */
+
+      /* ----------------- Unhovered Links ----------------- */
+        #cs-navigation .cs-button-solid {
+          font-size: 1rem;
+          /* 46px - 56px */
+          /* line-height: clamp(2.875em, 5.5vw, 3.5em); */
+          text-decoration: none;
+          font-weight: 800;
+          text-align: center;
+          margin: 0;
+          color: #fff;
+          min-width: 9.375rem;
+          padding: 16px 32px;
+          letter-spacing: 1.5px;
+          background-color: transparent;
+          border: 1px solid var(--primary);
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+          /* prevents padding from adding to the width */
+          box-sizing: border-box;
+        }
+      /* ----------------- Unhovered Links ----------------- */
+      
+      /* ----------------- Background for when Hovered ----------------- */
+        #cs-navigation .cs-button-solid:before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 0%;
+          background: var(--primary);
+          opacity: 1;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: width .3s;
+        }
+
+        #cs-navigation .cs-button-solid:hover:before {
+          width: 100%;
+        }
+      /* ----------------- Background for when Hovered ----------------- */
+  /* ----------------- Book Appointment Button ----------------- */
+}
+
+
+
+
+/* =================================== Language Settings Styling =================================== */
+
+/* Phone Version */
+@media only screen and (max-width: 48rem) {
+  /* ------------------ Language Settings Container ------------------ */
+#language-settings-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: fit-content;
+  float: left;
+  left: clamp(0px, calc(10vw - 100px), 1000px);
+  bottom: 2.5vh;
+  z-index: 100;
+  overflow: visible;
+  user-select: none;
+}
+/* ------------------ Language Settings Container ------------------ */
+
+/* ------------------ Language Settings SVG Container ------------------ */
+#language-svg-container {
+  width: 60px;
+  position: relative;
+  aspect-ratio: 1/1;
+  background-color: rgb(234, 234, 234);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transition: all 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+  will-change: transform;
+  
+}
+
+#language-svg-container:hover {
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+/* ------------------ Language Settings SVG Container ------------------ */
+
+/* ------------------ Language Settings SVG Styling ------------------ */
+#language-svg {
+  width: 30px;
+  height: 30px;
+}
+/* ------------------ Language Settings SVG Styling ------------------ */
+
+/* ------------------ Language Settings Options Container ------------------ */
+#flag-container {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  height: 0px;
+  overflow: hidden;
+  justify-content: center;
+  background-color: rgb(234, 234, 234);
+  position: relative;
+  bottom: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 0 black;
+  transition: height 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#flag-container.visible {
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+  height: 258px;
+}
+/* ------------------ Language Settings Options Container ------------------ */
+
+/* ------------------ Language Settings Menu Header ------------------ */
+#language-settings-container span {
+  text-align: center;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+/* ------------------ Language Settings Menu Header ------------------ */
+
+/* ------------------ Language Options Menu Container ------------------ */
+#flag-svg-container {
+  display: grid;
+  justify-content: center;
+}
+/* ------------------ Language Options Menu Container ------------------ */
+
+/* ------------------ Language Greek Language Option ------------------ */
+#greek-flag {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  overflow: hidden;
+  object-position: 0px 0;
+  cursor: pointer;
+  justify-content: center;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+/* ------------------ Language Greek Language Option ------------------ */
+
+/* ------------------ Language Greek Language Option Container ------------------ */
+#greek-flag-container {
+  width: 100px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50px;
+  scale: 0.88;
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+  display: flex;
+  justify-content: center;
+}
+/* ------------------ Language Greek Language Option Container ------------------ */
+
+/* ------------------ Language Greek Language Option ------------------ */
+#uk-flag {
+  object-fit: cover;
+  overflow: hidden;
+  object-position: -25px 0;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  justify-content: center;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+/* ------------------ Language Greek Language Option ------------------ */
+
+/* ------------------ Language English Language Option Container ------------------ */
+#uk-flag-container {
+  margin-top: 4px;
+  width: 100px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50px;
+  scale: 0.88;
+  display: flex;
+  justify-content: center;
+}
+/* ------------------ Language English Language Option Container ------------------ */
+}
+
+/* Tablet and Desktop Vesion */
+@media only screen and (min-width: 48.01rem) {
+/* ------------------ Language Settings Container ------------------ */
+#language-settings-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: fit-content;
+  float: left;
+  left: clamp(10px, calc(10vw - 100px), 1000px);
+  bottom: 3vw;
+  z-index: 100;
+  overflow: visible;
+  user-select: none;
+}
+/* ------------------ Language Settings Container ------------------ */
+
+/* ------------------ Language Settings SVG Container ------------------ */
+#language-svg-container {
+  width: 60px;
+  position: relative;
+  aspect-ratio: 1/1;
+  background-color: rgb(234, 234, 234);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transition: all 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+  will-change: transform;
+  
+}
+
+#language-svg-container:hover {
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+/* ------------------ Language Settings SVG Container ------------------ */
+
+/* ------------------ Language Settings SVG Styling ------------------ */
+#language-svg {
+  width: 30px;
+  height: 30px;
+}
+/* ------------------ Language Settings SVG Styling ------------------ */
+
+/* ------------------ Language Settings Options Container ------------------ */
+#flag-container {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 0px;
+  overflow: hidden;
+  justify-content: center;
+  background-color: rgb(234, 234, 234);
+  position: relative;
+  bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 0 black;
+  transition: height 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#flag-container.visible {
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+  height: 190px;
+}
+/* ------------------ Language Settings Options Container ------------------ */
+
+/* ------------------ Language Settings Menu Header ------------------ */
+#language-settings-container span {
+  text-align: center;
+  color: black;
+  font-weight: 400;
+  margin-top: 16px;
+}
+/* ------------------ Language Settings Menu Header ------------------ */
+
+/* ------------------ Language Options Menu Container ------------------ */
+#flag-svg-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 90px;
+  width: 100px;
+  align-content: center;
+  justify-items: center;
+  margin-bottom: -8px;
+}
+/* ------------------ Language Options Menu Container ------------------ */
+
+/* ------------------ Language Greek Language Option ------------------ */
+#greek-flag {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 50px;
+  object-position: 0px 0;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 black;
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#greek-flag-container:hover #greek-flag {
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+/* ------------------ Language Greek Language Option ------------------ */
+
+/* ------------------ Language Greek Language Option Container ------------------ */
+#greek-flag-container {
+  display: flex;
+  width: 50px;
+  height: 90px;
+  overflow: visible;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+  cursor: pointer;
+  will-change: transform;
+  
+}
+
+#greek-flag-container:hover {
+  transform: scale(1.05);
+}
+/* ------------------ Language Greek Language Option Container ------------------ */
+
+/* ------------------ Language Greek Language Option ------------------ */
+#uk-flag {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 50px;
+  object-position: -20px 0;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 black;
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+#uk-flag-container:hover #uk-flag {
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+/* ------------------ Language Greek Language Option ------------------ */
+
+/* ------------------ Language English Language Option Container ------------------ */
+#uk-flag-container {
+  display: flex;
+  width: 50px;
+  height: 90px;
+  overflow: visible;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+  cursor: pointer;
+  will-change: transform;
+  
+}
+
+#uk-flag-container:hover {
+  transform: scale(1.05);
+}
+/* ------------------ Language English Language Option Container ------------------ */
+}
+
+
+
+/* =================================== Language Settings Styling =================================== */
+
+
+
+
+/*-- --------------------------- -->
+<---          Section            -->
+<--- --------------------------- -*/
+@media (min-width: 0rem) {
+    #section-copyright {
+        display: flex;
+        padding: var(--sectionPadding);
+        max-width: 80rem;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #section-copyright h1 {
+        margin-top: 4em;
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 2em;
+    }
+    
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(50px, 1fr));
+        grid-gap: 16px;
+        position: relative;
+    }
+    
+    .grid-item {
+        display: flex;
+        justify-content: center;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        max-width: 100%;
+        overflow: hidden;
+        background: #eaeaea;
+    }
+
+    figure {
+        margin: 0;
+        width: 100%;
+    }
+
+    figcaption {
+        background-color: #eaeaea;
+        width: clamp(0px, 100%, 50ch);
+    }
+
+    figcaption span {
+        padding: 1em;
+        display: block;
+        font-size: clamp(12px, 3vw, 1rem);
+        letter-spacing: clamp(0px, 2em, 0.5px);
+        line-height: 1.5em;
+        text-align: left;
+    }
+
+    figcaption span a {
+      text-wrap: wrap;
+    }
+
+    .grid-item img {
+        max-height: 350px;
+        object-fit: cover;
+    }
+
+    .grid-item picture {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        min-height: 150px;
+        align-items: start;
+        object-fit: cover;
+    }
+
+    #item-7 picture {
+      height: 350px;
+      align-items: center;
+      background-color: #c5c5c5;
+    }
+
+    #item-8 picture {
+      height: 350px;
+      align-items: center;
+      background-color: #c5c5c5;
+    }
+
+    #item-11 picture {
+      height: 350px;
+      align-items: center;
+      background-color: #c5c5c5;
+    }
+
+    #item-12 picture {
+      height: 350px;
+      align-items: center;
+      background-color: #c5c5c5;
+    }
+
+    #item-13 picture {
+      height: 350px;
+      align-items: center;
+      background-color: #c5c5c5;
+    }
+
+    #item-13 picture svg {
+      width: 100px;
+      height: 100px;
+    }
+
+    #item-14 picture {
+      height: 350px;
+      align-items: center;
+      background-color: #c5c5c5;
+    }
+
+    #item-14 picture img {
+      height: 100px;
+     width: auto;
+    }
+
+    #item-15 picture {
+      height: 350px;
+      align-items: center;
+      background-color: #c5c5c5;
+    }
+
+    #item-15 picture img {
+      height: 100px;
+      width: auto;
+    }
+
+    #resonat-promo-container {
+      display: inline-block;
+      padding: 0;
+    }
+
+    #resonat-promo {
+      text-decoration: none;
+      transition: color .3s;
+      color: rgb(2, 128, 201);
+      width: auto;
+      display: inline-block;
+    }
+
+    #resonat-promo:hover {
+      color: rgb(2, 92, 144);
+    }
+
+    #resonat-promo:before {
+      content: '';
+        width: 0%;
+        height: 0.125rem;
+        background: currentColor;
+        opacity: 1;
+        position: relative; 
+        display: block;
+        bottom: -1.5em;
+        left: 0;
+        transition: width .3s, color .3s;
+        color: rgb(2, 128, 201);
+    }
+
+    #resonat-promo:hover:before{
+      width: 100%;
+      color: rgb(2, 92, 144);
+    }
+}
+
+@media (min-width: 48rem) {
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(175px, 1fr));
+        grid-gap: 16px;
+    }
+}
+
+@media (min-width: 64rem) {
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(175px, 1fr));
+        grid-gap: 16px;
+    }
+}
+
+
+
+
+
+
+/*-- -------------------------- -->
+<---          Footer            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    /* ------------------------------------ Footer Styling ------------------------------------ */
+      #cs-footer-1292 {
+        /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+        font-family: 'Roboto', 'Arial', sans-serif;
+        padding: var(--sectionPadding);
+        padding-bottom: 1.25rem;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+        z-index: 10;
+        background: #D9BC6F;
+        background: -moz-linear-gradient(90deg, #D9BC6F 0%, #d9bd6fcc 100%);
+        background: -webkit-linear-gradient(90deg, #D9BC6F 0%, rgba(217, 189, 111, 0.8) 100%);
+        background: linear-gradient(90deg, #D9BC6F 0%, rgba(217, 189, 111, 0.8) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#D9BC6F",endColorstr="#d9bd6fcc",GradientType=1);
+      }
+    /* ------------------------------------ Footer Styling ------------------------------------ */
+  
+    /* ------------------------------------ Container ------------------------------------ */
+      #cs-footer-1292 .cs-container {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        column-gap: 1.5rem;
+        row-gap: 2.25rem;
+      }
+    /* ------------------------------------ Container ------------------------------------ */
+  
+    /* ------------------------------------ Logo Container ------------------------------------ */
+      #cs-footer-1292 .cs-logo-group {
+        /* takes up all the space, lets the other ul's wrap below it */
+        width: 100%;
+        position: relative;
+      }
+    /* ------------------------------------ Logo Container ------------------------------------ */
+  
+    /* ------------------------------------ Logo ------------------------------------ */
+      #cs-footer-1292 .cs-logo {
+        width: 12.3125rem;
+        height: auto;
+        display: block;
+        /* 20px - 24px */
+        margin: 0 0 clamp(1.25rem, 2vw, 1.5rem) 0;
+      }
+  
+      #cs-footer-1292 .cs-logo-img {
+        width: 30%;
+        height: auto;
+        margin-bottom: -12px; 
+      }
+  
+      #cs-footer-1292 .cs-logo-img.dark {
+        display: none;
+      }
+    /* ------------------------------------ Logo ------------------------------------ */
+  
+    /* ------------------------------------ Logo Container Text ------------------------------------ */
+      #cs-footer-1292 .cs-text {
+        font-size: 0.875rem;
+        line-height: 1.5em;
+        /* 20px - 36px */
+        margin: 0 0 clamp(1.25rem, 3vw, 2.25rem);
+        width: 78%;
+        max-width: 15rem;
+        color: var(--bodyTextColor);
+      }
+    /* ------------------------------------ Logo Container Text ------------------------------------ */
+  
+    /* ------------------------------------ Logo Container Contact Link ------------------------------------ */
+      #cs-footer-1292 .cs-link {
+        font-size: 0.875rem;
+        line-height: 1.5em;
+        text-decoration: none;
+        margin: 0;
+        color: var(--headerColor);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.75rem;
+        transition: color .3s;
+      }
+    
+      #cs-footer-1292 .cs-link:hover {
+        color: var(--secondaryLight);
+      }
+    /* ------------------------------------ Logo Container Contact Link ------------------------------------ */
+  
+    /* ------------------------------------ Services Group ------------------------------------ */
+      #cs-footer-1292 .cs-nav {
+        width: 45%;
+        max-width: 11.25rem;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    /* ------------------------------------ Services Group ------------------------------------ */
+  
+    /* ------------------------------------ Services Group Link ------------------------------------ */
+      #cs-footer-1292 .cs-nav-li {
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    /* ------------------------------------ Services Group Link ------------------------------------ */
+  
+    /* ------------------------------------ Services Group Link Header ------------------------------------ */
+      #cs-footer-1292 .cs-header {
+        font-size: 1rem;
+        line-height: 1.2em;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--headerColor);
+        position: relative;
+        display: block;
+      }
+    /* ------------------------------------ Services Group Link Header ------------------------------------ */
+  
+    /* ------------------------------------ Services Group Redirect Link (anchor) ------------------------------------ */
+      #cs-footer-1292 .cs-nav-link {
+        font-size: 0.875rem;
+        text-decoration: none;
+        line-height: 1.5em;
+        width: auto;
+        color: var(--bodyTextColor);
+        position: relative;
+        display: inline-block;
+        transition: color .3s;
+      }
+  
+      #cs-footer-1292 .cs-nav-link:before {
+        /* underline */
+        content: '';
+        width: 0%;
+        height: 0.125rem;
+        background: currentColor;
+        opacity: 1;
+        position: absolute;
+        display: block;
+        bottom: -0.125rem;
+        left: 0;
+        transition: width .3s;
+      }
+  
+      #cs-footer-1292 .cs-nav-link:hover {
+        color: var(--secondaryLight);
+      }
+  
+      #cs-footer-1292 .cs-nav-link:hover:before {
+        width: 100%;
+      }
+    /* ------------------------------------ Services Group Redirect Link (anchor) ------------------------------------ */
+  
+    /* ------------------------------------ Resonat Promo Container ------------------------------------ */
+      #cs-footer-1292 .cs-bottom {
+        max-width: 80rem;
+        margin: auto;
+        /* 48px - 100px */
+        margin-top: clamp(3rem, 9vw, 6.25rem);
+        /* 20px - 32px */
+        padding: clamp(1.25rem, 3vw, 2rem) 0 0 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 2.25rem;
+        row-gap: 0.75rem;
+      }
+    /* ------------------------------------ Resonat Promo Container ------------------------------------ */
+  
+    /* ------------------------------------ Resonat Promo ------------------------------------ */
+      #cs-footer-1292 .cs-copyright,
+      #cs-footer-1292 .cs-copyright-link {
+        font-size: 0.875rem;
+        line-height: 1.5em;
+        color: var(--bodyTextColor);
+        padding-bottom: 70px;
+      }
+  
+      #cs-footer-1292 .cs-copyright {
+        text-align: center;
+        width: 100%;
+      }
+  
+      #cs-footer-1292 .cs-copyright-link {
+        text-decoration: none;
+        transition: color .3s;
+        color: rgb(2, 128, 201);
+      }
+  
+      #cs-footer-1292 .cs-copyright-link:hover {
+        color: rgb(2, 92, 144);
+      }
+    /* ------------------------------------ Resonat Promo ------------------------------------ */
+  
+      /* ------------------------------------ Assets Used ------------------------------------ */
+      #assets-used {
+        color: var(--bodyTextColor);
+        text-decoration: underline;
+        position: relative;
+        bottom: -1em;
+        font-size: 0.8rem;
+      }
+    /* ------------------------------------ Assets Used ------------------------------------ */
+  
+    /* ------------------------------------ Floating Circles ------------------------------------ */
+      #cs-footer-1292 .cs-floater {
+        width: 31.625rem;
+        height: 31.625rem;
+        margin-left: 34.375rem;
+        border-radius: 50%;
+        border: 2px solid var(--secondaryLight);
+        opacity: 0.5;
+        display: block;
+        position: absolute;
+        top: 0%;
+        left: -50%;
+      }
+    
+      #cs-footer-1292 .cs-floater:before {
+        content: '';
+        width: 31.625rem;
+        height: 31.625rem;
+        border: 1px solid var(--secondaryLight);
+        border-radius: 50%;
+        opacity: .4;
+        position: absolute;
+        display: block;
+        transform: translate(20%, 0%) scale(1.6);
+        will-change: transform;
+        
+      }
+  
+      #cs-footer-1292 .cs-floater:after {
+        content: '';
+        width: 31.625rem;
+        height: 31.625rem;
+        border: 1px solid var(--secondaryLight);
+        border-radius: 50%;
+        opacity: .2;
+        position: absolute;
+        display: block;
+        transform: translate(20%, 0%) scale(1.8);
+        will-change: transform;
+        
+      }
+    /* ------------------------------------ Floating Circles ------------------------------------ */
+    }
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+    /* ------------------------------------ Container ------------------------------------ */  
+      #cs-footer-1292 .cs-container {
+        row-gap: 0;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        column-gap: 5.5rem;
+        row-gap: 2.5rem;
+      }
+    /* ------------------------------------ Container ------------------------------------ */
+  
+      /* ------------------------------------ Floating Circles ------------------------------------ */
+      #cs-footer-1292 .cs-floater {
+        width: 31.625rem;
+        height: 31.625rem;
+        margin-left: 34.375rem;
+        border-radius: 50%;
+        border: 2px solid var(--secondaryLight);
+        opacity: 0.7;
+        display: none;
+        position: absolute;
+        scale: 1;
+        top: -8%;
+        left: 65%;
+      }
+    
+      #cs-footer-1292 .cs-floater:before {
+        content: '';
+        width: 31.625rem;
+        height: 31.625rem;
+        border: 1px solid var(--secondaryLight);
+        border-radius: 50%;
+        opacity: .5;
+        position: absolute;
+        display: block;
+        transform: translate(10%, 0%) scale(1.6);
+        will-change: transform;
+        
+      }
+  
+      #cs-footer-1292 .cs-floater:after {
+        content: '';
+        width: 31.625rem;
+        height: 31.625rem;
+        border: 1px solid var(--secondaryLight);
+        border-radius: 50%;
+        opacity: .3;
+        position: absolute;
+        display: block;
+        transform: translate(0%, 0%) scale(1.8);
+        will-change: transform;
+        
+      }
+    /* ------------------------------------ Floating Circles ------------------------------------ */
+  
+    /* ------------------------------------ Services Group ------------------------------------ */
+      #cs-footer-1292 .cs-nav {
+        width: auto;
+      }
+    /* ------------------------------------ Services Group ------------------------------------ */
+  
+    /* ------------------------------------ Misc Info Container ------------------------------------ */
+      #cs-footer-1292 .cs-bottom {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
+    /* ------------------------------------ Misc Info Container ------------------------------------ */
+  
+    /* ------------------------------------ Resonat Promo ------------------------------------ */
+      #cs-footer-1292 .cs-copyright {
+        text-align: left;
+        width: auto;
+        margin-right: auto;
+        padding-bottom: 0;
+      }
+    /* ------------------------------------ Resonat Promo ------------------------------------ */
+  
+    /* ------------------------------------ Assets Used ------------------------------------ */
+      #assets-used {
+        color: var(--bodyTextColor);
+        text-decoration: none;
+        position: inline-block;
+        bottom: 0;
+      }
+  
+      #assets-used:hover {
+        text-decoration: underline;
+      }
+    /* ------------------------------------ Assets Used ------------------------------------ */
+  
+    /* ------------------------------------ Floating Circles ------------------------------------ */
+      #cs-footer-1292 .cs-floater {
+        display: block;
+      }
+    /* ------------------------------------ Floating Circles ------------------------------------ */
+    }
+    /* Small Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+    /* ------------------------------------ Container ------------------------------------ */  
+      #cs-footer-1292 .cs-container {
+        max-width: 80rem;
+        flex-wrap: nowrap;
+        /* align everything to the right */
+        justify-content: flex-end;
+        column-gap: clamp(2.5rem, 6vw, 5.25rem);
+      }
+    /* ------------------------------------ Container ------------------------------------ */
+  
+    /* ------------------------------------ Floating Circles ------------------------------------ */
+      #cs-footer-1292 .cs-floater {
+        width: 31.625rem;
+        height: 31.625rem;
+        margin-left: 34.375rem;
+        border-radius: 50%;
+        border: 2px solid var(--secondaryLight);
+        opacity: 0.7;
+        display: block;
+        position: absolute;
+        scale: 1;
+        top: -8%;
+        left: 65%;
+      }
+    
+      #cs-footer-1292 .cs-floater:before {
+        content: '';
+        width: 31.625rem;
+        height: 31.625rem;
+        border: 1px solid var(--secondaryLight);
+        border-radius: 50%;
+        opacity: .5;
+        position: absolute;
+        display: block;
+        transform: translate(10%, 0%) scale(1.6);
+        will-change: transform;
+        
+      }
+  
+      #cs-footer-1292 .cs-floater:after {
+        content: '';
+        width: 31.625rem;
+        height: 31.625rem;
+        border: 1px solid var(--secondaryLight);
+        border-radius: 50%;
+        opacity: .3;
+        position: absolute;
+        display: block;
+        transform: translate(0%, 0%) scale(1.8);
+        will-change: transform;
+        
+      }
+    /* ------------------------------------ Floating Circles ------------------------------------ */
+  
+    /* ------------------------------------ Logo Container ------------------------------------ */
+      #cs-footer-1292 .cs-logo-group {
+        width: 30%;
+        max-width: 24.1875rem;
+        /* pushes away from everything to the right */
+        margin-right: auto;
+      }
+    /* ------------------------------------ Logo Container ------------------------------------ */
+  
+    /* ------------------------------------ Logo Container Text ------------------------------------ */
+      #cs-footer-1292 .cs-text {
+        width: 100%;
+      }
+    /* ------------------------------------ Logo Container Text ------------------------------------ */
+    }
