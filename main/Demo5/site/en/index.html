@@ -1,0 +1,2462 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Persa Consta, Limassol's Go-To Registered Personal Dietitian and Nutritionist. With over 10 years of experience, she assists in matters regarding health, fitness and keeping your body young, plumpy and healthy">
+        <meta name="keywords" content="Limassol, near me, nutritionist, and, dietitian, persa, consta, health, diet, fitness, registered, personal, clinical">
+        <meta name="author" content="Designed and coded from Resonat, by Giannis Nikolaou, Marios Georgiou, Matthew Faghiri and Eleni Kapota. john@resonat.net, nikolaou.giannis@yahoo.com, contact@resonat.net, mgeorgiou170102@gmail.com, matt@resonat.net, mattfaghiri@gmail.com, kaponael0701@gmail.com">
+        <meta name='copyright' content='Resonat'>
+        <meta name='language' content='EN'>
+        <meta name='Classification' content='Business'>
+        <meta name='owner' content='Persa Consta'>
+
+        <title>Persa Consta - Home</title>
+        <link rel="icon" href="../images%20used/persas-icon.svg" type="image/x-icon">
+        <link rel="stylesheet" href="../css%20styling/main.css">
+        <style>
+            /* ------------------- Global Attributes ------------------- */
+            body, html {
+                /* reset margin and padding so there's no gap between the nav and the screen edges */
+                margin: 0;
+                padding: 0;
+            }
+
+            * {
+            font-family: 'Roboto', 'Arial', sans-serif !important;
+            }
+
+            p {
+            letter-spacing: 0.5px;
+            }
+            /* ------------------- Global Attributes ------------------- */
+
+            /* ------------------- Profiles ------------------- */
+            :root {
+            --primary: #D9BC6F;
+            --primaryLight: #dccb9b;
+            --secondary: #8D6A9F;
+            --secondaryLight: #af90bf;
+            --headerColor: rgba(26, 26, 26, 1);
+            --bodyTextColor: rgba(26, 26, 26, 0.7);
+            --bodyTextColorWhite: #FAFBFC;
+            /* 13px - 16px */
+            --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+            /* 31px - 49px */
+            --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+            --bodyFontSize: 1rem;
+            /* 60px - 100px top and bottom */
+            --sectionPadding: clamp(3.75em, 7.82vw, 6.25em) 1rem;
+            --scroll-size: 15px;
+            --scroll-radius: 20px;
+            --scroll-track: rgb(255 255 255 / 10%);
+            --scroll-thumb: linear-gradient(0deg, hsl(280, 22%, 60%), hsl(280, 22%, 45%));
+            }
+            /* ------------------- Profiles ------------------- */
+
+            /* ------------------- Scroll Bar ------------------- */
+            html {
+            scrollbar-color: var(--scroll-thumb-color, grey) var(--scroll-track, transparent);
+            scrollbar-width: thin;
+            }
+
+            ::-webkit-scrollbar {
+            width: var(--scroll-size, 10px);
+            height: var(--scroll-size, 10px);
+            }
+            ::-webkit-scrollbar-track {
+            background-color: var(--scroll-track, transparent);
+            border-radius: var(--scroll-track-radius, var(--scroll-radius));
+            }
+            ::-webkit-scrollbar-thumb {
+            background-color: var(--scroll-thumb-color, grey);
+            background-image: var(--scroll-thumb, none);
+            border-radius: var(--scroll-thumb-radius, var(--scroll-radius));
+            }
+            /* ------------------- Scroll Bar ------------------- */
+
+            /*-- -------------------------- -->
+            <---     Mobile Navigation      -->
+            <--- -------------------------- -*/
+
+            /* Mobile - 1023px */
+            @media only screen and (max-width: 63.9375rem) {
+
+            /* ----- Mobile Nav Bar Window ----- */
+                body.cs-open {
+                overflow: hidden;
+                }
+            /* ----- Mobile Nav Bar Window ----- */
+
+            /* ---------------- Nav Bar Black Background on Scroll ---------------- */
+                body.scroll #cs-navigation:before {
+                height: 100%;
+                }
+                
+                #cs-navigation {
+                /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+                font-family: 'Roboto', 'Arial', sans-serif;
+                width: 100%;
+                padding: 1.25rem 1rem;
+                /* prevents padding from affecting height and width */
+                box-sizing: border-box;
+                background: rgba(26, 26, 26, 0.08);
+                -webkit-backdrop-filter: blur(27px);
+                backdrop-filter: blur(27px);
+                position: fixed;
+                z-index: 10000;
+                transition: background-color 0.3s;
+                }
+
+                #cs-navigation:before {
+                content: '';
+                width: 100%;
+                height: 0%;
+                background: #1a1a1a;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                transition: height .3s;
+                }
+
+                #cs-navigation:after {
+                content: '';
+                width: 100%;
+                height: 0vh;
+                background: rgba(0, 0, 0, 0.6);
+                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+                position: absolute;
+                display: block;
+                top: 0%;
+                right: 0;
+                z-index: -1100;
+                opacity: 0;
+                transition: height .5s, opacity .5s;
+                will-change: opacity;
+                }
+            /* ---------------- Nav Bar Black Background on Scroll ---------------- */
+            
+            /* ---------------- Nav Bar After Scrolling ---------------- */
+                #cs-navigation.cs-active {
+                background-color: #1a1a1a;
+                }
+
+                #cs-navigation.cs-active:after {
+                height: 150vh;
+                opacity: 1;
+                }
+
+                #cs-navigation.cs-active .cs-ul-wrapper {
+                opacity: 1;
+                transform: scaleY(1);
+                transition-delay: .15s;
+                will-change: transform;
+                
+                }
+
+                #cs-navigation.cs-active .cs-li {
+                transform: translateY(0);
+                opacity: 1;
+                will-change: transform;
+                
+                }
+            /* ---------------- Nav Bar After Scrolling ---------------- */
+            
+            /* -------- Nav Bar Container -------- */
+                #cs-navigation .cs-container {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                }
+            /* -------- Nav Bar Container -------- */
+
+            /* ------------- Nav Bar Logo ------------- */
+
+                /* ------------- Logo Container ------------- */
+                #cs-navigation .cs-logo {
+                    width: auto;
+                    /* 56px - 80px */
+                    height: clamp(3.5rem, 5vw, 5rem);
+                    margin: 0 auto 0 0;
+                    padding: 0;
+                    /* prevents padding from affecting height and width */
+                    box-sizing: border-box;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 10;
+                }
+                /* ------------- Logo Container ------------- */
+                
+                /* ------------- Logo ------------- */
+                #cs-navigation .cs-logo img {
+                    width: 100%;
+                    height: 100%;
+                    /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+                    object-fit: contain;
+                }
+                /* ------------- Logo ------------- */
+
+            /* ------------- Nav Bar Logo ------------- */
+
+            /* ------- Mobile Phone Expand Button ------- */
+
+                /* ------- Click to Expand Button ------- */
+                #cs-navigation .cs-toggle {
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    margin: 0 0 0 auto;
+                    background-color: var(--primary);
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: transform .6s;
+                    position: relative;
+                    z-index: 10;
+                    will-change: transform;
+                    
+                }
+                /* ------- Click to Expand Button ------- */
+
+                /* -------- Expand Button Click Animation -------- */
+                #cs-navigation .cs-toggle.cs-active {
+                    transform: rotate(180deg);
+                    will-change: transform;
+                    
+                }
+                
+                /* ------------- Button Icon Line 1/3 ------------- */
+                    #cs-navigation .cs-active .cs-line1 {
+                    top: 50%;
+                    transform: translate(-50%, -50%) rotate(225deg);
+                    }
+
+                    #cs-navigation .cs-line1 {
+                    top: 0;
+                    transform-origin: center;
+                    transition: transform .5s, top .3S, left .3S;
+                    animation-duration: .7s;
+                    animation-timing-function: ease;
+                    animation-fill-mode: forwards;
+                    animation-direction: normal;
+                    will-change: transform;
+                    
+                    }
+                /* ------------- Button Icon Line 1/3 ------------- */
+                
+                /* ------------- Button Icon Line 2/3 ------------- */
+                    #cs-navigation .cs-active .cs-line2 {
+                    top: 50%;
+                    transform-origin: center;
+                    transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
+                    }
+
+                    #cs-navigation .cs-line2 {
+                    top: 45%;
+                    transform: translateX(-50%) translateY(-50%);
+                    transition: top .3s, left .3s, transform .5s;
+                    animation-duration: .7s;
+                    animation-timing-function: ease;
+                    animation-fill-mode: forwards;
+                    animation-direction: normal;
+                    will-change: transform;
+                    
+                    }
+                /* ------------- Button Icon Line 2/3 ------------- */
+
+                /* ------------- Button Icon Line 3/3 ------------- */
+                    #cs-navigation .cs-active .cs-line3 {
+                    bottom: 100%;
+                    opacity: 0;
+                    }
+
+                    #cs-navigation .cs-line3 {
+                    bottom: 0;
+                    transition: bottom .3s, opacity .3s;
+                    }
+                /* ------------- Button Icon Line 3/3 ------------- */
+
+                /* -------- Expand Button Click Animation -------- */
+                
+                /* ------ Container Box for Expand Button ------ */
+                #cs-navigation .cs-box {
+                    /* 24px - 28px */
+                    width: clamp(1.5rem, 2vw, 1.75rem);
+                    height: 1rem;
+                    position: relative;
+                }
+                /* ------ Container Box for Expand Button ------ */
+
+                /* ------- Format of Button Icon ------- */
+                #cs-navigation .cs-line {
+                    width: 100%;
+                    height: 2px;
+                    border-radius: 2px;
+                    background-color: #FAFBFC;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    will-change: transform;
+                    
+                }
+                /* ------- Format of Button Icon ------- */
+
+            /* ------- Mobile Phone Expand Button ------- */
+
+            /* ------------------- Nav Bar Buttons Container ------------------- */
+                #cs-navigation .cs-ul-wrapper {
+                width: 100%;
+                height: auto;
+                padding-bottom: 2.4em;
+                opacity: 0;
+                background-color: #fff;
+                box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
+                overflow: hidden;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: -1;
+                transform: scaleY(0);
+                transform-origin: top;
+                transition: transform .4s, opacity .3s;
+                will-change: transform;
+                
+                }
+            /* ------------------- Nav Bar Buttons Container ------------------- */
+
+            /* --------------------- ul Element --------------------- */
+                #cs-navigation .cs-ul {
+                margin: 0;
+                padding: 3rem 0 0 0;
+                width: 100%;
+                height: auto;
+                max-height: 65vh;
+                overflow: scroll;
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.25rem;
+                }
+            /* --------------------- ul Element --------------------- */
+
+            /* --------------------- Buttons --------------------- */
+                #cs-navigation .cs-li {
+                width: 100%;
+                text-align: center;
+                list-style: none;
+                margin-right: 0;
+                /* transition from these values */
+                transform: translateY(-4.375rem);
+                opacity: 0;
+                transition: transform .6s, opacity .9s;
+                will-change: transform;
+                
+                }
+
+                /* -------------- Buttons Animation when Active -------------- */
+                #cs-navigation .cs-li:nth-of-type(1) {
+                    transition-delay: .05s;
+                }
+
+                #cs-navigation .cs-li:nth-of-type(2) {
+                    transition-delay: .1s;
+                }
+
+                #cs-navigation .cs-li:nth-of-type(3) {
+                    transition-delay: .15s;
+                }
+
+                #cs-navigation .cs-li:nth-of-type(4) {
+                    transition-delay: .2s;
+                }
+
+                #cs-navigation .cs-li:nth-of-type(5) {
+                    transition-delay: .25s;
+                }
+                /* -------------- Buttons Animation when Active -------------- */
+                
+                /* --------- Button Links --------- */
+                #cs-navigation .cs-li-link {
+                /* 16px - 24px */
+                font-size: clamp(1rem, 2.5vw, 1.5rem);
+                line-height: 1.2em;
+                text-transform: uppercase;
+                font-weight: bold;
+                text-decoration: none;
+                margin: 0;
+                color: var(--headerColor);
+                display: inline-block;
+                position: relative;
+                will-change: transform;
+                
+                }
+
+                #cs-navigation .cs-li-link.cs-active {
+                color: var(--primary);
+                }
+
+                #cs-navigation .cs-li-link:hover {
+                color: var(--primary);
+                }
+                /* --------- Button Links --------- */
+
+                #cs-navigation .cs-button-solid {
+                display: none;
+                }
+            /* --------------------- Buttons --------------------- */
+            }
+
+            /*-- -------------------------- -->
+            <---     Desktop Navigation     -->
+            <--- -------------------------- -*/
+
+            /* Small Desktop - 1024px */
+            @media only screen and (min-width: 64rem) {
+
+            /* ----------------- Button Switches When Scrolled ----------------- */
+                body.scroll {
+                /* when the scroll class is on the body, run these styles */
+                }
+
+                body.scroll #cs-navigation:before {
+                height: 100%;
+                }
+            /* ----------------- Button Switches When Scrolled ----------------- */
+
+            /* -------------------------- Header Element -------------------------- */
+                #cs-navigation {
+                /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+                font-family: 'Roboto', 'Arial', sans-serif;
+                width: 100%;
+                padding: 0 1rem;
+                /* prevents padding from affecting height and width */
+                box-sizing: border-box;
+                background: rgba(26, 26, 26, 0.08);
+                -webkit-backdrop-filter: blur(27px);
+                backdrop-filter: blur(27px);
+                position: fixed;
+                z-index: 10000;
+                }
+
+                #cs-navigation:before {
+                /* on scroll background */
+                content: '';
+                width: 100%;
+                height: 0%;
+                background: #1a1a1a;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                transition: height .3s;
+                }
+            /* -------------------------- Header Element -------------------------- */
+
+            /* -------------------------- Nav Bar Container -------------------------- */
+                #cs-navigation .cs-container {
+                width: 100%;
+                /* same height as the cs-ul-wrapper */
+                height: 6.3125rem;
+                max-width: 80rem;
+                margin: auto;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 1.5rem;
+                position: relative;
+                }
+            /* -------------------------- Nav Bar Container -------------------------- */
+
+            #cs-navigation .cs-toggle {
+                display: none;
+            }
+
+            /* -------------------------- Nav Bar Logo -------------------------- */
+                #cs-navigation .cs-logo {
+                width: auto;
+                height: 3.75rem;
+                /* margin-right auto pushes everything away from it to the right */
+                margin: 4px auto 0 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 100;
+                }
+
+                #cs-navigation .cs-logo img {
+                width: 90%;
+                height: 90%;
+                /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+                object-fit: contain;
+                }
+            /* -------------------------- Nav Bar Logo -------------------------- */
+
+            /* -------------------------- Nav Bar Buttons Container -------------------------- */
+                #cs-navigation .cs-ul-wrapper {
+                /* absolutely positioned to be dead center */
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                will-change: transform;
+                }
+            /* -------------------------- Nav Bar Buttons Container -------------------------- */
+
+            /* -------------------------- ul Element -------------------------- */
+                #cs-navigation .cs-ul {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 1.5rem;
+                }
+            /* -------------------------- ul Element -------------------------- */
+
+            /* -------------------------- Buttons -------------------------- */
+                #cs-navigation .cs-li {
+                list-style: none;
+                padding: 2.5rem 0;
+                /* prevent flexbox from squishing it */
+                flex: none;
+                }
+            /* -------------------------- Buttons -------------------------- */
+
+            /* -------------------------- Button Links -------------------------- */
+
+                /* ----------------- Unhovered Links ----------------- */
+                    #cs-navigation .cs-li-link {
+                    /* 14px - 16px */
+                    font-size: clamp(0.875rem, 0.6vw, 1rem);
+                    line-height: 1.5em;
+                    font-weight: 700;
+                    letter-spacing: 1.5px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    margin: 0;
+                    padding: 0 1rem;
+                    color: var(--bodyTextColorWhite);
+                    display: block;
+                    position: relative;
+                    z-index: 1;
+                    transition: color .3s;
+                    }
+                /* ----------------- Unhovered Links ----------------- */
+
+                /* ----------------- Background for Button Links when hovered ----------------- */
+                    #cs-navigation .cs-li-link:before {
+                    /* on scroll background */
+                    content: '';
+                    width: 100%;
+                    height: 2.5rem;
+                    background: var(--primary);
+                    opacity: 0;
+                    position: absolute;
+                    display: block;
+                    top: 50%;
+                    left: 50%;
+                    z-index: -1;
+                    transform: translate(-50%, -50%) scale(1.2);
+                    transition: opacity .3s, transform .3s;
+                    will-change: transform;
+                    
+                    }
+
+                    #cs-navigation .cs-li-link:hover:before {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                    will-change: transform;
+                    
+                    }
+
+                    #cs-navigation .cs-li-link.cs-active:before {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                    will-change: transform;
+                    }
+                /* ----------------- Background for Button Links when hovered ----------------- */
+
+            /* -------------------------- Button Links -------------------------- */
+
+            /* ----------------- Book Appointment Button ----------------- */
+
+                /* ----------------- Unhovered Links ----------------- */
+                    #cs-navigation .cs-button-solid {
+                    font-size: 1rem;
+                    /* 46px - 56px */
+                    /* line-height: clamp(2.875em, 5.5vw, 3.5em); */
+                    text-decoration: none;
+                    font-weight: 800;
+                    text-align: center;
+                    margin: 0;
+                    color: #fff;
+                    min-width: 9.375rem;
+                    padding: 16px 32px;
+                    letter-spacing: 1.5px;
+                    background-color: transparent;
+                    border: 1px solid var(--primary);
+                    display: inline-block;
+                    position: relative;
+                    z-index: 1;
+                    /* prevents padding from adding to the width */
+                    box-sizing: border-box;
+                    }
+                /* ----------------- Unhovered Links ----------------- */
+                
+                /* ----------------- Background for when Hovered ----------------- */
+                    #cs-navigation .cs-button-solid:before {
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: 0%;
+                    background: var(--primary);
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: width .3s;
+                    }
+
+                    #cs-navigation .cs-button-solid:hover:before {
+                    width: 100%;
+                    }
+                /* ----------------- Background for when Hovered ----------------- */
+            /* ----------------- Book Appointment Button ----------------- */
+            }
+
+
+
+
+            /* =================================== Language Settings Styling =================================== */
+
+            /* Phone Version */
+            @media only screen and (max-width: 48rem) {
+            /* ------------------ Language Settings Container ------------------ */
+            #language-settings-container {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: fit-content;
+            float: left;
+            left: clamp(0px, calc(10vw - 100px), 1000px);
+            bottom: 2.5vh;
+            z-index: 100;
+            overflow: visible;
+            user-select: none;
+            }
+            /* ------------------ Language Settings Container ------------------ */
+
+            /* ------------------ Language Settings SVG Container ------------------ */
+            #language-svg-container {
+            width: 60px;
+            position: relative;
+            aspect-ratio: 1/1;
+            background-color: rgb(234, 234, 234);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+            transform: scale(1);
+            transition: all 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+            will-change: transform;
+            
+            }
+
+            #language-svg-container:hover {
+            box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            }
+            /* ------------------ Language Settings SVG Container ------------------ */
+
+            /* ------------------ Language Settings SVG Styling ------------------ */
+            #language-svg {
+            width: 30px;
+            height: 30px;
+            }
+            /* ------------------ Language Settings SVG Styling ------------------ */
+
+            /* ------------------ Language Settings Options Container ------------------ */
+            #flag-container {
+            display: flex;
+            flex-direction: column;
+            width: 80px;
+            height: 0px;
+            overflow: hidden;
+            justify-content: center;
+            background-color: rgb(234, 234, 234);
+            position: relative;
+            bottom: 10px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            box-shadow: 0 0 0 0 black;
+            transition: height 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+            }
+
+            #flag-container.visible {
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+            height: 258px;
+            }
+            /* ------------------ Language Settings Options Container ------------------ */
+
+            /* ------------------ Language Settings Menu Header ------------------ */
+            #language-settings-container span {
+            text-align: center;
+            color: black;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            margin-top: 8px;
+            }
+            /* ------------------ Language Settings Menu Header ------------------ */
+
+            /* ------------------ Language Options Menu Container ------------------ */
+            #flag-svg-container {
+            display: grid;
+            justify-content: center;
+            }
+            /* ------------------ Language Options Menu Container ------------------ */
+
+            /* ------------------ Language Greek Language Option ------------------ */
+            #greek-flag {
+            object-fit: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            overflow: hidden;
+            object-position: 0px 0;
+            cursor: pointer;
+            justify-content: center;
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 4px;
+            margin-bottom: 4px;
+            }
+            /* ------------------ Language Greek Language Option ------------------ */
+
+            /* ------------------ Language Greek Language Option Container ------------------ */
+            #greek-flag-container {
+            width: 100px;
+            height: auto;
+            overflow: hidden;
+            border-radius: 50px;
+            scale: 0.88;
+            transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+            display: flex;
+            justify-content: center;
+            }
+            /* ------------------ Language Greek Language Option Container ------------------ */
+
+            /* ------------------ Language Greek Language Option ------------------ */
+            #uk-flag {
+            object-fit: cover;
+            overflow: hidden;
+            object-position: -25px 0;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            justify-content: center;
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 4px;
+            margin-bottom: 4px;
+            }
+            /* ------------------ Language Greek Language Option ------------------ */
+
+            /* ------------------ Language English Language Option Container ------------------ */
+            #uk-flag-container {
+            margin-top: 4px;
+            width: 100px;
+            height: auto;
+            overflow: hidden;
+            border-radius: 50px;
+            scale: 0.88;
+            display: flex;
+            justify-content: center;
+            }
+            /* ------------------ Language English Language Option Container ------------------ */
+            }
+
+            /* Tablet and Desktop Vesion */
+            @media only screen and (min-width: 48.01rem) {
+            /* ------------------ Language Settings Container ------------------ */
+            #language-settings-container {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: fit-content;
+            float: left;
+            left: clamp(10px, calc(10vw - 100px), 1000px);
+            bottom: 3vw;
+            z-index: 100;
+            overflow: visible;
+            user-select: none;
+            }
+            /* ------------------ Language Settings Container ------------------ */
+
+            /* ------------------ Language Settings SVG Container ------------------ */
+            #language-svg-container {
+            width: 60px;
+            position: relative;
+            aspect-ratio: 1/1;
+            background-color: rgb(234, 234, 234);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+            transform: scale(1);
+            transition: all 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+            will-change: transform;
+            
+            }
+
+            #language-svg-container:hover {
+            box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            }
+            /* ------------------ Language Settings SVG Container ------------------ */
+
+            /* ------------------ Language Settings SVG Styling ------------------ */
+            #language-svg {
+            width: 30px;
+            height: 30px;
+            }
+            /* ------------------ Language Settings SVG Styling ------------------ */
+
+            /* ------------------ Language Settings Options Container ------------------ */
+            #flag-container {
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+            height: 0px;
+            overflow: hidden;
+            justify-content: center;
+            background-color: rgb(234, 234, 234);
+            position: relative;
+            bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 0 0 black;
+            transition: height 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+            }
+
+            #flag-container.visible {
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+            height: 190px;
+            }
+            /* ------------------ Language Settings Options Container ------------------ */
+
+            /* ------------------ Language Settings Menu Header ------------------ */
+            #language-settings-container span {
+            text-align: center;
+            color: black;
+            font-weight: 400;
+            margin-top: 16px;
+            }
+            /* ------------------ Language Settings Menu Header ------------------ */
+
+            /* ------------------ Language Options Menu Container ------------------ */
+            #flag-svg-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 90px;
+            width: 100px;
+            align-content: center;
+            justify-items: center;
+            margin-bottom: -8px;
+            }
+            /* ------------------ Language Options Menu Container ------------------ */
+
+            /* ------------------ Language Greek Language Option ------------------ */
+            #greek-flag {
+            object-fit: cover;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            overflow: hidden;
+            border-radius: 50px;
+            object-position: 0px 0;
+            cursor: pointer;
+            box-shadow: 0 0 0 0 black;
+            transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+            }
+
+            #greek-flag-container:hover #greek-flag {
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+            }
+            /* ------------------ Language Greek Language Option ------------------ */
+
+            /* ------------------ Language Greek Language Option Container ------------------ */
+            #greek-flag-container {
+            display: flex;
+            width: 50px;
+            height: 90px;
+            overflow: visible;
+            align-items: center;
+            justify-content: center;
+            transform: scale(1);
+            transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+            cursor: pointer;
+            will-change: transform;
+            
+            }
+
+            #greek-flag-container:hover {
+            transform: scale(1.05);
+            }
+            /* ------------------ Language Greek Language Option Container ------------------ */
+
+            /* ------------------ Language Greek Language Option ------------------ */
+            #uk-flag {
+            object-fit: cover;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            overflow: hidden;
+            border-radius: 50px;
+            object-position: -20px 0;
+            cursor: pointer;
+            box-shadow: 0 0 0 0 black;
+            transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+            }
+
+            #uk-flag-container:hover #uk-flag {
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+            }
+            /* ------------------ Language Greek Language Option ------------------ */
+
+            /* ------------------ Language English Language Option Container ------------------ */
+            #uk-flag-container {
+            display: flex;
+            width: 50px;
+            height: 90px;
+            overflow: visible;
+            align-items: center;
+            justify-content: center;
+            transform: scale(1);
+            transition: all 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+            cursor: pointer;
+            will-change: transform;
+            
+            }
+
+            #uk-flag-container:hover {
+            transform: scale(1.05);
+            }
+            /* ------------------ Language English Language Option Container ------------------ */
+            }
+
+
+
+            /* =================================== Language Settings Styling =================================== */
+                                            
+
+
+
+
+            /*-- -------------------------- -->
+            <---           Hero             -->
+            <--- -------------------------- -*/
+
+            /* Mobile - 360px */
+            @media only screen and (min-width: 0rem) {
+
+                /* ---------------------- Hero Section ---------------------- */
+                #hero-1061 {
+                    /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+                    padding: var(--sectionPadding);
+                    /* 200px - 300px - leaving extra space for the navigation */
+                    padding-top: clamp(12.5rem, 31.95vw, 18.75rem);
+                    position: relative;
+                    z-index: 10;
+                }
+                /* ---------------------- Hero Section ---------------------- */
+
+                /* ---------------------- Listings Description Text ---------------------- */
+                #hero-1061 .cs-item-text {
+                    height: 144px;
+                }
+                /* ---------------------- Listings Description Text ---------------------- */
+
+                /* ---------------------- Background Picture ---------------------- */
+                    /* -------------- Background Container -------------- */
+                    #hero-1061 .cs-background {
+                        width: 100%;
+                        height: 55%;
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: -2;
+                    }
+                    /* -------------- Background Container -------------- */
+
+                    /* -------------- Dark Gradient From Left to Right -------------- */
+                    #hero-1061 .cs-background:before {
+                        /* Overlay */
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        display: block;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        /* prevents the cursor from interacting with it */
+                        pointer-events: none;
+                    }
+                    /* -------------- Dark Gradient From Left to Right -------------- */
+                    
+                    /* -------------- Background Image -------------- */
+                    #hero-1061 .cs-background img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                    /* -------------- Background Image -------------- */
+                /* ---------------------- Background Picture ---------------------- */
+                
+                /* --------------- Header Container --------------- */
+                #header-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    flex-wrap: nowrap;
+                    margin-top: -10vh;
+                }
+                /* --------------- Header Container --------------- */
+                
+                /* --------------- Header Picture Container --------------- */
+                #header-picture-container {
+                    display: flex;
+                    max-height: 300px;
+                    max-width: 767px;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: opacity 1s ease-in-out;
+                    will-change: opacity;
+                }
+
+                #header-picture-container.show {
+                    opacity: 1;
+                }
+                /* --------------- Header Picture Container --------------- */
+                
+                /* --------------- Header Picture --------------- */
+                #header-picture-container img {
+                    margin-top: clamp(1rem, 15%, 1.7rem);
+                    margin-bottom: -30vh;
+                    width: 95%;
+                    height: 95%;
+                    max-width: 450px;
+                }
+
+                #header-picture-container picture {
+                    width: 100%;
+                    max-height: 300px;
+                }
+                /* --------------- Header Picture --------------- */
+
+                /* --------------- Section Container --------------- */
+                #hero-1061 .cs-container {
+                    width: 100%;
+                    max-width: 80rem;
+                    margin: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: clamp(6.25rem, 9vw, 7.5rem);
+                }
+                /* --------------- Section Container --------------- */
+
+                /* --------------- Left Side Content --------------- */
+                    /* ------------------------ Left Side Container ------------------------ */
+                    #hero-1061 .cs-content {
+                        /* set text align to left if content needs to be left aligned */
+                        text-align: center;
+                        width: 100%;
+                        max-width: 41rem;
+                        display: flex;
+                        flex-direction: column;
+                        /* centers content horizontally, set to flex-start to left align */
+                        align-items: center;
+                        scale: 0.9;
+                    }
+                    /* ------------------------ Left Side Container ------------------------ */
+
+                    /* ------------------------ Title ------------------------ */
+                    #hero-1061 .cs-title {
+                        /* 39px - 61px */
+                        font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+                        font-weight: 700;
+                        line-height: 1.2em;
+                        letter-spacing: -2px;
+                        text-align: inherit;
+                        max-width: 51.8125rem;
+                        color: #fff;
+                        position: relative;
+                        opacity: 0;
+                        transform: translateX(-100px);
+                        transition: opacity 1s ease-in-out, transform 1s ease-out;
+                        will-change: transform opacity;
+                    }
+
+                    #hero-1061 .cs-title.show {
+                        opacity: 1;
+                        transform: translateX(0px);
+                    }
+                    /* ------------------------ Title ------------------------ */
+
+                    /* ------------------------ Subtitle ------------------------ */
+                    #hero-1061 .cs-text {
+                        /* 16px - 20px */
+                        font-size: clamp(1rem, 1.95vw, 1.25rem);
+                        line-height: 1.5em;
+                        text-align: inherit;
+                        letter-spacing: 1px;
+                        width: 100%;
+                        /* 464px - 622px */
+                        max-width: clamp(29rem, 60vw, 38.785rem);
+                        margin: 0 0 2.5rem 0;
+                        color: #fff;
+                        opacity: 0;
+                        transform: translateX(-100px);
+                        transition: opacity 1s ease-in-out, transform 1s ease-out;
+                        transition-delay: 0.5s;
+                        will-change: transform opacity;
+                    }
+
+                    #hero-1061 .cs-text.show {
+                        opacity: 1;
+                        transform: translateX(0px);
+                    }
+                    /* ------------------------ Subtitle ------------------------ */
+                /* --------------- Left Side Content --------------- */
+
+                /* ------------- Book An Appointment Button ------------- */
+                /* --------------- Unhovered --------------- */
+                    #hero-1061 .cs-button-solid {
+                    font-size: 1rem;
+                    /* 46px - 56px */
+                    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+                    text-decoration: none;
+                    font-weight: 700;
+                    margin: 0;
+                    color: #fff;
+                    letter-spacing: 1px;
+                    padding: 0 1.5rem;
+                    background-color: var(--primary);
+                    display: inline-block;
+                    position: relative;
+                    z-index: 1;
+                    opacity: 0;
+                    transition: all 1s ease-in-out;
+                    transition-delay: 1.5s;
+                    will-change: opacity;
+                    }
+
+                    #hero-1061 .cs-button-solid.show {
+                    opacity: 1;
+                    }
+                /* --------------- Unhovered --------------- */
+
+                /* --------------- Hovered --------------- */
+                    #hero-1061 .cs-button-solid:before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    height: 100%;
+                    width: 0%;
+                    background: #000;
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    transition: width .3s;
+                    }
+
+                    #hero-1061 .cs-button-solid:hover:before {
+                    width: 100%;
+                    }
+                /* --------------- Hovered --------------- */
+                /* ------------- Book An Appointment Button ------------- */
+
+                /* --------------------------- Listing Cards Container --------------------------- */
+                #hero-1061 .cs-card-group {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(12, 1fr);
+                    row-gap: 1.875rem;
+                }
+                /* --------------------------- Listing Cards Container --------------------------- */
+
+                /* --------------------------- Card --------------------------- */
+                #hero-1061 .cs-item {
+                    width: 100%;
+                    text-align: left;
+                    list-style: none;
+                    margin: 0;
+                    /* 24px - 32px */
+                    padding: clamp(1.5rem, 3vw, 2rem);
+                    background-color: #fff;
+                    box-shadow: 0px 12px 80px 0px rgba(26, 26, 26, 0.08);
+                    /* prevents padding from affecting height and width */
+                    box-sizing: border-box;
+                    grid-column: span 12;
+                    grid-row: span 1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    position: relative;
+                    z-index: 1;
+                    opacity: 0;
+                    transition: all 0.5s ease-out;
+                    will-change: transform opacity;
+                }
+
+                @keyframes cardshadow {
+                    0% {
+                    box-shadow: 0px 12px 80px 0px rgba(26, 26, 26, 0.08);
+                    }
+                    50% {
+                    box-shadow: 0px 12px 80px 0px rgba(26, 26, 26, 0.17);
+                    }
+                    100% {
+                    box-shadow: 0px 12px 80px 0px rgba(26, 26, 26, 0.08);
+                    }
+                }
+                
+                #hero-1061 .cs-item {
+                    transform: translateY(150px);
+                    transition-delay: 0.1s; 
+                }
+
+                #hero-1061 .cs-item:nth-child(1) {
+                    transition-delay: 1s;
+                }
+
+                #hero-1061 .cs-item.show {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+
+                /* --------------------------- Card --------------------------- */
+
+                /* --------------------------- Card Icon Background --------------------------- */
+                #hero-1061 .cs-icon-wrapper {
+                    width: 4.25rem;
+                    height: 4.25rem;
+                    margin: 0 0 1.5rem 0;
+                    background-color: var(--primary);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                }
+                /* --------------------------- Card Icon Background --------------------------- */
+
+                /* --------------------------- Card Icon --------------------------- */
+                #hero-1061 .cs-icon {
+                    width: 3rem;
+                    height: auto;
+                }
+                /* --------------------------- Card Icon --------------------------- */
+
+                /* --------------------------- Card Header --------------------------- */
+                #hero-1061 .cs-h3 {
+                    /* 20px - 25px */
+                    font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+                    line-height: 1.2em;
+                    letter-spacing: 0px;
+                    font-weight: bold;
+                    text-align: inherit;
+                    margin: 0 0 0.75rem 0;
+                    color: var(--headerColor);
+                }
+                /* --------------------------- Card Header --------------------------- */
+
+                /* --------------------------- Card Description --------------------------- */
+                #hero-1061 .cs-item-text {
+                    /* 14px - 16px */
+                    font-size: clamp(0.875rem, 1.5vw, 1rem);
+                    line-height: 1.5em;
+                    max-width: 28.125rem;
+                    margin: 0;
+                    padding: 0;
+                    color: var(--bodyTextColor);
+                }
+                /* --------------------------- Card Description --------------------------- */
+            }
+
+            /* Tablet - 768px */
+            @media only screen and (min-width: 48rem) {
+
+                /* --------------- Section Container --------------- */
+                #hero-1061 .cs-container {
+                    align-items: flex-start;
+                }
+                /* --------------- Section Container --------------- */
+
+                /* --------------- Header --------------- */
+                #hero-1061 .cs-content {
+                    text-align: left;
+                    margin-left: 0;
+                    align-items: flex-start;
+                    scale: 1;
+                }
+                /* --------------- Header --------------- */
+
+                /* --------------- Header Container --------------- */
+                #header-container {
+                    flex-direction: row;
+                }
+                /* --------------- Header Container --------------- */
+                
+                /* --------------- Header Picture --------------- */
+                #header-picture-container img {
+                    max-height: 400px;
+                    margin-top: clamp(-0.8rem, -15%, -1rem);
+                    margin-bottom: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                /* --------------- Header Picture --------------- */
+
+                /* --------------------------- Listing Cards Container --------------------------- */
+                #hero-1061 .cs-card-group {
+                    column-gap: 1.875rem;
+                }
+                /* --------------------------- Listing Cards Container --------------------------- */
+
+                /* --------------------------- Card --------------------------- */
+                #hero-1061 .cs-item {
+                    grid-column: span 6;
+                    animation: cardshadow 3s ease-in-out 0s infinite;
+                }
+
+                #hero-1061 .cs-item {
+                    transform: translateY(0px);
+                    opacity: 0;
+                }
+
+                #hero-1061 .cs-item:nth-child(1) {
+                    transform: translateX(-150px);
+                }
+                
+                #hero-1061 .cs-item:nth-child(3) {
+                    transform: translateX(-150px);
+                }
+
+                #hero-1061 .cs-item.show:nth-child(1) {
+                    transition-delay: 1s;
+                    transform: translateX(0px);
+                }
+
+                #hero-1061 .cs-item:nth-child(2) {
+                    transform: translateX(-100px);
+                }
+
+                #hero-1061 .cs-item.show:nth-child(2) {
+                    transform: translateX(0px);
+                    transition-delay: 1.2s;
+                }
+                
+                #hero-1061 .cs-item.show:nth-child(3) {
+                    transition-delay: 1.4s;
+                    transform: translateX(0px);
+                }
+
+                #hero-1061 .cs-item:nth-child(4) {
+                    transform: translateX(-100px);
+                }
+
+                #hero-1061 .cs-item.show:nth-child(4) {
+                    transform: translateX(0px);
+                    transition-delay: 1.6s;
+                }
+
+                #hero-1061 .cs-item.show:nth-child(5) {
+                    transition-delay: 1.8s;
+                }
+                /* --------------------------- Card --------------------------- */
+
+                /* ---------------------- Background Picture ---------------------- */
+                /* -------------- Background Container -------------- */
+                    #hero-1061 .cs-background {
+                    height: 90%;
+                    }
+                /* -------------- Background Container -------------- */
+
+                /* -------------- Dark Gradient From Left to Right -------------- */
+                    #hero-1061 .cs-background:before {
+                    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 2%, rgba(0, 0, 0, 0) 100%);
+                    opacity: 1;
+                    }
+                /* -------------- Dark Gradient From Left to Right -------------- */
+                /* ---------------------- Background Picture ---------------------- */
+            }
+            /* Desktop - 1300px */
+            @media only screen and (min-width: 81.25rem) {
+                /* --------------------------- Card --------------------------- */
+                #hero-1061 .cs-item {
+                    grid-column: span 3;
+                }
+                /* --------------------------- Card --------------------------- */
+
+                /* ------------------------ Title ------------------------ */
+                #hero-1061 .cs-title {
+                margin: 0 0 1rem 0;
+                }
+            /* ------------------------ Title ------------------------ */
+
+            /* -------------- Background Container -------------- */
+                #hero-1061 .cs-background {
+                height: 90%;
+                }
+
+                #hero-1061 .cs-background img {
+                object-position: -450px 0px;
+                }
+            /* -------------- Background Container -------------- */
+            
+            /* -------------- Cards Animation -------------- */
+                #hero-1061 .cs-item.show {
+                opacity: 1;
+                transform: translateX(0px);
+                }
+
+                #hero-1061 .cs-item.show:nth-child(1) {
+                transition-delay: 1.8s;
+                }
+
+                #hero-1061 .cs-item.show:nth-child(2) {
+                transition-delay: 2s;
+                }
+
+                #hero-1061 .cs-item.show:nth-child(3) {
+                transition-delay: 2.2s;
+                }
+
+                #hero-1061 .cs-item.show:nth-child(4) {
+                transition-delay: 2.4s;
+                }
+
+                #hero-1061 .cs-item.show:nth-child(5) {
+                transition-delay: 2.6s;
+                }
+            /* -------------- Cards Animation -------------- */
+
+            /* --------------- Header Container --------------- */
+                #header-container {
+                margin-top: 0;
+                }
+            /* --------------- Header Container --------------- */
+            }
+            /* Large Desktop Parallax Effect - 100px */
+            @media only screen and (min-width: 100rem) {
+                #hero-1061 .cs-background {
+                background: url("../images\ used/hero-background.webp");
+                background-size: cover;
+                background-position: center top;
+                background-repeat: no-repeat;
+                /* creates the parallax effect */
+                background-attachment: fixed;
+                }
+                #hero-1061 .cs-background img {
+                display: none;
+                }
+            }
+        </style>
+        
+
+        <link rel="preload" fetchpriority="high" as="image" href="../images%20used/hero-background-mobile.webp" type="image/webp">
+
+        <script>
+            partytown={forward:["dataLayer.push","fbq"]};
+        </script>
+        <script>
+            /* Partytown 0.8.1 - MIT builder.io */
+            !function(t,e,n,i,o,r,a,s,d,c,l,p){function u(){p||(p=1,"/"==(a=(r.lib||"/partytown/")+(r.debug?"debug/":""))[0]&&(d=e.querySelectorAll('script[type="text/partytown"]'),i!=t?i.dispatchEvent(new CustomEvent("pt1",{detail:t})):(s=setTimeout(f,1e4),e.addEventListener("pt0",w),o?h(1):n.serviceWorker?n.serviceWorker.register(a+(r.swPath||"partytown-sw.js"),{scope:a}).then((function(t){t.active?h():t.installing&&t.installing.addEventListener("statechange",(function(t){"activated"==t.target.state&&h()}))}),console.error):f())))}function h(t){c=e.createElement(t?"script":"iframe"),t||(c.style.display="block",c.style.width="0",c.style.height="0",c.style.border="0",c.style.visibility="hidden",c.setAttribute("aria-hidden",!0)),c.src=a+"partytown-"+(t?"atomics.js?v=0.8.1":"sandbox-sw.html?"+Date.now()),e.querySelector(r.sandboxParent||"body").appendChild(c)}function f(n,o){for(w(),i==t&&(r.forward||[]).map((function(e){delete t[e.split(".")[0]]})),n=0;n<d.length;n++)(o=e.createElement("script")).innerHTML=d[n].innerHTML,o.nonce=r.nonce,e.head.appendChild(o);c&&c.parentNode.removeChild(c)}function w(){clearTimeout(s)}r=t.partytown||{},i==t&&(r.forward||[]).map((function(e){l=t,e.split(".").map((function(e,n,i){l=l[i[n]]=n+1<i.length?"push"==i[n+1]?[]:l[i[n]]||{}:function(){(t._ptf=t._ptf||[]).push(i,arguments)}}))})),"complete"==e.readyState?u():(t.addEventListener("DOMContentLoaded",u),t.addEventListener("load",u))}(window,document,navigator,top,window.crossOriginIsolated);
+        </script>
+        <!-- ------------ PartyTown (used to relieve the main thread from the javascript executions) ------------ -->
+    
+        <!-- Google Tag Manager -->
+        <script type="text/partytown">
+            !function(e,t,a,r,g){e[r]=e[r]||[],e[r].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var n=t.getElementsByTagName(a)[0],s=t.createElement(a);s.async=!0,s.src="https://www.googletagmanager.com/gtm.js?id="+g+("dataLayer"!=r?"&l="+r:""),n.parentNode.insertBefore(s,n)}(window,document,"script","dataLayer","GTM-5GL7CQTL");
+        </script>
+        <!-- End Google Tag Manager -->
+    
+        <!-- Hotjar Tracking Code for Persa's website -->
+        <!-- <script>
+            !function(t,h,j,s,e,n){t.hj=t.hj||function(){(t.hj.q=t.hj.q||[]).push(arguments)},t._hjSettings={hjid:3701833,hjsv:6},e=h.getElementsByTagName("head")[0],(n=h.createElement("script")).async=1,n.src=j+t._hjSettings.hjid+s+t._hjSettings.hjsv,e.appendChild(n)}(window,document,"https://static.hotjar.com/c/hotjar-",".js?sv=");
+        </script> -->
+        <script async src="../javascript/hotjar-tracking.js"></script>
+        <script async src="../javascript/hotjar-module.js"></script>
+
+        <!-- ------------ General Functions ------------ -->
+        <script defer src="../javascript/app.js"></script>
+        <!-- ------------ General Functions ------------ -->
+
+        <!-- ------------ Contact Buttons ------------ -->
+        <script defer src="../javascript/contact-buttons.js"></script>
+        <!-- ------------ Contact Buttons ------------ -->
+
+        <!-- ------------ Install Cookies JavaScript Library ------------ -->
+        <script>
+            !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self,function(){var n=e.Cookies,o=e.Cookies=t();o.noConflict=function(){return e.Cookies=n,o}}())}(this,(function(){"use strict";function e(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)e[o]=n[o]}return e}var t=function t(n,o){function r(t,r,i){if("undefined"!=typeof document){"number"==typeof(i=e({},o,i)).expires&&(i.expires=new Date(Date.now()+864e5*i.expires)),i.expires&&(i.expires=i.expires.toUTCString()),t=encodeURIComponent(t).replace(/%(2[346B]|5E|60|7C)/g,decodeURIComponent).replace(/[()]/g,escape);var c="";for(var u in i)i[u]&&(c+="; "+u,!0!==i[u]&&(c+="="+i[u].split(";")[0]));return document.cookie=t+"="+n.write(r,t)+c}}return Object.create({set:r,get:function(e){if("undefined"!=typeof document&&(!arguments.length||e)){for(var t=document.cookie?document.cookie.split("; "):[],o={},r=0;r<t.length;r++){var i=t[r].split("="),c=i.slice(1).join("=");try{var u=decodeURIComponent(i[0]);if(o[u]=n.read(c,u),e===u)break}catch(e){}}return e?o[e]:o}},remove:function(t,n){r(t,"",e({},n,{expires:-1}))},withAttributes:function(n){return t(this.converter,e({},this.attributes,n))},withConverter:function(n){return t(e({},this.converter,n),this.attributes)}},{attributes:{value:Object.freeze(o)},converter:{value:Object.freeze(n)}})}({read:function(e){return'"'===e[0]&&(e=e.slice(1,-1)),e.replace(/(%[\dA-F]{2})+/gi,decodeURIComponent)},write:function(e){return encodeURIComponent(e).replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g,decodeURIComponent)}},{path:"/"});return t}));
+        </script>
+        <!-- ------------ Install Cookies JavaScript Library ------------ -->
+
+        <!-- ------------ Language Version Selection ------------ -->
+        <script defer src="../javascript/multilanguage-serve.js"></script>
+        <!-- ------------ Language Version Selection ------------ -->
+
+        <!-- ================ Roboto Font ================ -->
+        <link rel="stylesheet" href="../css%20styling/fonts/english-fonts/indexfonts.css" media="none" onload="if(media!=='all')media='all'">
+        <!-- ================ Roboto Font ================ -->
+    </head>
+
+
+    
+    
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GL7CQTL"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <!-- ============================================ -->
+        <!--                 Navigation                   -->
+        <!-- ============================================ -->
+        <header id="cs-navigation">
+
+            <!-- -------------------------------- Container -------------------------------- -->
+            <div class="cs-container">
+
+                <!-- -------------- Nav Logo -------------- -->
+                <a href="index.html" class="cs-logo" aria-label="back to home">
+                    <img src="../images%20used/persas-icon.svg" loading="eager" width="80" height="80" aria-hidden="true" decoding="async" alt="Persa's Logo">
+                </a>
+                <!-- -------------- Nav Logo -------------- -->
+                
+                <!--  -->
+
+                <!-- ------------------- Nav List ------------------- -->
+                <nav class="cs-nav" role="navigation">
+
+
+                    <!-- -------------- Mobile Navigation Button -------------- -->
+                    <menu>
+                        <button class="cs-toggle" aria-label="mobile menu toggle">
+                            <div class="cs-box" aria-hidden="true">
+                                <span class="cs-line cs-line1" aria-hidden="true"></span>
+                                <span class="cs-line cs-line2" aria-hidden="true"></span>
+                                <span class="cs-line cs-line3" aria-hidden="true"></span>
+                            </div>
+                        </button>
+                    </menu>
+                    <!-- -------------- Mobile Navigation Button -------------- -->
+                    <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+
+                    <!-- -------------- Container for Navigation Buttons -------------- -->
+                    <div class="cs-ul-wrapper">
+
+                        <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+
+                            <!-- ----------- Home Button ----------- -->
+                            <li class="cs-li">
+                                <a href="index.html" class="cs-li-link cs-active">
+                                    Home
+                                </a>
+                            </li>
+                            <!-- ----------- Home Button ----------- -->
+                            
+                            <!--  -->
+
+                            <!-- ----------- About Me Button ----------- -->
+                            <li class="cs-li">
+                                <a href="about.html" class="cs-li-link">
+                                    About
+                                </a>
+                            </li>
+                            <!-- ----------- About Me Button ----------- -->
+
+                            <!--  -->
+
+                            <!-- ----------- Services ----------- -->
+                            <li class="cs-li">
+                                <a href="services.html" class="cs-li-link">
+                                    Services
+                                </a>
+                            </li>
+                            <!-- ----------- Services ----------- -->
+
+                            <!--  -->
+
+                            <!-- ----------- Recipes ----------- -->
+                            <li class="cs-li">
+                                <a href="recipes.html" class="cs-li-link">
+                                    Recipes
+                                </a>
+                            </li>
+                            <!-- ----------- Recipes ----------- -->
+
+                        </ul>
+
+                    </div>
+                    <!-- -------------- Container for Navigation Buttons -------------- -->
+                </nav>
+                <!-- ------------------- Nav List ------------------- -->
+
+                <!--  -->
+
+                <!-- ------------------- Book Appointment Button ------------------- -->  
+                <a href="meetingbook.html" class="cs-button-solid cs-nav-button">Request Appointment</a>
+                <!-- ------------------- Book Appointment Button ------------------- --> 
+                <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
+                <!-- <button id="dark-mode-toggle" aria-label="dark mode toggle">
+                    <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
+                    <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
+                </button> -->
+
+            </div>
+            <!-- -------------------------------- Container -------------------------------- -->
+
+        </header>
+                                
+
+
+        <!-- ===================================== -->
+        <!--                 Main                  -->
+        <!-- ===================================== -->
+        <main>
+
+            <!-- ------------------- Language Settings Container ------------------- -->
+            <div id="language-settings-container" title="Select your preferred language / Επιλέξτε την προτεινόμενη γλώσσα">
+
+                <!-- ------------------- Language Options Menu Toggle Button ------------------- -->
+                <div id="language-svg-container">
+                    <svg id="language-svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg>
+                </div>
+                <!-- ------------------- Language Options Menu Toggle Button ------------------- -->
+
+
+                <!-- ------------------- Language Options Menu Container ------------------- -->
+                <div id="flag-container" class="unrevealed">
+
+                    <!-- ------------------------ -->
+                    <span>Επιλέξτε Γλώσσα <br>/<br> Select Language</span>
+                    <!-- ------------------------ -->
+
+                    <!-- ------------------- Language Options Menu ------------------- -->
+                    <div id="flag-svg-container">
+
+                        <!-- ------------------- Greek Language ------------------- -->
+                        <div id="greek-flag-container" class="cookieGr">
+                            <img id="greek-flag" src="../images%20used/greek-flag.svg" alt="" title="Αλλαγή σε Ελληνικά">
+                        </div>
+                        <!-- ------------------- Greek Language ------------------- -->
+
+
+                        <!-- ------------------- English Language ------------------- -->
+                        <div id="uk-flag-container" class="cookieEn">
+                            <img id="uk-flag" src="../images%20used/UK-flag.svg" alt="" title="Switch to English">
+                        </div>
+                        <!-- ------------------- English Language ------------------- -->
+                        
+                    </div>
+                    <!-- ------------------- Language Options Menu ------------------- -->
+
+                </div>
+                <!-- ------------------- Language Options Menu Container ------------------- -->
+
+            </div>
+            <!-- ------------------- Language Settings Container ------------------- -->
+
+
+            <!-- ============================================ -->
+            <!--                    Hero                      -->
+            <!-- ============================================ -->
+
+            <section id="hero-1061">
+
+                <!-- =============================== Container =============================== -->
+                <div class="cs-container">
+
+                    <div id="header-container">
+                    <!-- =============================== Title, Subtitle, Button Container =============================== -->
+                    <div class="cs-content">
+                        <h1 class="cs-title hidden">Dietitian and nutritionist <br> Persa Consta</h1>
+                        <p class="cs-text hidden">
+                            Your goals, minus your doubts, equal your reality.
+                        </p>
+                        <a href="meetingbook.html" class="cs-button-solid hidden">Request Appointment</a>
+                    </div>
+                    <!-- =============================== Title, Subtitle, Button Container =============================== -->
+
+                    <picture class="hidden" id="header-picture-container">
+                        <source media="(max-width: 600px)" srcset="../images%20used/persa-header-mobile.webp">
+                        <source media="(min-width: 601px)" srcset="../images%20used/persa-header.webp">
+                        <img src="../images%20used/persa-header.webp" loading="eager" decoding="async" alt="Ms Persa looking at her monitor" width="350" height="400">
+                    </picture>
+                    </div>
+                    <!--  -->
+
+                    <!-- =============================== Item Listings Container =============================== -->
+                    <ul class="cs-card-group">
+
+
+                        
+                        <!-- =============================== Card 4 =============================== -->
+                        <li class="cs-item hidden">
+
+                            <!-- ----------------------- Icon Container ----------------------- -->
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" loading="lazy" decoding="async" src="../icons-used/experience.png" alt="verified dietitian and nutritionist" width="50" height="50">
+                            </picture>
+                            <!-- ----------------------- Icon Container ----------------------- -->
+
+                            <!--  -->
+
+                            <!-- ----------------------- Text Container ----------------------- -->
+                            <h2 class="cs-h3"><i>Your</i> Custom-Made Plan</h2>
+                            <p class="cs-item-text">
+                                With everyone's body being different, no two bodies receive the same plan. <br><i>Your</i> body, <i>Your plan.</i>
+                            </p>
+                            <!-- ----------------------- Text Container ----------------------- -->
+
+                        </li>
+                        <!-- =============================== Card 4 =============================== -->
+                        
+
+
+                        <!--  -->
+
+
+                        <!-- =============================== Card 2 =============================== -->
+                        <li class="cs-item hidden">
+
+                            <!-- ----------------------- Icon Container ----------------------- -->
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" loading="lazy" decoding="async" src="../icons-used/apple.png" alt="A clinical dietitian in Limassol with exclusive diets to each personal client near you" width="50" height="50">
+                            </picture>
+                            <!-- ----------------------- Icon Container ----------------------- -->
+
+                            <!--  -->
+
+                            <!-- ----------------------- Text Container ----------------------- -->
+                            <h2 class="cs-h3">Unique Diet Plans <br> <br></h2>
+                            <p class="cs-item-text">
+                                With careful consideration, your diet plan is made to seamlessly fit your lifestyle.
+                            </p>
+                            <!-- ----------------------- Text Container ----------------------- -->
+
+                        </li>
+                        <!-- =============================== Card 2 =============================== -->
+
+
+                        <!--  -->
+
+
+                        <!-- =============================== Card 3 =============================== -->
+                        <li class="cs-item hidden">
+
+                            <!-- ----------------------- Icon Container ----------------------- -->
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" loading="lazy" decoding="async" alt="Personal dietitian and nutritionist in limassol with great up to date methods to lose weight" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iMiIgc3Ryb2tlLXdpZHRoPSI0IiBkPSJNMzkuNzUgNDRIOS4zMUM2LjM4IDQ0IDQgNDEuNjIgNCAzOC42OXYtNS40MmMwLTEuMjEgMS4wNi0yLjE0IDIuMjUtMS45OWwzNC4wMiA0LjI1YzIuMTMuMjcgMy43MyAyLjA4IDMuNzMgNC4yMkM0NCA0Mi4xIDQyLjEgNDQgMzkuNzUgNDRaTTE2IDMyTDQgNGg2LjQzTTYgMzFsNi04bTEzLThIOSIvPjwvc3ZnPg==" width="50" height="50">
+                            </picture>
+                            <!-- ----------------------- Icon Container ----------------------- -->
+
+                            <!--  -->
+
+                            <!-- ----------------------- Text Container ----------------------- -->
+                            <h2 class="cs-h3">Up-to-date Methods <br><br></h2>
+                            <p class="cs-item-text">
+                                Say goodbye to outdated methods. Get ready to embrace a smarter, more personalized path to your goals, with the use of modern technology.
+                            </p>
+                            <!-- ----------------------- Text Container ----------------------- -->
+
+                        </li>
+                        <!-- =============================== Card 3 =============================== -->
+
+
+                        <!--  -->
+
+                        <!-- =============================== Card 1 =============================== -->
+                        <li class="cs-item hidden">
+
+                            <!-- ----------------------- Icon Container ----------------------- -->
+                            <picture class="cs-icon-wrapper">
+                                <img class="cs-icon" loading="lazy" decoding="async" src="../icons-used/workout.png" alt="Exclusive workout plans" width="50" height="50">
+                            </picture>
+                            <!-- ----------------------- Icon Container ----------------------- -->
+
+                            <!--  -->
+
+                            <!-- ----------------------- Text Container ----------------------- -->
+                            <h2 class="cs-h3">Personal Fitness Plans</h2>
+                            <p class="cs-item-text">
+                                With thoughtfulness and experience being a part of your exclusive fitness plan, you will receive a fitness plan without equal.
+                            </p>
+                            <!-- ----------------------- Text Container ----------------------- -->
+
+                        </li>
+                        <!-- =============================== Card 1 =============================== -->
+                        
+
+                    </ul>
+                    <!-- =============================== Item Listings Container =============================== -->
+
+                </div>
+                <!-- =============================== Container =============================== -->
+
+                <!-- Background Image, there's a background image in the CSS for the parallax effect you'll need to change as well if you swap out our images -->
+                <picture class="cs-background">
+                    <source media="(max-width: 600px)" srcset="../images%20used/hero-background-mobile.webp">
+                    <source media="(min-width: 601px)" srcset="../images%20used/hero-background.webp">
+                    <img id="img2" fetchpriority="high" src="../images%20used/hero-background.webp" loading="eager" decoding="async" alt="Apple with waist measure tape" width="1000" height="520">
+                </picture>
+                
+            </section>
+
+
+            <!-- ============================================ -->
+            <!--                 Why Choose                   -->
+            <!-- ============================================ -->
+
+            <section id="why-choose-892">
+
+                <!-- ================================== Container ================================== -->
+                <div class="cs-container">
+
+                    <!-- -------------------- Header Container -------------------- -->
+                    <div class="cs-content">
+
+                        <span class="cs-topper hidden">Specialties</span>
+
+                        <h2 class="cs-title hidden">Why Choose Here</h2>
+
+                        <p class="cs-text hidden">
+                            My approach to my clients is an individualized one. With over a decade in this working field, <br>and thousands of people helped, no one is left dissatisfied
+                        </p>
+
+                    </div>
+                    <!-- -------------------- Header Container -------------------- -->
+
+                    <!--  -->
+
+                    <!-- ---------------------- Cards Container ---------------------- -->
+                    <ul class="cs-card-group">
+
+                        <!-- ------------------- Card 3 ------------------- -->
+                        <li class="cs-item hidden">
+
+                            <!-- Upper Right Icon -->
+                            <svg class="cs-icon" id="right"  xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="#af90bf">
+                                <path d="M15.8845 40.0004C15.8845 44.4201 19.5188 48.0004 23.9998 48.0004C27.9091 48.0004 31.1705 45.2764 31.9435 41.6502C32.714 45.2764 35.9778 48.0004 39.8846 48.0004C44.368 48.0004 48 44.4201 48 40.0004C48 35.5806 44.368 32.0003 39.8846 32.0003C35.9754 32.0003 32.714 34.7243 31.9435 38.3505C31.1729 34.7243 27.9091 32.0003 23.9998 32.0003C19.5188 32.0003 15.8845 35.5831 15.8845 40.0004Z"/>
+                                <path d="M16.0565 22.3503C15.2859 18.7241 12.0221 16.0002 8.11533 16.0002C3.63187 16.0002 -5.42881e-07 19.5805 -3.49689e-07 24.0002C-1.56497e-07 28.4199 3.63187 32.0001 8.11533 32.0001C12.0245 32.0001 15.2859 29.2762 16.0565 25.65C16.827 29.2762 20.0908 32.0001 23.9976 32.0001C28.481 32.0001 32.113 28.4175 32.113 24.0002C32.113 19.5829 28.4786 16.0002 23.9976 16.0002C20.0908 16.0002 16.827 18.7241 16.0565 22.3503Z"/>
+                                <path d="M31.941 6.35014C31.1705 2.7239 27.9066 -1.98471e-05 23.9974 -1.96762e-05C19.5164 -1.94803e-05 15.8821 3.58028 15.8821 7.99999C15.8821 12.4197 19.5164 16 23.9974 16C27.9066 16 31.168 13.2761 31.941 9.64984C32.7116 13.2761 35.9754 16 39.8822 16C44.3656 16 47.9975 12.4173 47.9975 7.99999C47.9975 3.5827 44.3656 -2.05665e-05 39.8822 -2.03706e-05C35.973 -2.01997e-05 32.7116 2.7239 31.941 6.35014Z"/>
+                            </svg>
+                            <!-- Upper Right Icon -->
+
+                            <!-- --------------- Card Text Content --------------- -->
+                            <div class="cs-text-group">
+
+                                <h3 class="cs-h3">Crystalize your goals into reality</h3>
+
+                                <p class="cs-item-text">
+                                    Picture this, you come for a consultation and within the first month you already start seeing results. Keeping a successfully proven track record only comes by providing the personal support and guidance that is vital to success. <br>This is what it means to crystalize goals into a reality.
+                                </p>
+
+                            </div>
+                            <!-- --------------- Card Text Content --------------- -->
+                        </li>
+                        <!-- ------------------- Card 3 ------------------- -->
+
+                        <!--  -->
+
+                        <!-- ------------------- Card 2 ------------------- -->
+                        <li class="cs-item">
+
+                            <!-- Upper Right Icon -->
+                            <svg class="cs-icon" id="upwards" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="#af90bf">
+                                <path d="M15.8845 40.0004C15.8845 44.4201 19.5188 48.0004 23.9998 48.0004C27.9091 48.0004 31.1705 45.2764 31.9435 41.6502C32.714 45.2764 35.9778 48.0004 39.8846 48.0004C44.368 48.0004 48 44.4201 48 40.0004C48 35.5806 44.368 32.0003 39.8846 32.0003C35.9754 32.0003 32.714 34.7243 31.9435 38.3505C31.1729 34.7243 27.9091 32.0003 23.9998 32.0003C19.5188 32.0003 15.8845 35.5831 15.8845 40.0004Z"/>
+                                <path d="M16.0565 22.3503C15.2859 18.7241 12.0221 16.0002 8.11533 16.0002C3.63187 16.0002 -5.42881e-07 19.5805 -3.49689e-07 24.0002C-1.56497e-07 28.4199 3.63187 32.0001 8.11533 32.0001C12.0245 32.0001 15.2859 29.2762 16.0565 25.65C16.827 29.2762 20.0908 32.0001 23.9976 32.0001C28.481 32.0001 32.113 28.4175 32.113 24.0002C32.113 19.5829 28.4786 16.0002 23.9976 16.0002C20.0908 16.0002 16.827 18.7241 16.0565 22.3503Z"/>
+                                <path d="M31.941 6.35014C31.1705 2.7239 27.9066 -1.98471e-05 23.9974 -1.96762e-05C19.5164 -1.94803e-05 15.8821 3.58028 15.8821 7.99999C15.8821 12.4197 19.5164 16 23.9974 16C27.9066 16 31.168 13.2761 31.941 9.64984C32.7116 13.2761 35.9754 16 39.8822 16C44.3656 16 47.9975 12.4173 47.9975 7.99999C47.9975 3.5827 44.3656 -2.05665e-05 39.8822 -2.03706e-05C35.973 -2.01997e-05 32.7116 2.7239 31.941 6.35014Z"/>
+                            </svg>
+                            <!-- Upper Right Icon -->
+
+                            <!-- --------------- Card Text Content --------------- -->
+                            <div class="cs-text-group">
+
+                                <h3 class="cs-h3">Your tailor-made blueprint</h3>
+
+                                <p class="cs-item-text">
+                                    You will receive not just a dieting plan, but the roadmap to your goal. With over a decade of experience, we'll create your own exclusive fitness regiment based on your goals and needs. Together, we'll find the right balance between healthy eating, physical activity, and good mental health.
+                                </p>
+
+                            </div>
+                            <!-- --------------- Card Text Content --------------- -->
+                        </li>
+                        <!-- ------------------- Card 2 ------------------- -->
+
+                        <!--  -->
+
+                        <!-- ------------------- Card 1 ------------------- -->
+                        <li class="cs-item hidden">
+
+                            <!-- Upper Right Icon -->
+                            <svg class="cs-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="#af90bf">
+                                <path d="M15.8845 40.0004C15.8845 44.4201 19.5188 48.0004 23.9998 48.0004C27.9091 48.0004 31.1705 45.2764 31.9435 41.6502C32.714 45.2764 35.9778 48.0004 39.8846 48.0004C44.368 48.0004 48 44.4201 48 40.0004C48 35.5806 44.368 32.0003 39.8846 32.0003C35.9754 32.0003 32.714 34.7243 31.9435 38.3505C31.1729 34.7243 27.9091 32.0003 23.9998 32.0003C19.5188 32.0003 15.8845 35.5831 15.8845 40.0004Z"/>
+                                <path d="M16.0565 22.3503C15.2859 18.7241 12.0221 16.0002 8.11533 16.0002C3.63187 16.0002 -5.42881e-07 19.5805 -3.49689e-07 24.0002C-1.56497e-07 28.4199 3.63187 32.0001 8.11533 32.0001C12.0245 32.0001 15.2859 29.2762 16.0565 25.65C16.827 29.2762 20.0908 32.0001 23.9976 32.0001C28.481 32.0001 32.113 28.4175 32.113 24.0002C32.113 19.5829 28.4786 16.0002 23.9976 16.0002C20.0908 16.0002 16.827 18.7241 16.0565 22.3503Z"/>
+                                <path d="M31.941 6.35014C31.1705 2.7239 27.9066 -1.98471e-05 23.9974 -1.96762e-05C19.5164 -1.94803e-05 15.8821 3.58028 15.8821 7.99999C15.8821 12.4197 19.5164 16 23.9974 16C27.9066 16 31.168 13.2761 31.941 9.64984C32.7116 13.2761 35.9754 16 39.8822 16C44.3656 16 47.9975 12.4173 47.9975 7.99999C47.9975 3.5827 44.3656 -2.05665e-05 39.8822 -2.03706e-05C35.973 -2.01997e-05 32.7116 2.7239 31.941 6.35014Z"/>
+                            </svg>
+                            <!-- Upper Right Icon -->
+
+                            <!-- --------------- Card Text Content --------------- -->
+                            <div class="cs-text-group">
+
+                                <h3 class="cs-h3">Working in your schedule</h3>
+
+                                <p class="cs-item-text">
+                                No time? No problem. Whether you're working full-time or trying to juggle responsibilities, I have flexible hours available during the week and weekends so you can book appointments around your schedule. <br>Fitness has never been this convenient.
+                                </p>
+
+                            </div>
+                            <!-- --------------- Card Text Content --------------- -->
+                        </li>
+                        <!-- ------------------- Card 1 ------------------- -->
+
+                    </ul>
+                    <!-- ---------------------- Cards Container ---------------------- -->
+
+                    <!-- ---------------------- Contact Us Button ---------------------- -->
+                    <a href="meetingbook.html" class="cs-button-solid">Contact Me</a>
+                    <!-- ---------------------- Contact Us Button ---------------------- -->
+
+                    <!-- ---------------- Floating Arrow SVG ---------------- -->
+                    <svg class="cs-floater hidden" xmlns="http://www.w3.org/2000/svg" width="353" height="167" viewBox="0 0 353 167" fill="#DFD5A5">
+                        <g clip-path="url(#clip0_1_55)">
+                            <path d="M189.708 -210.144C198.638 -208.554 207.438 -206.464 216.058 -203.624C238.988 -196.084 259.678 -184.534 278.088 -168.924C296.468 -153.334 311.188 -134.804 322.488 -113.534C331.618 -96.3439 337.948 -78.1739 341.478 -59.0439C342.698 -52.4139 343.508 -45.7139 344.018 -38.9839C344.548 -32.0039 344.658 -25.0139 344.368 -18.0239C343.738 -2.52388 341.228 12.6761 336.738 27.5361C329.828 50.4561 318.878 71.2461 303.668 89.7461C288.548 108.136 270.388 122.786 249.298 133.836C235.868 140.876 221.768 146.126 206.988 149.536C199.168 151.346 191.248 152.576 183.248 153.316C175.798 154.006 168.328 154.216 160.858 153.926C145.068 153.316 129.598 150.706 114.498 146.016C90.6982 138.616 69.2582 126.886 50.1782 110.856C48.9382 109.816 47.7181 108.736 46.2581 107.486C53.0081 106.496 59.4582 105.546 66.2682 104.546C44.4282 95.4361 22.9882 86.2861 0.988159 77.6461C11.7882 98.2861 22.4482 118.686 33.1182 139.086C33.2082 139.066 33.2881 139.046 33.3781 139.026C34.6981 131.916 36.0082 124.806 37.3582 117.526C39.6282 120.166 41.7882 122.606 44.1482 124.876C51.7282 132.146 60.2482 138.106 69.4282 143.156C85.4382 151.946 102.528 157.806 120.338 161.636C128.968 163.496 137.688 164.746 146.478 165.546C154.888 166.306 163.318 166.496 171.748 166.146C196.528 165.116 220.228 159.466 242.758 149.056C260.708 140.766 276.948 129.906 291.448 116.466C313.988 95.5861 330.488 70.6861 341.008 41.8261C345.238 30.2061 348.248 18.2661 350.108 6.04613C351.218 -1.21387 351.848 -8.52387 352.148 -15.8739C352.508 -24.7939 352.228 -33.6839 351.298 -42.5539C348.828 -66.2339 342.138 -88.6739 331.178 -109.814C323.428 -124.754 313.838 -138.414 302.438 -150.804C287.138 -167.434 269.458 -180.954 249.378 -191.334C232.658 -199.974 215.028 -205.924 196.528 -209.324C194.258 -209.744 191.988 -210.224 189.668 -210.354C189.698 -210.274 189.708 -210.214 189.708 -210.144Z"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_55">
+                                <rect width="351.33" height="378.08" fill="white" transform="matrix(-1 0 0 1 352.328 -211.754)"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <!-- ---------------- Floating Arrow SVG ---------------- -->
+
+                </div>
+                <!-- ================================== Container ================================== -->
+            </section>
+                                
+                                
+            
+            <!-- ============================================ -->
+            <!--                   Reviews                    -->
+            <!-- ============================================ -->
+
+            <section id="reviews-65">
+
+                <!-- ================================== Container ================================== -->
+                <div class="cs-container">
+
+                    <!-- --------------------------- Header Container --------------------------- -->
+                    <div class="cs-content">
+
+                        
+                        
+                        <span class="cs-topper hidden">Reviews</span>
+
+                        <div>
+                            <h2 class="cs-title hidden">Words From
+                                <span id="underline-doodle-container">
+                                    My Clients 
+                                        <svg id="underline-doodle" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1283 132" fill="#dccb9b"><path d="M1282.46 5.79c-.91-3.88-5.18-6.65-9.04-5.54-104.37 29.02-193.78 56.87-361.6 74.53-268.41 28.16-539.6 14.6-803.08-26.38C94.9 47.97-.34 26.24.08 41.38c-1.56 14.21 19.47 12.91 29.6 17.24 32.82 8.6 66.1 15.33 99.4 21.81 238.99 44.43 482.98 55.29 725.63 49.01 92.37-4.11 185.68-9.96 275.51-33.09 18.68-6.31 42.79-9.21 55.18-25.89 6.76-13.28-12.41-21.16-13.83-6.12-17.69 11.67-39.31 15.61-59.45 21.34-114.56 25.18-245.31 30.46-361.99 30.36-191.39.45-383.13-10.13-572-42.21 277.31 36.42 560.77 44.96 837.82 2.23 104.21-15.4 195.11-42.74 260.97-61.22a7.57 7.57 0 0 0 5.54-9.05Z"></path></svg>
+                                </span>
+                            </h2>
+                            
+                        </div>
+
+                        <p class="cs-text hidden">
+                            There's nothing quite like the joy I feel when I hear from good things from troubled customers and helping them achieve their ambitions, so I've included my 3 favorite ones
+                        </p>
+
+                    </div>
+                    <!-- --------------------------- Header Container --------------------------- -->
+
+                    <!--  -->
+
+                    <!-- --------------------------- Cards Container --------------------------- -->
+                    <ul class="cs-card-group hidden">
+
+                        <!-- ------------------ Card 1 ------------------ -->
+                        <li class="cs-item">
+
+                            <svg class="cs-img" xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15" fill="none"><path d="M4.28571 0.196426C1.91875 0.196426 0 2.0383 0 4.39643C0 6.75455 1.91875 8.59643 4.28571 8.59643C4.78929 8.59643 5.26563 8.49558 5.71429 8.33922V8.59643C5.71429 10.1408 4.43304 11.3964 2.85714 11.3964C2.0683 11.3964 1.42857 12.0234 1.42857 12.7964C1.42857 13.5695 2.0683 14.1964 2.85714 14.1964C6.00804 14.1964 8.57143 11.6843 8.57143 8.59643V4.39643C8.57143 2.0383 6.65179 0.196426 4.28571 0.196426ZM20 4.39643C20 2.0768 18.0813 0.196426 15.7143 0.196426C13.3473 0.196426 11.4286 2.0768 11.4286 4.39643C11.4286 6.71605 13.3473 8.59643 15.7143 8.59643C16.2179 8.59643 16.6942 8.49558 17.1429 8.33922V8.59643C17.1429 10.1408 15.8616 11.3964 14.2857 11.3964C13.4969 11.3964 12.8571 12.0234 12.8571 12.7964C12.8571 13.5695 13.4969 14.1964 14.2857 14.1964C17.4366 14.1964 20 11.6843 20 8.59643V4.39643Z" fill="#af90bf"/>
+                            </svg>
+
+                            <span class="cs-name">Antigoni Ioannou</span>
+
+                            <p class="cs-item-text">
+                                Guaranteed results and a pleasant environment. She's very uplifting and the hours are according to my own schedule. She's the best, with a big difference.
+                            </p>
+
+                        </li>
+                        <!-- ------------------ Card 1 ------------------ -->
+
+                        <!--  -->
+
+                         <!-- ------------------ Card 3 ------------------ -->
+                         <li class="cs-item">
+
+                            <svg class="cs-img" xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15" fill="none"><path d="M4.28571 0.196426C1.91875 0.196426 0 2.0383 0 4.39643C0 6.75455 1.91875 8.59643 4.28571 8.59643C4.78929 8.59643 5.26563 8.49558 5.71429 8.33922V8.59643C5.71429 10.1408 4.43304 11.3964 2.85714 11.3964C2.0683 11.3964 1.42857 12.0234 1.42857 12.7964C1.42857 13.5695 2.0683 14.1964 2.85714 14.1964C6.00804 14.1964 8.57143 11.6843 8.57143 8.59643V4.39643C8.57143 2.0383 6.65179 0.196426 4.28571 0.196426ZM20 4.39643C20 2.0768 18.0813 0.196426 15.7143 0.196426C13.3473 0.196426 11.4286 2.0768 11.4286 4.39643C11.4286 6.71605 13.3473 8.59643 15.7143 8.59643C16.2179 8.59643 16.6942 8.49558 17.1429 8.33922V8.59643C17.1429 10.1408 15.8616 11.3964 14.2857 11.3964C13.4969 11.3964 12.8571 12.0234 12.8571 12.7964C12.8571 13.5695 13.4969 14.1964 14.2857 14.1964C17.4366 14.1964 20 11.6843 20 8.59643V4.39643Z" fill="#af90bf"/>
+                            </svg>
+
+                            <span class="cs-name">Natali Fasoulioti</span>
+
+                            <p class="cs-item-text">
+                                Your energy and persistance in helping others in any way that you can is most important. You know exactly what'll help others see the difference in their body. The mix of the machines and the right nutrition, she gives incredible results.
+                            </p>
+
+                        </li>
+                        <!-- ------------------ Card 3 ------------------ -->
+
+                        <!--  -->
+
+                        <!-- ------------------ Card 2 ------------------ -->
+                        <li class="cs-item">
+
+                            <svg class="cs-img" xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15" fill="none">
+                                <path d="M4.28571 0.196426C1.91875 0.196426 0 2.0383 0 4.39643C0 6.75455 1.91875 8.59643 4.28571 8.59643C4.78929 8.59643 5.26563 8.49558 5.71429 8.33922V8.59643C5.71429 10.1408 4.43304 11.3964 2.85714 11.3964C2.0683 11.3964 1.42857 12.0234 1.42857 12.7964C1.42857 13.5695 2.0683 14.1964 2.85714 14.1964C6.00804 14.1964 8.57143 11.6843 8.57143 8.59643V4.39643C8.57143 2.0383 6.65179 0.196426 4.28571 0.196426ZM20 4.39643C20 2.0768 18.0813 0.196426 15.7143 0.196426C13.3473 0.196426 11.4286 2.0768 11.4286 4.39643C11.4286 6.71605 13.3473 8.59643 15.7143 8.59643C16.2179 8.59643 16.6942 8.49558 17.1429 8.33922V8.59643C17.1429 10.1408 15.8616 11.3964 14.2857 11.3964C13.4969 11.3964 12.8571 12.0234 12.8571 12.7964C12.8571 13.5695 13.4969 14.1964 14.2857 14.1964C17.4366 14.1964 20 11.6843 20 8.59643V4.39643Z" fill="#af90bf"/>
+                            </svg>
+
+                            <span class="cs-name">Nektaria Christodoulou</span>
+
+                            <p class="cs-item-text">
+                                After giving 2 births, I've tried many times to lose the weight I've put up. It was very hard for me until I tried Persa's machines. The results were incredible
+                            </p>
+
+                        </li>
+                        <!-- ------------------ Card 2 ------------------ -->
+
+                    </ul>
+                    <!-- --------------------------- Cards Container --------------------------- -->
+
+                    <!--  -->
+
+                    <!-- --------------------------- Button --------------------------- -->
+                    <!-- <a aria-label="read more reviews" href="" class="cs-button-solid hidden">Read More</a> -->
+                    <!-- --------------------------- Button --------------------------- -->
+
+                </div>
+                <!-- ================================== Container ================================== -->
+
+            </section>
+                                
+            
+
+
+            <!-- ============================================ -->
+            <!--                     FAQ                      -->
+            <!-- ============================================ -->
+
+            <section id="faq-1193">
+
+                <!-- =========================== Container =========================== -->
+                <div class="cs-container">
+
+                    <!-- =========================== Picture Container =========================== -->
+                    <div class="cs-image-group">
+                        <picture class="cs-picture cs-picture1 hidden">
+                            <source media="(max-width: 600px)" srcset="../images%20used/happy-girl-mobile.webp">
+                            <source media="(min-width: 601px)" srcset="../images%20used/happy-girl.webp">
+                            <img src="../images%20used/happy-girl.webp" alt="Happy fit woman having fun with persa's dietitian and nutritionist services where she used her workout machines" width="522" height="610" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <!-- =========================== Picture Container =========================== -->
+
+                    <!--  -->
+
+                    <!-- =========================== Text Container =========================== -->
+                    <div class="cs-content">
+
+                        <!-- ------------ Topper ------------ -->
+                        <span class="cs-topper hidden">Asked questions</span>
+                        <!-- ------------ Topper ------------ -->
+
+                        <!--  -->
+
+                        <!-- ------------ Title ------------ -->
+                        <h2 class="cs-title hidden">Frequently Asked Questions</h2>
+                        <!-- ------------ Title ------------ -->
+
+                        <!--  -->
+
+                        <!-- ------- FAQ Questions Container ------- -->
+                        <ul class="cs-faq-group">
+                            
+                            <!-- ================= Question 1 ================= -->
+                            <li class="cs-faq-item active">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        When will I see results?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    Within 21 days of following your given program you will see results.
+                                </p>
+                            </li>
+                            <!-- ================= Question 1 ================= -->
+
+                            <!--  -->
+                            
+                            <!-- ================= Question 2 ================= -->
+                            <li class="cs-faq-item hidden">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        Will the results persist if I stop?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    The results will persist if you implement the program given into your daily routine.
+                                </p>
+                            </li>
+                            <!-- ================= Question 2 ================= -->
+                            
+                            <!--  -->
+
+                            <!-- ================= Question 3 ================= -->
+                            <li class="cs-faq-item hidden">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        Do the machines cause pain?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    No, they do not cause pain.
+                                </p>
+                            </li>
+                            <!-- ================= Question 3 ================= -->
+
+                            <!--  -->
+
+                            <!-- ================= Question 4 ================= -->
+                            <li class="cs-faq-item hidden">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        Will I get as tired as going to the gym and working out myself?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    No, and in fact, 30 minutes of working out with the machines I have installed you will be getting the same benefits as 2 hours into the gym.
+                                </p>
+                            </li>
+                            <!-- ================= Question 4 ================= -->
+
+                            <!--  -->
+
+                            <!-- ================= Question 5 ================= -->
+                            <li class="cs-faq-item hidden">
+                                <button class="cs-button">
+                                    <span class="cs-button-text">
+                                        How will my fitness plan be created?
+                                    </span>
+                                </button>
+                                <p class="cs-item-p">
+                                    It will be created to help you achieve your target body or health objective all the while being easy to fit into your current lifestyle.
+                                </p>
+                            </li>
+                            <!-- ================= Question 5 ================= -->
+
+                        </ul>
+                        <!-- ------- FAQ Questions Container ------- -->
+
+                    </div>
+                    <!-- =========================== Picture Container =========================== -->
+                    
+                </div>
+                <!-- =========================== Container =========================== -->
+            </section>
+
+
+
+            <!-- ============================================ -->
+            <!--                Contact Strip                 -->
+            <!-- ============================================ -->
+
+            <section>
+
+                <!-- ========================== Container ========================== -->
+                <div id="contact-strip-1111">
+                    <!-- ========================== Container for Contact Strip ========================== -->
+                    <ul class="cs-stat-group">
+                        <!-- ========================== Phone ========================== -->
+                        <li class="cs-item">
+
+                            <picture class="phone-btn cs-picture">
+                                <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-phone.svg" alt="Persa's phone number" width="35" height="40" loading="lazy" decoding="async" aria-hidden="true">
+                            </picture>
+
+                            <div class="cs-flex-group">
+                                <span class="phone-btn cs-header">Phone</span>
+                                <a href="tel:0035799457879" class="cs-link">+357 99457879</a>
+                            </div>
+
+                        </li>
+                        <!-- ========================== Phone ========================== -->
+
+                        <!--  -->
+
+                        <!-- ========================== Email ========================== -->
+                        <li class="cs-item">
+
+                            <picture class="email-btn cs-picture">
+                                <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-email.svg" alt="Persa's Email" width="40" height="35" loading="lazy" decoding="async" aria-hidden="true">
+                            </picture>
+
+                            <div class="cs-flex-group">
+                                <span class="email-btn cs-header">Email</span>
+                                <a href="mailto:persaco@hotmail.com" class="cs-link">persaco@hotmail.com</a>
+                            </div>
+
+                        </li>
+                        <!-- ========================== Email ========================== -->
+
+                        <!--  -->
+
+                        <!-- ========================== Address ========================== -->
+                        <li class="cs-item">
+
+                            <picture class="address-btn cs-picture">
+                                <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/mech-pin.svg" alt="Persa's Clinic Address" width="40" height="40" loading="lazy" decoding="async" aria-hidden="true">
+                            </picture>
+
+                            <div class="cs-flex-group">
+                                <span class="address-btn cs-header">Address</span>
+                                <a class="cs-link" href="https://maps.app.goo.gl/qMiSY7833BbtYS6m6">
+                                    <address class="cs-address">Apostolou Varnava 47, Eleana Court <br> 2nd Floor, Apartment 201 <br> Limassol, 3065</address>
+                                </a>
+                            </div>
+
+                        </li>
+                        <!-- ========================== Address ========================== -->
+                    </ul>
+                    <!-- ========================== Container for Contact Strip ========================== -->
+
+
+
+                    <!-- ========================== Container for Newsletter ========================== -->
+                    <div id="cta-1341">
+                        <div class="cs-container">
+                            
+                            <!-- ----------------------------------------------- -->
+                            <div id="title">
+                                <h3>Ready to take the leap?</h3>
+                            </div>
+                            <!-- ----------------------------------------------- -->
+        
+                            <!-- ----------------------------------------------- -->
+        
+                                <a href="meetingbook.html" class="cs-button-solid">Request Appointment</a>
+        
+                            <!-- ----------------------------------------------- -->
+        
+                        </div>
+                    </div>
+                    <!-- ========================== Container for Newsletter ========================== -->
+
+
+                    <!-- Background image -->
+                    <picture class="cs-background">
+                        <!-- picture in css file -->
+                    </picture>
+                    <!-- Background image -->
+
+                </div>
+                <!-- =============================== Container =============================== -->
+
+            </section>
+                                
+                                
+                                
+        </main>
+
+
+
+
+        <!-- ============================================ -->
+        <!--                   Footer                     -->
+        <!-- ============================================ -->
+
+        <footer id="cs-footer-1292">
+
+            <!-- ================================= Container ================================= -->
+            <div class="cs-container">      
+                <!-- ----------------- Logo Container ----------------- -->
+                <div class="cs-logo-group">
+
+                    <!-- Logo -->
+                    <a aria-label="Main" class="cs-logo" href="meetingbook.html">
+                        <img class="cs-logo-img" aria-hidden="true" loading="lazy" decoding="async" src="../images%20used/persas-icon-footer.svg" alt="Persa's Logo" width="32" height="32">
+                    </a>
+                    <!-- Logo -->
+
+                    <!-- Text -->
+                    <p class="cs-text">
+                        Your goals, minus your doubts, equal your reality.
+                    </p>
+                    <!-- Text -->
+
+                    <!-- Email -->
+                    <a href="mailto:persaco@hotmail.com" class="cs-link">
+                        <img class="cs-link-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/construction-mail.svg" alt="The experienced dietitian's Persa Consta's email address" width="24" height="24">
+                        persaco@hotmail.com
+                    </a>
+                    <!-- Email -->
+
+                </div>
+                <!-- ----------------- Logo Container ----------------- -->
+
+                <!--  -->
+
+                <!-- ---------------------------- About Group ---------------------------- -->
+                <ul class="cs-nav" role="navigation">
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <span class="cs-header">About</span>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="about.html">My Story</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="services.html">Benefits</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                </ul>
+                <!-- ---------------------------- About Group ---------------------------- -->
+
+                <!--  -->
+
+                <!-- ---------------------------- Contact Group ---------------------------- -->
+                <ul class="cs-nav" role="navigation">
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <span class="cs-header">Contact</span>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="https://www.facebook.com/profile.php?id=100054263510631">My Facebook</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="https://www.instagram.com/dietitian_persa.kosta/#">My Instagram</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+                    
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link cs-link" href="tel:+35799457879">My Phone Number</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="mailto:persaco@hotmail.com">My E-mail</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                </ul>
+                <!-- ---------------------------- Contact Group ---------------------------- -->
+
+                <!--  -->
+
+                <!-- ---------------------------- Help Group ---------------------------- -->
+                <ul class="cs-nav" role="navigation">
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <span class="cs-header">Help</span>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="index.html#faq-1193">FAQ</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                    <!-- ------------------------------------------------ -->
+                    <li class="cs-nav-li">
+                        <a class="cs-nav-link" href="meetingbook.html">Contact Me</a>
+                    </li>
+                    <!-- ------------------------------------------------ -->
+
+                </ul>
+                <!-- ---------------------------- Help Group ---------------------------- -->
+            </div>
+            <!-- ================================= Container ================================= -->
+
+            <!--  -->
+
+            <!-- =========================== Resonat Promo =========================== -->
+            <div class="cs-bottom">
+
+                <!-- ------------------------------------------------ -->
+                <span class="cs-copyright">Copyright© 2023. Designed and Created
+                    <a class="cs-copyright-link" target="_blank" href="https://www.resonat.net">by Resonat</a>
+                    All Right Reserved.
+                </span>
+                <!-- ------------------------------------------------ -->
+
+                <!-- ------------------------------------------------ -->
+                <span><a id="assets-used" href="copyright.html">Credits and usage of all assets</a></span>
+                <!-- ------------------------------------------------ -->
+
+            </div>
+            <!-- =========================== Resonat Promo =========================== -->
+
+
+            <!-- Floating Cirlces -->
+            <div class="cs-floater" aria-hidden="true"></div>
+            <!-- Floating Cirlces -->
+
+        </footer>
+                                
+    </body>
+</html>
