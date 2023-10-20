@@ -1,0 +1,113 @@
+/*-- -------------------------- -->
+<---            FAQ             -->
+<--- -------------------------- -*/
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+
+/* -------------- Container -------------- */
+    #faq-1193 .cs-container {
+    max-width: 80rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    }
+/* -------------- Container -------------- */
+
+/* -------------- Text Container -------------- */
+    #faq-1193 .cs-content {
+    width: 55%;
+    }
+/* -------------- Text Container -------------- */
+
+/* -------------- Picture Container -------------- */
+    #faq-1193 .cs-image-group {
+    font-size: min(1.4vw, 1em);
+    height: auto;
+    min-height: 42.375rem;
+    }
+/* -------------- Picture Container -------------- */
+
+/* -------------- Picture -------------- */
+    #faq-1193 .cs-picture1 {
+    height: 90%;
+    }
+/* -------------- Picture -------------- */
+}
+
+
+/*-- -------------------------- -->
+<---          Footer            -->
+<--- -------------------------- -*/
+
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+/* ------------------------------------ Container ------------------------------------ */  
+    #cs-footer-1292 .cs-container {
+    max-width: 80rem;
+    flex-wrap: nowrap;
+    /* align everything to the right */
+    justify-content: flex-end;
+    column-gap: clamp(2.5rem, 6vw, 5.25rem);
+    }
+/* ------------------------------------ Container ------------------------------------ */
+
+/* ------------------------------------ Floating Circles ------------------------------------ */
+    #cs-footer-1292 .cs-floater {
+    width: 31.625rem;
+    height: 31.625rem;
+    margin-left: 34.375rem;
+    border-radius: 50%;
+    border: 2px solid var(--secondaryLight);
+    opacity: 0.7;
+    display: block;
+    position: absolute;
+    scale: 1;
+    top: -8%;
+    left: 65%;
+    }
+
+    #cs-footer-1292 .cs-floater:before {
+    content: '';
+    width: 31.625rem;
+    height: 31.625rem;
+    border: 1px solid var(--secondaryLight);
+    border-radius: 50%;
+    opacity: .5;
+    position: absolute;
+    display: block;
+    transform: translate(10%, 0%) scale(1.6);
+    will-change: transform;
+    
+    }
+
+    #cs-footer-1292 .cs-floater:after {
+    content: '';
+    width: 31.625rem;
+    height: 31.625rem;
+    border: 1px solid var(--secondaryLight);
+    border-radius: 50%;
+    opacity: .3;
+    position: absolute;
+    display: block;
+    transform: translate(0%, 0%) scale(1.8);
+    will-change: transform;
+    
+    }
+/* ------------------------------------ Floating Circles ------------------------------------ */
+
+/* ------------------------------------ Logo Container ------------------------------------ */
+    #cs-footer-1292 .cs-logo-group {
+    width: 30%;
+    max-width: 24.1875rem;
+    /* pushes away from everything to the right */
+    margin-right: auto;
+    }
+/* ------------------------------------ Logo Container ------------------------------------ */
+
+/* ------------------------------------ Logo Container Text ------------------------------------ */
+    #cs-footer-1292 .cs-text {
+    width: 100%;
+    }
+/* ------------------------------------ Logo Container Text ------------------------------------ */
+}
