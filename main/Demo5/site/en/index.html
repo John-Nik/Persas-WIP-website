@@ -1521,7 +1521,9 @@
         <!-- ------------ Contact Buttons ------------ -->
 
         <!-- ------------ Install Cookies JavaScript Library ------------ -->
-        <script rel="preload" src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+        <script>
+/*! js-cookie v3.0.5 | MIT */ !function(e,t){var r,n;"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(r=(e="undefined"!=typeof globalThis?globalThis:e||self).Cookies,(n=e.Cookies=t()).noConflict=function(){return e.Cookies=r,n})}(this,function(){"use strict";function e(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)e[n]=r[n]}return e}return function t(r,n){function i(t,i,o){if("undefined"!=typeof document){"number"==typeof(o=e({},n,o)).expires&&(o.expires=new Date(Date.now()+864e5*o.expires)),o.expires&&(o.expires=o.expires.toUTCString()),t=encodeURIComponent(t).replace(/%(2[346B]|5E|60|7C)/g,decodeURIComponent).replace(/[()]/g,escape);var u="";for(var f in o)o[f]&&(u+="; "+f,!0!==o[f]&&(u+="="+o[f].split(";")[0]));return document.cookie=t+"="+r.write(i,t)+u}}return Object.create({set:i,get:function(e){if("undefined"!=typeof document&&(!arguments.length||e)){for(var t=document.cookie?document.cookie.split("; "):[],n={},i=0;i<t.length;i++){var o=t[i].split("="),u=o.slice(1).join("=");try{var f=decodeURIComponent(o[0]);if(n[f]=r.read(u,f),e===f)break}catch(c){}}return e?n[e]:n}},remove:function(t,r){i(t,"",e({},r,{expires:-1}))},withAttributes:function(r){return t(this.converter,e({},this.attributes,r))},withConverter:function(r){return t(e({},this.converter,r),this.attributes)}},{attributes:{value:Object.freeze(n)},converter:{value:Object.freeze(r)}})}({read:function(e){return'"'===e[0]&&(e=e.slice(1,-1)),e.replace(/(%[\dA-F]{2})+/gi,decodeURIComponent)},write:function(e){return encodeURIComponent(e).replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g,decodeURIComponent)}},{path:"/"})});
+        </script>
         <!-- ------------ Install Cookies JavaScript Library ------------ -->
 
         <!-- ================ Roboto Font ================ -->
